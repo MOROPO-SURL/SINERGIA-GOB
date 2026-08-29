@@ -1,0 +1,68 @@
+<core_ui_base_pages:ConfigurationBaseContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:presentation_configuration_page_models="clr-namespace:MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.Models.Page.Configuration;assembly=MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI"
+    xmlns:core_ui_base_pages="clr-namespace:MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Pages.Base;assembly=MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI"
+    xmlns:interop_common_display_models="clr-namespace:MOROPO.SINETGIAGOB.Core.Interop.API.Common.Models.Display;assembly=MOROPO.SINETGIAGOB.Core.Interop.API.Common"
+    x:Class="MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Default.Pages.Configuration.DocumentConfigurationPage"
+    x:TypeArguments="interop_common_display_models:DocumentDisplayModel,interop_common_display_models:DocumentDisplayModel,presentation_configuration_page_models:DocumentConfigurationPageModel"
+    x:DataType="presentation_configuration_page_models:DocumentConfigurationPageModel">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem 
+            Text="Aplicar"
+            Clicked="ApplyToolbarItem_Clicked">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource FontFamily="MaterialDesignIcons" Glyph="&#xf12c;" Color="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+        <ToolbarItem 
+            Text="Cancelar"
+            Clicked="CancelToolbarItem_Clicked">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource FontFamily="MaterialDesignIcons" Glyph="&#xf156;" Color="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ScrollView Orientation="Vertical">
+        <Grid 
+            Padding="16"
+            ColumnSpacing="16" RowSpacing="16">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <VerticalStackLayout 
+                Grid.ColumnSpan="2" Grid.Row="0"
+                Spacing="6">
+                <Label Style="{StaticResource CaptionFieldLabelStyle}" Text="Nombre" />
+                <Entry Text="{Binding Name}" />
+            </VerticalStackLayout>
+            <VerticalStackLayout 
+                Grid.ColumnSpan="2" Grid.Row="1"
+                Spacing="6">
+                <Label Style="{StaticResource CaptionFieldLabelStyle}" Text="Descripción (opcional)" />
+                <Editor
+                    HeightRequest="120"
+                    Text="{Binding Description}" />
+            </VerticalStackLayout>
+            <VerticalStackLayout 
+                Grid.Column="0" Grid.Row="2"
+                Spacing="6">
+                <Label Style="{StaticResource CaptionFieldLabelStyle}" Text="Tipo" />
+                <Label Text="{Binding Extension}" />
+            </VerticalStackLayout>
+            <VerticalStackLayout 
+                Grid.Column="1" Grid.Row="2"
+                Spacing="6">
+                <Label Style="{StaticResource CaptionFieldLabelStyle}" Text="Tamaño" />
+                <Label Text="{Binding Length, StringFormat='{0} bytes'}" />
+            </VerticalStackLayout>
+        </Grid>
+    </ScrollView>
+</core_ui_base_pages:ConfigurationBaseContentPage>

@@ -1,0 +1,284 @@
+﻿@using MOROPO.Framework.Guama.Core.Security.Common.Presentation.Web.Frontend.Extensions;
+@using MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Extensions;
+
+@model MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Models.View.ManagementHomeViewModel
+
+@{
+    ViewData["TITLE"] = ViewData["HEADER"] = "Panel de Control";
+
+    Layout = "_BackendLayout";
+
+    var monthNames = new string[] { "Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic" };
+}
+
+@section styles {
+    <link rel="stylesheet" href="~/vendor/apexcharts/apexcharts.css" />
+}
+
+@section scripts {
+    <script type="text/javascript" src="~/vendor/apexcharts/apexcharts.min.js"></script>
+
+    <script type="text/javascript">
+        var userActivityLastDaysOptions = {
+            series: [{
+                name: 'Cambios',
+                data: @Newtonsoft.Json.JsonConvert.SerializeObject(Model.WeekUserActivity.Select(_item => _item.Value).ToArray())
+            }],
+            chart: {
+                height: 350,
+                type: 'area'
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                curve: 'smooth'
+            },
+            xaxis: {
+                type: 'int',
+                categories: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.WeekUserActivity.Select(_item => _item.Key.ToString()).ToArray()))
+            }
+        };
+
+        var userActivityLastDaysChart = new ApexCharts(document.querySelector("#user-activity-last-days-chart"), userActivityLastDaysOptions);
+
+        userActivityLastDaysChart.render();
+
+        var userActivityLastMonthOptions = {
+            series: [{
+                name: 'Cambios',
+                data: @Newtonsoft.Json.JsonConvert.SerializeObject(Model.MonthUserActivity.Select(_item => _item.Value).ToArray())
+            }],
+            chart: {
+                height: 350,
+                type: 'area'
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                curve: 'smooth'
+            },
+            xaxis: {
+                type: 'int',
+                categories: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.MonthUserActivity.Select(_item => _item.Key).ToArray()))
+            }
+        };
+
+        var userActivityLastMonthChart = new ApexCharts(document.querySelector("#user-activity-last-month-chart"), userActivityLastMonthOptions);
+
+        userActivityLastMonthChart.render();
+
+        var userActivityLastSemesterOptions = {
+            series: [{
+                name: 'Cambios',
+                data: @Newtonsoft.Json.JsonConvert.SerializeObject(Model.SemesterUserActivity.Select(_item => _item.Value).ToArray())
+            }],
+            chart: {
+                height: 350,
+                type: 'area'
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                curve: 'smooth'
+            },
+            xaxis: {
+                type: 'int',
+                categories: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.SemesterUserActivity.Select(_item => monthNames[_item.Key - 1]).ToArray()))
+            }
+        };
+
+        var userActivityLastSemesterChart = new ApexCharts(document.querySelector("#user-activity-last-semester-chart"), userActivityLastSemesterOptions);
+
+        userActivityLastSemesterChart.render();
+
+        var userActivityByUserOptions = {
+            series: [{
+                name: 'Cambios',
+                data: @Newtonsoft.Json.JsonConvert.SerializeObject(Model.SingleByLastYearUserActivity.Values)
+            }],
+            chart: {
+                height: 364,
+                type: 'bar'
+            },
+            dataLabels: {
+                enabled: false
+            },
+            xaxis: {
+                type: 'int',
+                categories: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.SingleByLastYearUserActivity.Keys))
+            }
+        };
+
+        var userActivityByUserChart = new ApexCharts(document.querySelector("#user-activity-by-user-chart"), userActivityByUserOptions);
+
+        userActivityByUserChart.render();
+
+        const tabs = document.querySelector("#user-activity-tab");
+
+        tabs.addEventListener('click', (e) => {
+            let btn = e.target;
+
+            const tabPaneId = btn.dataset.target;
+
+            switch (tabPaneId) {
+                case '#user-activity-last-month-chart':
+                    userActivityLastMonthChart.resetSeries();
+
+                    break;
+
+                case '#user-activity-last-semester-chart':
+                    userActivityLastSemesterChart.resetSeries();
+
+                    break;
+            }
+        });
+    </script>
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card shadow-lg mb-4">
+            <div class="card-header">
+                <h5 class="font-weight-bold text-primary">Actividad en el Sistema</h5>
+                <ul id="user-activity-tab" class="nav nav-tabs card-header-tabs" role="tablist">
+                    <li class="nav-item">
+                        <button class="nav-link active" id="user-activity-last-days-chart-tab" data-toggle="tab" data-target="#user-activity-last-days-tab-pane" type="button" role="tab" aria-controls="user-activity-last-days-tab-pane" aria-selected="true">Últimos 7 días</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" id="user-activity-last-month-chart-tab" data-toggle="tab" data-target="#user-activity-last-month-tab-pane" type="button" role="tab" aria-controls="user-activity-last-month-tab-pane" aria-selected="true">Últimos 30 días</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" id="user-activity-last-semester-chart-tab" data-toggle="tab" data-target="#user-activity-last-semester-tab-pane" type="button" role="tab" aria-controls="user-activity-last-semester-tab-pane" aria-selected="true">Últimos 180 días</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <div class="tab-content">
+                    <div id="user-activity-last-days-tab-pane" class="tab-pane fade show active" role="tabpanel" aria-labelledby="user-activity-last-days-chart-tab">
+                        <div id="user-activity-last-days-chart" style="min-height: 350px;"></div>
+                    </div>
+                    <div id="user-activity-last-month-tab-pane" class="tab-pane fade" role="tabpanel" aria-labelledby="user-activity-last-month-chart-tab">
+                        <div id="user-activity-last-month-chart" style="min-height: 350px;"></div>
+                    </div>
+                    <div id="user-activity-last-semester-tab-pane" class="tab-pane fade" role="tabpanel" aria-labelledby="user-activity-last-semester-chart-tab">
+                        <div id="user-activity-last-semester-chart" style="min-height: 350px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card shadow-lg mb-4">
+            <div class="card-header">
+                <h5 class="font-weight-bold text-primary mb-0">Actividad por Usuario</h5>
+                <small>Últimos 365 días</small>
+            </div>
+            <div class="card-body">
+                <div id="user-activity-by-user-chart" style="min-height: 400px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="management-sections" class="row">
+    <div class="col-sm-6">
+        @for (int i = 0; i < Model.Sections.Count; i += 2)
+        {
+            var group = Model.Sections.ElementAt(i);
+
+            if (group.Value == null) continue;
+
+            <div class="card shadow-lg mb-4">
+                <div class="card-header"><h5 class="mb-0 font-weight-bold text-primary">@group.Key</h5></div>
+                <div class="card-body">
+                    @{
+                        var total = group.Value.Count;
+                        var count = 0;
+                    }
+                    @while (count < total)
+                    {
+                        var subList = group.Value.Skip(count).Take(3);
+
+                        <div class="row">
+                            @foreach (var item in subList)
+                            {
+                                <div class="col-sm-4" style="text-align: center; padding-bottom: 15px; padding-top: 15px;">
+                                    @if (User.IsAuthorized(item.Role, Context))
+                                    {
+                                        <a href="@Url.Action(item.Action, item.Controller, new { item.Area })">
+                                            <span class="@item.ToIconographyHtmlString() mdi-36px"></span>
+                                            <div class="mt-1">@item.Title</div>
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <div class="text-muted">
+                                            <span class="@item.ToIconographyHtmlString() mdi-36px"></span>
+                                            <div class="mt-1">@item.Title</div>
+                                        </div>
+                                    }
+                                </div>
+                            }
+                        </div>
+                        {
+                            count += 3;
+                        }
+                    }
+                </div>
+            </div>
+        }
+    </div>
+    <div class="col-sm-6">
+        @if (Model.Sections.Count > 1)
+        {
+            for (int i = 1; i < Model.Sections.Count; i += 2)
+            {
+                var group = Model.Sections.ElementAt(i);
+
+                if (group.Value == null) continue;
+
+                <div class="card shadow-lg mb-4">
+                    <div class="card-header"><h5 class="mb-0 font-weight-bold text-primary">@group.Key</h5></div>
+                    <div class="card-body">
+                        @{
+                            var total = group.Value.Count;
+                            var count = 0;
+                        }
+                        @while (count < total)
+                        {
+                            var subList = group.Value.Skip(count).Take(3);
+
+                            <div class="row">
+                                @foreach (var item in subList)
+                                {
+                                    <div class="col-sm-4" style="text-align: center; padding-bottom: 15px; padding-top: 15px;">
+                                        @if (User.IsAuthorized(item.Role, Context))
+                                        {
+                                            <a href="@Url.Action(item.Action, item.Controller, new { item.Area })">
+                                                <span class="@item.ToIconographyHtmlString() mdi-36px"></span>
+                                                <div class="mt-1">@item.Title</div>
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <div class="text-muted">
+                                                <span class="@item.ToIconographyHtmlString() mdi-36px"></span>
+                                                <div class="mt-1">@item.Title</div>
+                                            </div>
+                                        }
+                                    </div>
+                                }
+                            </div>
+                            {
+                                count += 3;
+                            }
+                        }
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>

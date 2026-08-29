@@ -1,0 +1,43 @@
+﻿@model MOROPO.Framework.Guama.Security.Personal.Presentation.Web.Backend.Models.Filter.UsersFilterModel
+
+@using (Html.BeginForm("filter", "users", new { Area = "security" }, FormMethod.Post, true, null))
+{
+    <div class="card">
+        @if (Model == null || string.IsNullOrEmpty(Model.Id))
+        {
+            <a href="#filter-form-body" class="d-block card-header py-3 collapsed" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="filter-form-body">
+                <h6 class="mb-0 font-weight-bold text-primary">Filtro del listado</h6>
+            </a>
+            <div id="filter-form-body" class="collapse">
+                <div class="card-body">
+                    <div>
+                        @Html.Label("Id", "Nombre de usuario", new { @class = "control-label" })
+                        @Html.TextBoxFor(model => model.Id, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-sm btn-primary"><i class="mdi mdi-filter"></i> Filtrar</button>
+                    <button type="button" class="btn btn-sm btn-secondary disabled"><i class="mdi mdi-close-circle-outline"></i> Limpiar</button>
+                </div>
+            </div>
+        }
+        else
+        {
+            <a href="#filter-form-body" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="filter-form-body">
+                <h6 class="mb-0 font-weight-bold text-primary">Filtro del listado</h6>
+            </a>
+            <div id="filter-form-body" class="collapse show">
+                <div class="card-body">
+                    <div>
+                        @Html.Label("Id", "Nombre de usuario", new { @class = "control-label" })
+                        @Html.TextBoxFor(model => model.Id, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-sm btn-primary"><i class="mdi mdi-filter"></i> Filtrar</button>
+                    <button type="button" class="btn btn-sm btn-secondary disabled"><i class="mdi mdi-close-circle-outline"></i> Limpiar</button>
+                </div>
+            </div>
+        }
+    </div>
+}

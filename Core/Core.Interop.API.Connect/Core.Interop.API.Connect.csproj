@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<AssemblyName>MOROPO.SINETGIAGOB.Core.Interop.API.Connect</AssemblyName>
+		<RootNamespace>MOROPO.SINETGIAGOB.Core.Interop.API.Connect</RootNamespace>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="GuamaFramework.Core.Presentation.API.Connect" Version="6.0.2" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Core.Interop.API.Common\Core.Interop.API.Common.csproj" />
+	</ItemGroup>
+</Project>

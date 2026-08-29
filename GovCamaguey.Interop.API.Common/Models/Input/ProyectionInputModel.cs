@@ -1,0 +1,87 @@
+﻿using MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Models.Display;
+using System.Collections.Generic;
+
+namespace MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Models.Input
+{
+    public class ProyectionInputModel : Framework.Guama.Core.Persistence.Presentation.Models.Contract.IEntityInputModel<GovCamaguey.Persistence.Entities.Proyection, System.Guid>
+    {
+        public System.Guid Id { get; set; }
+
+        public int Index { get; set; }
+
+        [System.ComponentModel.DataAnnotations.Required]
+        [System.ComponentModel.DataAnnotations.MaxLength(1024)]
+        public string Name { get; set; }
+
+        [System.ComponentModel.DataAnnotations.MaxLength(5120)]
+        public string Description { get; set; }
+
+        public GuidelineDisplayModel[] Guidelines { get; set; }
+
+        public OrganizationDisplayModel[] ResponsabilityOrganizations { get; set; }
+
+        public OrganizationDisplayModel[] ParticipationOrganizations { get; set; }
+
+        public List<ProyectionIndicatorInputModel> EditionIndicators { get; set; } = new List<ProyectionIndicatorInputModel>();
+        public List<ProyectionIndicatorInputModel> IncomingIndicators { get; set; } = new List<ProyectionIndicatorInputModel>();
+        public List<ProyectionIndicatorDisplayModel> OutgoingIndicators { get; set; } = new List<ProyectionIndicatorDisplayModel>();
+
+        public List<ActionInputModel> EditionActions { get; set; } = new List<ActionInputModel>();
+        public List<ActionInputModel> IncomingActions { get; set; } = new List<ActionInputModel>();
+        public List<ActionDisplayModel> OutgoingActions { get; set; } = new List<ActionDisplayModel>();
+
+        public GovCamaguey.Persistence.Entities.Proyection Export()
+        {
+            var entity = new GovCamaguey.Persistence.Entities.Proyection { Id = Id, Enabled = true };
+
+            Mergue(entity);
+
+            return entity;
+        }
+
+        public void Import(GovCamaguey.Persistence.Entities.Proyection entity)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Mergue(GovCamaguey.Persistence.Entities.Proyection entity)
+        {
+            entity.Index = Index;
+            entity.Name = Name;
+            entity.Description = Description;
+
+            entity.GuidelineBridges.Clear();
+
+            foreach (var model in Guidelines)
+            {
+                entity.GuidelineBridges.Add(new GovCamaguey.Persistence.Entities.ProyectionGuidelineBridge
+                {
+                    ProwId = entity.Id,
+                    SternId = model.Id
+                });
+            }
+
+            entity.OrganizationResponsabilityBridges.Clear();
+
+            foreach (var model in ResponsabilityOrganizations)
+            {
+                entity.OrganizationResponsabilityBridges.Add(new GovCamaguey.Persistence.Entities.ProyectionOrganizationResponsabilityBridge
+                {
+                    ProwId = entity.Id,
+                    SternId = model.Id
+                });
+            }
+
+            entity.OrganizationParticipationBridges.Clear();
+
+            foreach (var model in ParticipationOrganizations)
+            {
+                entity.OrganizationParticipationBridges.Add(new GovCamaguey.Persistence.Entities.ProyectionOrganizationParticipationBridge
+                {
+                    ProwId = entity.Id,
+                    SternId = model.Id
+                });
+            }
+        }
+    }
+}

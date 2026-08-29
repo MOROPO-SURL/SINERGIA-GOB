@@ -1,0 +1,343 @@
+﻿@model MOROPO.Framework.Guama.Core.Presentation.Web.Frontend.Models.View.PaginationViewModel<MOROPO.Framework.Guama.Security.Personal.Persistence.Entities.User, string, MOROPO.Framework.Guama.Security.Personal.Presentation.Web.Backend.Models.View.UserDisplayViewModel>
+
+@{
+    const string HEADER = "Administración de Usuarios";
+
+    ViewData["TITLE"] = ViewData["HEADER"] = HEADER;
+
+    ViewData[BreadcrumbViewModel.BREADCRUMBS_MAP_KEY] = new List<BreadcrumbViewModel>
+    {
+        new BreadcrumbViewModel
+        {
+            Caption = "<i class=\"mdi mdi-monitor-dashboard\"></i> Panel de Control",
+            Url = Url.Action("Index", "Dashboard", new { Area = "management" })
+        },
+        new BreadcrumbViewModel
+        {
+            Caption = HEADER
+        }
+    };
+
+    Layout = "_BackendLayout";
+}
+
+@section styles {
+    <style type="text/css">
+        .integrity-icon {
+            font-size: 18px;
+            top: 2px;
+            margin-left: 8px;
+            margin-right: 8px;
+        }
+    </style>
+}
+
+<hr class="mt-0 mb-4" />
+
+<div class="row mb-3">
+    <div class="col-sm-4">
+        @await Html.PartialAsync("_UsersFilterPartial", Model.Filter)
+    </div>
+    <div class="col-sm-8"><a class="btn btn-primary float-right" href="@Url.Action("create")"><span class="mdi mdi-plus"></span> Agregar</a></div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="m-0 font-weight-bold text-primary">Listado de usuarios</h5>
+    </div>
+    <div class="card-body">
+        @if (Model.HasNext || Model.HasPrevious)
+        {
+            var paginationStart = (Model.Page - 1) * Model.Limit + 1;
+            var paginationEnd = paginationStart - 1 + Model.List.Count;
+
+            <div class="row">
+                <div class="col mb-2">
+                    <span style="font-weight: 600;">Mostrando página @Model.Page</span>: del @paginationStart al @paginationEnd, <span style="font-weight: 600;">Total de páginas</span>: @Model.MaxPageCount
+                </div>
+                <div class="col-auto mb-2">
+                    <ul class="pagination">
+                        @if (Model.HasPrevious)
+                        {
+                            <li class="page-item"><a class="page-link" href="@Url.Action(Model.Action, new Microsoft.AspNetCore.Routing.RouteValueDictionary(Model.RouteValues) {{"sheet", Model.Page - 1}})">&laquo;</a></li>
+                        }
+                        else
+                        {
+                            <li class="disabled page-item"><a class="page-link" href="#">&laquo;</a></li>
+                        }
+
+                        @if (Model.MaxPageCount > 5)
+                        {
+                            if (Model.Page > 3)
+                            {
+                                if (Model.MaxPageCount - Model.Page < 3)
+                                {
+                                    for (var i = Model.MaxPageCount - 4; i <= Model.MaxPageCount; i++)
+                                    {
+                                        if (i == Model.Page)
+                                        {
+                                            <li class="active page-item"><a class="page-link" href="#">@i <span class="sr-only">(current)</span></a></li>
+                                        }
+                                        else
+                                        {
+                                            <li class="page-item"><a class="page-link" href="@Url.Action(Model.Action, new Microsoft.AspNetCore.Routing.RouteValueDictionary(Model.RouteValues) {{"sheet", i}})">@i</a></li>
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    for (var i = Model.Page - 2; i <= Model.Page + 2; i++)
+                                    {
+                                        if (i == Model.Page)
+                                        {
+                                            <li class="active page-item"><a class="page-link" href="#">@i <span class="sr-only">(current)</span></a></li>
+                                        }
+                                        else
+                                        {
+                                            <li class="page-item"><a class="page-link" href="@Url.Action(Model.Action, new Microsoft.AspNetCore.Routing.RouteValueDictionary(Model.RouteValues) {{"sheet", i}})">@i</a></li>
+                                        }
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                for (var i = 1; i <= 5; i++)
+                                {
+                                    if (i == Model.Page)
+                                    {
+                                        <li class="active page-item"><a class="page-link" href="#">@i <span class="sr-only">(current)</span></a></li>
+                                    }
+                                    else
+                                    {
+                                        <li class="page-item"><a class="page-link" href="@Url.Action(Model.Action, new Microsoft.AspNetCore.Routing.RouteValueDictionary(Model.RouteValues) {{"sheet", i}})">@i</a></li>
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            for (var i = 1; i <= Model.MaxPageCount; i++)
+                            {
+                                if (i == Model.Page)
+                                {
+                                    <li class="active page-item"><a class="page-link" href="#">@i <span class="sr-only">(current)</span></a></li>
+                                }
+                                else
+                                {
+                                    <li class="page-item"><a class="page-link" href="@Url.Action(Model.Action, new Microsoft.AspNetCore.Routing.RouteValueDictionary(Model.RouteValues) {{"sheet", i}})">@i</a></li>
+                                }
+                            }
+                        }
+
+                        @if (Model.HasNext)
+                        {
+                            <li class="page-item"><a class="page-link" href="@Url.Action(Model.Action, new Microsoft.AspNetCore.Routing.RouteValueDictionary(Model.RouteValues) {{"sheet", Model.Page + 1}})">&raquo;</a></li>
+                        }
+                        else
+                        {
+                            <li class="disabled page-item"><a class="page-link" href="#">&raquo;</a></li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        }
+    
+        <div style="border: 1px solid #DDD; border-radius: 4px;">
+            <table class="table table-bordered table-striped m-0">
+                <thead>
+                    <tr>
+                        <th style="width: 36px;"><i class="mdi mdi-shield-lock integrity-icon" title="Integridad"></i></th>
+                        <th>Nombre de Usuario</th>
+                        <th style="width: 1px; word-wrap: unset;">Habilitado?</th>
+                        <th style="width: 130px; text-align: center;">Acceso Total?</th>
+                        <th>Creado</th>
+                        <th class="fit width-large">Opciones</th>
+                    </tr>        
+                </thead>
+                <tbody>
+                    @if (Model.List.Count > 0)
+                    {
+                        foreach (var item in Model.List)
+                        {
+                            <tr>
+                                <td style="vertical-align: middle; font-size: 18px;">
+                                    @if (item.ValidSignature)
+                                    {
+                                        <i class="text-success mdi mdi-shield-check integrity-icon"></i>
+                                    }
+                                    else
+                                    {
+                                        <i class="text-warning mdi mdi-shield-alert integrity-icon"></i>
+                                    }
+                                </td>
+                                <td style="vertical-align: middle;" title="Nombre de Usuario">@item.Id</td>
+                                <td style="vertical-align: middle; text-align: center;" title="Habilitado?">
+                                    @if (item.Id != User.Identity.Name)
+                                    {
+                                        @using (Html.BeginForm(item.Enabled ? "disable" : "enable", "users", new { Area = "security" }, FormMethod.Post, true, null))
+                                        {
+                                            <input type="hidden" name="key" value="@Html.Raw(item.Id)" />
+
+                                            <button type="submit" class="btn btn-link">
+                                                @if (item.Enabled)
+                                                {
+                                                    <i class="mdi mdi-checkbox-marked-outline"></i>
+                                                }
+                                                else
+                                                {
+                                                    <i class="mdi mdi-checkbox-blank-outline"></i>
+                                                }
+                                            </button>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        @if (item.Enabled)
+                                        {
+                                            <i class="mdi mdi-checkbox-marked-outline"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="mdi mdi-checkbox-blank-outline"></i>
+                                        }
+                                    }
+                                </td>
+                                <td style="vertical-align: middle; text-align: center;" title="Acceso Total?">
+                                    @if (item.HasFullAccess)
+                                    {
+                                        <i class="mdi mdi-checkbox-marked-outline"></i>
+                                    }
+                                    else
+                                    {
+                                        <i class="mdi mdi-checkbox-blank-outline"></i>
+                                    }
+                                </td>
+                                <td style="vertical-align: middle;" title="Creado">@item.Created</td>
+                                <td class="fit" style="vertical-align: middle;">
+                                    <div class="btn-group btn-group-sm">
+                                        <button class="btn btn-light" data-toggle="modal" data-target="#descrip-@item.Id"><span class="mdi mdi-eye"></span><span class="ml-1">Detalles</span></button>
+                                        <a role="button" href="@Url.Action("edit", new { key = item.Id })" class="btn btn-light" title="Editar"><span class="mdi mdi-square-edit-outline"></span><span class="ml-1">Modificar</span></a>
+                                        <div class="btn-group btn-group-sm">
+                                            <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" title="Extras"></button>
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                @if (item.Id != User.Identity.Name)
+                                                {
+                                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#change-password-@item.Id">Cambiar Contrase&ntilde;a</a>
+                                                }
+                                                else
+                                                {
+                                                    <a class="dropdown-item disabled" href="#">Cambiar Contrase&ntilde;a</a>
+                                                }
+                                            </div>
+                                        </div>
+                                        @if (item.Id != User.Identity.Name)
+                                        {
+                                            <button class="btn btn-danger" data-toggle="modal" data-target="#delete-@item.Id"><span class="mdi mdi-trash-can-outline"></span><span class="ml-1">Eliminar</span></button>
+                                        }
+                                        else
+                                        {
+                                            <button class="btn btn-danger disabled"><span class="d-line mdi mdi-trash-can-outline"></span><span class="ml-1">Eliminar</span></button>
+                                        }
+                                    </div>
+                                    <div class="modal fade " id="descrip-@item.Id" tabindex="-1" role="dialog" aria-labelledby="descrip-@item.Id-label" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title font-weight-bold text-primary" id="descrip-@item.Id-label">Detalles</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <dl>
+                                                        <dt>Usuario</dt>
+                                                        <dd>@item.Id</dd>
+                                                    </dl>
+                                                    <div class="row">
+                                                        <dl class="col-sm-6">
+                                                            <dt>Habilitado?</dt>
+                                                            <dd>@if (item.Enabled) { <span>Si</span> } else { <span>No</span> }</dd>
+                                                        </dl>
+                                                        <dl class="col-sm-6">
+                                                            <dt>Acceso Total?</dt>
+                                                            <dd>@if (item.HasFullAccess) { <span>Si</span> } else { <span>No</span> }</dd>
+                                                        </dl>
+                                                        <dl class="col-sm-6">
+                                                            <dt>Registrado</dt>
+                                                            <dd>@item.Created</dd>
+                                                        </dl>
+                                                    </div>
+                                                    <dl>
+                                                        <dt class="border-bottom mb-2">Roles</dt>
+                                                        <dd>
+                                                            @if (item.Roles.Any())
+                                                            {
+                                                                <dl>
+                                                                @foreach (var it3m in item.Roles)
+                                                                {
+                                                                    <dt>@it3m.Name</dt>
+                                                                    <dd>
+                                                                    @if (string.IsNullOrEmpty(it3m.Description))
+                                                                    {
+                                                                        <span class="text-muted">Descripción no especificada</span>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <span>@it3m.Description</span>
+                                                                    }
+                                                                    </dd>
+                                                                }
+                                                                </dl>
+                                                            }
+                                                            else
+                                                            {
+                                                                <span>--</span>
+                                                            }
+                                                        </dd>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @if (item.Id != User.Identity.Name)
+                                    {
+                                        @await Html.PartialAsync("_UserChangePasswordPartial", new MOROPO.Framework.Guama.Security.Personal.Presentation.Web.Backend.Models.View.UserChangePasswordViewModel { UserId = item.Id });
+                                                                    
+                                        <div class="modal fade" id="delete-@item.Id" tabindex="-1" role="dialog" aria-labelledby="delete-@item.Id-lable" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    @using (Html.BeginForm("delete", "users", new { Area = "security" }, FormMethod.Post, true, new { @class = "modal-content" }))
+                                                    {
+                                                        @Html.Hidden("Id", item.Id)
+
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title font-weight-bold text-primary" id="delete-@item.Id-lable">Eliminar usuario</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <p class="mb-0">Esta seguro que desea eliminar el usuario seleccionado?</p>
+                                                        </div>
+                                                        <div class="modal-footer" style="margin-top: 0;">
+                                                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                                                            <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
+                                                        </div>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>                                
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="6"><p style="margin: 0 5px;" class="text-muted">Sin elementos que mostrar</p></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:interop_common_display_models="clr-namespace:MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Models.Display;assembly=MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common"
+    xmlns:communitytoolkit_converters="clr-namespace:CommunityToolkit.Maui.Converters;assembly=CommunityToolkit.Maui"
+    x:Class="MOROPO.SINETGIAGOB.GovCamaguey.Terminal.UI.Views.Card.ProyectionIndicatorDeepHandlingCardView"
+    x:DataType="interop_common_display_models:ProyectionIndicatorDisplayModel">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <communitytoolkit_converters:IsNotNullConverter x:Key="IsNotNullConverter" />
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <Frame Padding="16">
+        <Grid ColumnSpacing="12">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <VerticalStackLayout 
+                Grid.Column="0"
+                VerticalOptions="Center">
+                <Label Text="{Binding Name}" />
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span FontAttributes="Bold" Text="Meta: " />
+                            <Span Text="{Binding Amount}" />
+                            <Span Text=" " />
+                            <Span Text="{Binding UnitMeasurement.Symbol}" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </VerticalStackLayout>
+            <VerticalStackLayout 
+                Grid.Column="1"
+                VerticalOptions="Center">
+                <Label 
+                    FontAttributes="Bold"
+                    Text="Estado" />
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span x:Name="BalanceSpan" Text="{Binding Balance, Mode=OneTime}" />
+                            <Span Text=" " />
+                            <Span Text="{Binding UnitMeasurement.Symbol}" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </VerticalStackLayout>
+            <Button
+                Style="{StaticResource FontIconImageButtonStyle}"
+                Grid.Column="2"
+                VerticalOptions="Center"
+                Text="&#xF90B;"
+                Clicked="ResultUpgradeButton_Clicked" />
+            <Button
+                Style="{StaticResource FontIconImageButtonStyle}"
+                IsEnabled="{Binding ResultAt, Converter={StaticResource IsNotNullConverter}}"
+                Grid.Column="3"
+                VerticalOptions="Center"
+                Text="&#xF2FD;"
+                Clicked="LastResultDetailButton_Clicked" />
+        </Grid>
+    </Frame>
+</ContentView>

@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Hospitality Institution Profiling System">
+    <meta name="author" content="MOROPO S.U.R.L.">
+
+    @if (!ViewData.ContainsKey("Title"))
+    {
+        <title>SINERGIA GOB Camagüey</title>
+    }
+    else
+    {
+        <title>@ViewData["Title"] - SINERGIA GOB Camagüey</title>
+    }
+
+    <link href="~/vendor/MaterialDesign-Webfont/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css" />
+
+    @RenderSection("styles", false)
+
+</head>
+
+<body id="page-top">
+
+    @RenderBody()
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(document).on("click", "button.filter-form-reseter", function (e) {
+                $(e.target.form).find("select option").prop("selected", false);
+
+                $(e.target.form).find("input[type=text]").prop("value", '');
+
+                e.target.form.submit();
+            });
+
+            $(document).on("click", "input[type='submit']", function (e) {
+                if (!e.target.form) return;
+
+                e.preventDefault();
+
+                $(e.target.form).find("input").addClass('readonly', 'readonly');
+                $(e.target.form).find("select").attr('readonly', 'readonly');
+                $(e.target.form).find("button").attr('disabled', 'disabled');
+                $(e.target.form).find("a.btn").attr('disabled', 'disabled');
+
+                e.target.form.submit();
+            });
+
+            $(document).on("click", "button[type='submit']", function (e) {
+                if (!e.target.form) return;
+
+                e.preventDefault();
+
+                $(e.target.form).find("input").addClass('readonly', 'readonly');
+                $(e.target.form).find("select").attr('readonly', 'readonly');
+                $(e.target.form).find("button").attr('disabled', 'disabled');
+                $(e.target.form).find("a.btn").attr('disabled', 'disabled');
+
+                e.target.form.submit();
+            });
+        });
+    </script>
+
+    @RenderSection("scripts", false)
+
+</body>
+
+</html>

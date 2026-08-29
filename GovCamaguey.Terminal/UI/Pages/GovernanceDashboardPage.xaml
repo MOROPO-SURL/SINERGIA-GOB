@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local_page_models="clr-namespace:MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Models.Page"
+    xmlns:local_view_models="clr-namespace:MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Models.View"
+    xmlns:fwrk_core_models="clr-namespace:MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.Models;assembly=MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI"
+    xmlns:fwrk_core_ui_converters="clr-namespace:MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Converters;assembly=MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI"
+    xmlns:caneyframework_presentation_views="clr-namespace:MOROPO.Framework.Caney.Presentation.UI.Views;assembly=MOROPO.Framework.Caney.Presentation"
+    xmlns:live_charts_controls="clr-namespace:LiveChartsCore.SkiaSharpView.Maui;assembly=LiveChartsCore.SkiaSharpView.Maui"
+    xmlns:live_charts_core_skiasharpview_painting="clr-namespace:LiveChartsCore.SkiaSharpView.Painting;assembly=LiveChartsCore.SkiaSharpView"
+    xmlns:live_charts_core_skiasharpview_draw="clr-namespace:LiveChartsCore.SkiaSharpView.SKCharts;assembly=LiveChartsCore.SkiaSharpView"
+    xmlns:communitytoolkit_converters="clr-namespace:CommunityToolkit.Maui.Converters;assembly=CommunityToolkit.Maui"
+    x:Class="MOROPO.SINETGIAGOB.GovCamaguey.Terminal.UI.Pages.GovernanceDashboardPage"
+    x:DataType="local_page_models:GovernanceDashboardPageModel"
+    Title="Panel de Control">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <fwrk_core_ui_converters:FlexLayoutItemResponsiveWithConverter x:Key="FlexLayoutItemResponsiveWithConverter" WrapSpacing="8" SingleSpacing="4" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem 
+            Text="Actualizar"
+            Clicked="ReloadToolbarItem_Clicked">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource FontFamily="MaterialDesignIcons" Glyph="&#xF450;" Color="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <Grid>
+        <ScrollView Orientation="Vertical">
+            <VerticalStackLayout Spacing="4" Margin="8">
+                <FlexLayout
+                    Wrap="Wrap"
+                    AlignItems="Start" AlignContent="Start">
+                    <Frame 
+                        WidthRequest="{Binding Source={RelativeSource AncestorType={Type FlexLayout}}, Path=Width, Converter={StaticResource FlexLayoutItemResponsiveWithConverter}, ConverterParameter={fwrk_core_models:ResponsiveColumnConfigurationModel UltraLargeContainerColumn=4, ExtraLargeContainerColumn=6, LargeContainerColumn=8, MediumContainerColumn=10, SmallContainerColumn=12}}"
+                        HeightRequest="{Binding Source={RelativeSource Mode=Self}, Path=Width}"
+                        Margin="4">
+                        <StackLayout>
+                            <Label
+                                FontSize="Medium"
+                                FontAttributes="Bold"
+                                Text="Estado de Objetivos" />
+                            <BoxView HeightRequest="2" Color="DimGray" />
+                            <live_charts_controls:PieChart
+                                x:Name="GlobalObjectivesStatusPieChart"
+                                VerticalOptions="FillAndExpand"
+                                Series="{Binding GlobalObjectivesStatusChart.Series}"
+                                InitialRotation="45"
+                                MaxAngle="270"
+                                MinValue="0"
+                                MaxValue="100" />
+                        </StackLayout>
+                    </Frame>
+                    <Frame 
+                        WidthRequest="{Binding Source={RelativeSource AncestorType={Type FlexLayout}}, Path=Width, Converter={StaticResource FlexLayoutItemResponsiveWithConverter}, ConverterParameter={fwrk_core_models:ResponsiveColumnConfigurationModel UltraLargeContainerColumn=8, ExtraLargeContainerColumn=6, LargeContainerColumn=12}}"
+                        HeightRequest="600"
+                        Margin="4">
+                        <StackLayout>
+                            <Label
+                                FontSize="Medium"
+                                FontAttributes="Bold"
+                                Text="Progresión de Objetivos" />
+                            <BoxView HeightRequest="2" Color="DimGray" />
+                            <live_charts_controls:CartesianChart
+                                x:Name="GlobalObjectivesProgressCartesianChart"
+                                Margin="0,16,0,0"
+                                VerticalOptions="FillAndExpand"
+                                YAxes="{Binding GlobalObjectivesProgressChart.YAxes}"
+                                Series="{Binding GlobalObjectivesProgressChart.Series}" />
+                        </StackLayout>
+                    </Frame>
+                </FlexLayout>
+                <Frame Margin="8">
+                    <StackLayout>
+                        <Label
+                            FontSize="Medium"
+                            FontAttributes="Bold"
+                            Text="Resumen por Objetivo" />
+                        <BoxView HeightRequest="2" Color="DimGray" Margin="0,0,0,2" />
+                        <CollectionView
+                            ItemsSource="{Binding ObjectiveOverviews}">
+                            <CollectionView.Header>
+                                <BoxView HeightRequest="16" Color="Transparent" />
+                            </CollectionView.Header>
+                            <CollectionView.ItemsLayout>
+                                <GridItemsLayout Orientation="Vertical" Span="2" HorizontalItemSpacing="6" VerticalItemSpacing="6" />
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.EmptyView>
+                                <Label Text="Sin elementos que mostrar" />
+                            </CollectionView.EmptyView>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate x:DataType="local_view_models:ObjectiveOverviewViewModel">
+                                    <Grid 
+                                        BackgroundColor="{AppThemeBinding Light={StaticResource Gray050}, Dark={StaticResource Gray950}}"
+                                        ColumnSpacing="8">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="4" />
+                                            <ColumnDefinition Width="48" />
+                                            <ColumnDefinition />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <BoxView
+                                            Grid.Column="0"
+                                            Color="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDark}}" />
+                                        <Label
+                                            Grid.Column="1"
+                                            HorizontalOptions="Center" VerticalOptions="Center"
+                                            FontSize="36"
+                                            FontAttributes="Bold"
+                                            Text="{Binding Index}" />
+                                        <StackLayout
+                                            Grid.Column="2"
+                                            HorizontalOptions="FillAndExpand"
+                                            Padding="0,12" 
+                                            Spacing="0">
+                                            <Label
+                                                FontSize="21"
+                                                FontAttributes="Bold"
+                                                LineBreakMode="TailTruncation"
+                                                MaxLines="1"
+                                                ToolTipProperties.Text="{Binding Title}"
+                                                Text="{Binding Title}" />
+                                            <Label
+                                                FontSize="18"
+                                                LineBreakMode="TailTruncation"
+                                                MaxLines="1">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span FontAttributes="Bold" Text="Obj. Espec.:" />
+                                                        <Span Text=" " />
+                                                        <Span Text="{Binding ProyectionCount}" />
+                                                        <Span Text=", " />
+                                                        <Span FontAttributes="Bold" Text="Accio.:" />
+                                                        <Span Text=" " />
+                                                        <Span Text="{Binding ActionCount}" />
+                                                        <Span Text=", " />
+                                                        <Span FontAttributes="Bold" Text="Indic.:" />
+                                                        <Span Text=" " />
+                                                        <Span Text="{Binding IndicatorCount}" />
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                        </StackLayout>
+                                        <!--<Label
+                                            Grid.Column="3"
+                                            Margin="12,0"
+                                            HorizontalTextAlignment="Center" VerticalOptions="Center"
+                                            FontFamily="MaterialDesignIcons"
+                                            FontSize="40"
+                                            Text="{Binding ProgressGlyph}" />-->
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </StackLayout>
+                </Frame>
+                <FlexLayout
+                    Wrap="Wrap"
+                    AlignItems="Start" AlignContent="Start">
+                    <Frame 
+                        WidthRequest="{Binding Source={RelativeSource AncestorType={Type FlexLayout}}, Path=Width, Converter={StaticResource FlexLayoutItemResponsiveWithConverter}, ConverterParameter={fwrk_core_models:ResponsiveColumnConfigurationModel UltraLargeContainerColumn=4, ExtraLargeContainerColumn=6, LargeContainerColumn=6, MediumContainerColumn=12}}"
+                        HeightRequest="{Binding Source={RelativeSource Mode=Self}, Path=Width}"
+                        Margin="4">
+                        <StackLayout>
+                            <Label
+                                FontSize="Medium"
+                                FontAttributes="Bold"
+                                Text="Distribución Obj. Específicos" />
+                            <BoxView HeightRequest="2" Color="DimGray" />
+                            <live_charts_controls:PieChart 
+                                x:Name="ProyectionDistributionPieChart"
+                                VerticalOptions="FillAndExpand"
+                                Series="{Binding ProyectionDistributionChart.Series}"
+                                InitialRotation="-90"
+                                LegendPosition="Right" />
+                        </StackLayout>
+                    </Frame>
+                    <Frame 
+                        WidthRequest="{Binding Source={RelativeSource AncestorType={Type FlexLayout}}, Path=Width, Converter={StaticResource FlexLayoutItemResponsiveWithConverter}, ConverterParameter={fwrk_core_models:ResponsiveColumnConfigurationModel UltraLargeContainerColumn=4, ExtraLargeContainerColumn=6, LargeContainerColumn=6, MediumContainerColumn=12}}"
+                        HeightRequest="{Binding Source={RelativeSource Mode=Self}, Path=Width}"
+                        Margin="4">
+                        <StackLayout>
+                            <Label
+                                FontSize="Medium"
+                                FontAttributes="Bold"
+                                Text="Distribución de Acciones" />
+                            <BoxView HeightRequest="2" Color="DimGray" />
+                            <live_charts_controls:PieChart 
+                                x:Name="ActionDistributionPieChart"
+                                VerticalOptions="FillAndExpand"
+                                Series="{Binding ActionDistributionChart.Series}"
+                                InitialRotation="-90"
+                                LegendPosition="Right" />
+                        </StackLayout>
+                    </Frame>
+                    <Frame 
+                        WidthRequest="{Binding Source={RelativeSource AncestorType={Type FlexLayout}}, Path=Width, Converter={StaticResource FlexLayoutItemResponsiveWithConverter}, ConverterParameter={fwrk_core_models:ResponsiveColumnConfigurationModel UltraLargeContainerColumn=4, ExtraLargeContainerColumn=6, LargeContainerColumn=6, MediumContainerColumn=12}}"
+                        HeightRequest="{Binding Source={RelativeSource Mode=Self}, Path=Width}"
+                        Margin="4">
+                        <StackLayout>
+                            <Label
+                                FontSize="Medium"
+                                FontAttributes="Bold"
+                                Text="Distribución de Indicadores" />
+                            <BoxView HeightRequest="2" Color="DimGray" />
+                            <live_charts_controls:PieChart 
+                                x:Name="IndicatorDistributionPieChart"
+                                VerticalOptions="FillAndExpand"
+                                Series="{Binding IndicatorDistributionChart.Series}"
+                                InitialRotation="-90"
+                                LegendPosition="Right" />
+                        </StackLayout>
+                    </Frame>
+                </FlexLayout>
+                <!--<Frame Margin="8">
+                    <StackLayout>
+                        <Label
+                            FontSize="Medium"
+                            FontAttributes="Bold"
+                            Text="Comportamiento Mensual de Objetivos" />
+                        <BoxView HeightRequest="2" Color="DimGray" />
+                        <live_charts_controls:CartesianChart
+                            x:Name="MonthlyObjectivesProgressCartesianChart"
+                            HeightRequest="400"
+                            Series="{Binding MonthlyObjectivesProgressChart.Series}"
+                            XAxes="{Binding MonthlyObjectivesProgressChart.XAxes}"
+                            YAxes="{Binding MonthlyObjectivesProgressChart.YAxes}" />
+                    </StackLayout>
+                </Frame>-->
+            </VerticalStackLayout>
+        </ScrollView>
+        <caneyframework_presentation_views:BusyView IsVisible="{Binding IsBusy}" />
+    </Grid>
+</ContentPage>

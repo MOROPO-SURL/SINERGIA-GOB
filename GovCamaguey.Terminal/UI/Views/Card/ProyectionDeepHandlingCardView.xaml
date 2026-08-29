@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local_view_models="clr-namespace:MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Models.View"
+    xmlns:local_card_views="clr-namespace:MOROPO.SINETGIAGOB.GovCamaguey.Terminal.UI.Views.Card"
+    x:Class="MOROPO.SINETGIAGOB.GovCamaguey.Terminal.UI.Views.Card.ProyectionDeepHandlingCardView"
+    x:DataType="local_view_models:ProyectionIndicatorHandlingViewModel">
+    <Frame>
+        <VerticalStackLayout>
+            <Label FontSize="Medium">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span
+                            FontAttributes="Bold"
+                            Text="{Binding ObjectiveIndex, StringFormat='{0}.'}" />
+                        <Span
+                            FontAttributes="Bold"
+                            Text="{Binding Index, StringFormat='{0}.'}" />
+                        <Span Text=" " />
+                        <Span Text="{Binding Name}" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label 
+                Style="{StaticResource CaptionFieldLabelStyle}" 
+                Margin="8,16,8,0" 
+                Text="Indicadores" />
+            <BoxView Color="DimGray" Margin="8,4,8,8" HeightRequest="1" />
+            <CollectionView ItemsSource="{Binding Indicators}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout ItemSpacing="4" Orientation="Vertical" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <local_card_views:ProyectionIndicatorDeepHandlingCardView Padding="8,4" />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Label 
+                Style="{StaticResource CaptionFieldLabelStyle}" 
+                Margin="8,16,8,0" 
+                Text="Acciones" />
+            <BoxView Color="DimGray" Margin="8,4,8,8" HeightRequest="1" />
+            <CollectionView ItemsSource="{Binding Actions}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout ItemSpacing="4" Orientation="Vertical" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <local_card_views:ActionDeepHandlingCardView Padding="8,4" />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </Frame>
+</ContentView>

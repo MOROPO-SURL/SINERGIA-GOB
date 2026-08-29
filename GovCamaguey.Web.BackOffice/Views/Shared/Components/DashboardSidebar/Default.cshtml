@@ -1,0 +1,102 @@
+﻿@using MOROPO.Framework.Guama.Core.Security.Common.Presentation.Web.Frontend.Extensions;
+@using MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Extensions;
+
+@model Dictionary<string, ICollection<MOROPO.Framework.Guama.Core.Presentation.Web.Backend.Models.View.ManagementDashboardSectionViewModel>>
+
+<div class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+    <!-- Sidebar - Brand -->
+
+    <div class="sidebar-brand p-0 h-auto" href="#">
+        <div class="sidebar-brand-text px-3 py-0">
+            <h3 class="mb-0">SINERGIA GOB Camagüey</h3>
+            <p class="mb-0">Administración</p>
+        </div>
+    </div>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0">
+
+    <!-- Nav Item - Dashboard -->
+    @if (Context.Request.Path.Value == "/management/dashboard")
+    {
+        <li class="nav-item active">
+            <a class="nav-link" asp-action="index" asp-controller="dashboard" asp-area="management">
+                <i class="mdi mdi-monitor-dashboard mdi-18px"></i>
+                <span>Panel de Control</span>
+            </a>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link" asp-action="index" asp-controller="dashboard" asp-area="management">
+                <i class="mdi mdi-monitor-dashboard mdi-18px"></i>
+                <span>Panel de Control</span>
+            </a>
+        </li>
+    }
+
+    @foreach (var group in Model)
+    {
+        if (group.Value == null) continue;
+
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
+        <!-- Heading -->
+        <div class="sidebar-heading">@group.Key</div>
+
+        @foreach (var item in group.Value)
+        {
+
+            if (User.IsAuthorized(item.Role, Context))
+            {
+                if (Context.Request.Path.Value.StartsWith("/management/" + item.Area + "/" + item.Controller))
+                {
+                    <li class="nav-item active">
+                        <a class="nav-link" asp-action="@item.Action" asp-controller="@item.Controller" asp-area="@item.Area" asp-route-sheet="">
+                            <span class="@item.ToIconographyHtmlString() mdi-18px"></span>
+                            <span>@item.Title</span>
+                        </a>
+                    </li>
+                }
+                else if (string.IsNullOrEmpty(item.Area) && Context.Request.Path.Value.StartsWith("/management/" + item.Controller))
+                {
+                    <li class="nav-item active">
+                        <a class="nav-link" asp-action="@item.Action" asp-controller="@item.Controller" asp-area="@item.Area" asp-route-sheet="">
+                            <span class="@item.ToIconographyHtmlString() mdi-18px"></span>
+                            <span>@item.Title</span>
+                        </a>
+                    </li>
+                }
+                else
+                {
+                    <li class="nav-item">
+                        <a class="nav-link" asp-action="@item.Action" asp-controller="@item.Controller" asp-area="@item.Area" asp-route-sheet="">
+                            <span class="@item.ToIconographyHtmlString() mdi-18px"></span>
+                            <span>@item.Title</span>
+                        </a>
+                    </li>
+                }
+            }
+            else
+            {
+                <li class="nav-item disabled">
+                    <a class="nav-link" href="#">
+                        <span class="@item.ToIconographyHtmlString() mdi-18px"></span>
+                        <span>@item.Title</span>
+                    </a>
+                </li>
+            }
+        }
+    }
+
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block">
+
+    <!-- Sidebar Toggler (Sidebar) -->
+    <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div>
+</div>

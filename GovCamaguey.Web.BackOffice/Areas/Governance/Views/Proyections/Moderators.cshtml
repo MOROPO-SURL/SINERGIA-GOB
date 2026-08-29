@@ -1,0 +1,122 @@
+﻿@model MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Models.View.ProyectionModeratorsViewModel
+
+@{
+    const string HEADER = "Administración de Objetivos Específicos";
+    const string TITLE = "Modificar Moderadores de Objetivo Específico";
+
+    ViewData["HEADER"] = HEADER;
+
+    ViewData["TITLE"] = TITLE;
+
+    ViewData[BreadcrumbViewModel.BREADCRUMBS_MAP_KEY] = new List<BreadcrumbViewModel>
+    {
+        new BreadcrumbViewModel
+        {
+            Caption = "<span class=\"mdi mdi-desktop-mac-dashboard\" style=\"margin-right: 4px;\"></span> Panel de Control",
+            Url = "/"
+        },
+        new BreadcrumbViewModel
+        {
+            Caption = HEADER,
+            Url = Url.Action("index")
+        },
+        new BreadcrumbViewModel
+        {
+            Caption = TITLE
+        }
+    };
+
+    Layout = "_BackendLayout";
+}
+
+<hr class="mt-0 mb-4" />
+
+<div class="card mb-3">
+    <div class="card-header">
+        <h4 class="mb-0">@TITLE</h4>
+    </div>
+    <div class="card-body">
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5>Objetivo Específico</h5>
+                <div><span><b>@Model.Proyection.Objective.Index.@Model.Proyection.Index</b> @Model.Proyection.Name</span></div>
+            </div>
+        </div>
+        <div class="align-self-end"><a class="btn btn-primary float-right" asp-action="addmoderator" asp-route-key="@Model.Proyection.Id"><span class="mdi mdi-plus"></span> Agregar</a></div>
+        <table class="table mb-0">
+            <thead>
+                <tr>
+                    <th style="border-top: none;">Usuario</th>
+                    <th style="border-top: none;">Nombre completo</th>
+                    <th style="border-top: none;">Incluye acciones</th>
+                    <th onclick="fit" style="border-top: none; width: 240px;">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Moderators.Length <= 0)
+                {
+                    <tr>
+                        <td colspan="5" class="text-muted">Sin elementos que mostrar</td>
+                    </tr>
+                }
+                else
+                {
+                    @foreach (var item in Model.Moderators)
+                    {
+                        <tr>
+                            <td style="vertical-align: middle;">@item.User.Id</td>
+                            <td style="vertical-align: middle;">@item.User.Name @item.User.LastName</td>
+                            <td style="vertical-align: middle;">
+                                @if (item.IsActionsIncluded)
+                                {
+                                    <span>Si</span>
+                                }
+                                else
+                                {
+                                    <span>No</span>
+                                }
+                            </td>
+                            <td style="vertical-align: middle;">
+                                <div class="btn-group btn-group">
+                                    <a class="btn btn-light" asp-action="editmoderator" asp-route-key="@Model.Proyection.Id" asp-route-id="@item.User.Id"><span class="mdi mdi-square-edit-outline"></span><span class="ml-1">Modificar</span></a>
+                                    <a class="btn btn-danger" href="#" data-toggle="modal" data-target="#delete-@item.User.Id"><span class="mdi mdi-trash-can"></span><span class="ml-1">Eliminar</span></a>
+                                </div>
+
+                                <div class="modal fade" id="delete-@item.User.Id" tabindex="-1" role="dialog" aria-labelledby="delete-@item.User.Id-lable" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        @using (Html.BeginForm("deletemoderator", null, new { key = Model.Proyection.Id, id = item.User.Id }, FormMethod.Post, true, new { @class = "modal-content" }))
+                                        {
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="delete-@item.User.Id-lable">Eliminar Moderador</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Está seguro que desea eliminar el moderador <b>@item.User.Name @item.User.LastName</b>?
+                                            </div>
+                                            <div class="modal-footer" style="margin-top: 0;">
+                                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                                                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="card-footer">
+        <a class="btn btn-outline-secondary" asp-action="index">Regresar al listado</a>
+    </div>
+</div>
+
+
+
+
+
+
+

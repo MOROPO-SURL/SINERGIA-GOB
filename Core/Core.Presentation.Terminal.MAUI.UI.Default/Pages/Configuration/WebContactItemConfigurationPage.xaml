@@ -1,0 +1,58 @@
+<core_ui_base_pages:ConfigurationBaseContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:presentation_configuration_page_models="clr-namespace:MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.Models.Page.Configuration;assembly=MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI"
+    xmlns:core_ui_base_pages="clr-namespace:MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Pages.Base;assembly=MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI"
+    xmlns:core_ui_converters="clr-namespace:MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Converters;assembly=MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI"
+    xmlns:core_models="clr-namespace:MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.Models;assembly=MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI"
+    xmlns:interop_common_display_models="clr-namespace:MOROPO.SINETGIAGOB.Core.Interop.API.Common.Models.Display;assembly=MOROPO.SINETGIAGOB.Core.Interop.API.Common"
+    x:Class="MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Default.Pages.Configuration.WebContactItemConfigurationPage"
+    x:TypeArguments="interop_common_display_models:WebContactItemDisplayModel,interop_common_display_models:WebContactItemDisplayModel,presentation_configuration_page_models:WebContactItemConfigurationPageModel"
+    x:DataType="presentation_configuration_page_models:WebContactItemConfigurationPageModel">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <core_ui_converters:FlexLayoutItemResponsiveWithConverter x:Key="FlexLayoutItemResponsiveWithConverter" SingleSpacing="8" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem 
+            Text="Aplicar"
+            Clicked="ApplyToolbarItem_Clicked">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource FontFamily="MaterialDesignIcons" Glyph="&#xf12c;" Color="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+        <ToolbarItem 
+            Text="Cancelar"
+            Clicked="CancelToolbarItem_Clicked">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource FontFamily="MaterialDesignIcons" Glyph="&#xf156;" Color="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ScrollView Orientation="Vertical">
+        <VerticalStackLayout Spacing="0" Padding="8">
+            <VerticalStackLayout 
+                Margin="8,4"
+                Spacing="6">
+                <Label Style="{StaticResource CaptionFieldLabelStyle}" Text="Dirección" />
+                <Entry Text="{Binding Url}" />
+            </VerticalStackLayout>
+            <BoxView 
+                Margin="8,16,8,8"
+                HeightRequest="1" 
+                Color="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray100}}" />
+            <FlexLayout 
+                Wrap="Wrap"
+                AlignItems="Start" AlignContent="Start">
+                <VerticalStackLayout 
+                    WidthRequest="{Binding Source={RelativeSource AncestorType={Type FlexLayout}}, Path=Width, Converter={StaticResource FlexLayoutItemResponsiveWithConverter}, ConverterParameter={core_models:ResponsiveColumnConfigurationModel MediumContainerColumn=6, SmallContainerColumn=6}}"
+                    Margin="4"
+                    Spacing="6">
+                    <Label Style="{StaticResource CaptionFieldLabelStyle}" Text="Etiqueta" />
+                    <Entry Text="{Binding Label}" />
+                </VerticalStackLayout>
+            </FlexLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</core_ui_base_pages:ConfigurationBaseContentPage>

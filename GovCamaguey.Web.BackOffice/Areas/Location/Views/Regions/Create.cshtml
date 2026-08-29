@@ -1,0 +1,59 @@
+﻿@model MOROPO.Framework.Guama.Location.Presentation.Web.Backend.Models.View.RegionInputViewModel
+
+@{
+
+    const string TITLE = "Agregar Región";
+    const string HEADER = "Administración de Regiones";
+    
+    ViewData["TITLE"] = TITLE;
+    ViewData["HEADER"] = HEADER;
+
+    ViewData[BreadcrumbViewModel.BREADCRUMBS_MAP_KEY] = new List<BreadcrumbViewModel>
+    {
+        new BreadcrumbViewModel
+        {
+            Caption = "<span class=\"mdi mdi-desktop-mac-dashboard\" style=\"margin-right: 4px;\"></span> Panel de Control",
+            Url = "/"
+        },
+        new BreadcrumbViewModel
+        {
+            Caption = HEADER,
+            Url = Url.Action("index")
+        },
+        new BreadcrumbViewModel
+        {
+            Caption = TITLE
+        }
+    };
+
+    Layout = "_BackendLayout";
+}
+
+<hr class="mt-0 mb-4" />
+
+@using (Html.BeginForm("create", "regions", new { Area = "location" }, FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+    <div class="card mb-3">
+        <div class="card-header"><h4 class="mb-0">@TITLE</h4></div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    @Html.LabelFor(model => model.Name, new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Name, null, new { @class = "text-danger" })
+                </div>
+                <div class="col-md-6">
+                    @Html.LabelFor(model => model.CountryId, new { @class = "control-label" })
+                    @Html.DropDownListFor(model => model.CountryId, Model.Countries, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.CountryId, null, new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Agregar</button>
+            <a class="btn btn-light" href="@Url.Action("index")">Cancelar</a>
+        </div>
+    </div>
+}
+

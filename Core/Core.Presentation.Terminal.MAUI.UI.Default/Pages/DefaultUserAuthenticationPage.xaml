@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<caneyframework_mvvm_pages:BindingContextedContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:presentation_page_models="clr-namespace:MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.Models.Page;assembly=MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI"
+    xmlns:caneyframework_mvvm_pages="clr-namespace:MOROPO.Framework.Caney.MVVM.Core.Pages;assembly=MOROPO.Framework.Caney.MVVM"
+    xmlns:caneyframework_presentation_views="clr-namespace:MOROPO.Framework.Caney.Presentation.UI.Views;assembly=MOROPO.Framework.Caney.Presentation"
+    xmlns:communitytoolkit_converters="clr-namespace:CommunityToolkit.Maui.Converters;assembly=CommunityToolkit.Maui"
+    x:Class="MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Default.Pages.DefaultUserAuthenticationPage"
+    x:TypeArguments="presentation_page_models:UserAuthenticationPageModel"
+    x:DataType="presentation_page_models:UserAuthenticationPageModel"
+    Title="Iniciar sesión">
+    <ContentPage.Resources>
+        <communitytoolkit_converters:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+        <communitytoolkit_converters:IsNotNullConverter x:Key="IsNotNullConverter" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid>
+            <ScrollView
+                HorizontalOptions="Center"
+                Orientation="Vertical">
+                <Grid>
+                    <VerticalStackLayout 
+                        HorizontalOptions="Center" VerticalOptions="Center"
+                        WidthRequest="280"
+                        Spacing="16">
+                        <Image
+                            IsVisible="{Binding OwnerInformation.LogoImageViewStyle, Converter={StaticResource IsNotNullConverter}}"
+                            Margin="16,0"
+                            Style="{Binding OwnerInformation.LogoImageViewStyle}" />
+                        <VerticalStackLayout>
+                            <Label
+                                HorizontalTextAlignment="Center"
+                                FontAttributes="Bold"
+                                FontSize="Medium"
+                                Text="{Binding OwnerInformation.Name}" />
+                            <Label
+                                HorizontalTextAlignment="Center"
+                                FontSize="Large"
+                                FontAttributes="Bold"
+                                Text="Decisor™" />
+                        </VerticalStackLayout>
+                        <Entry
+                            Text="{Binding UserName}"
+                            Placeholder="usuario" />
+                        <Entry
+                            Text="{Binding Password}"
+                            Placeholder="contraseña"
+                            IsPassword="true"
+                            Completed="OnPasswordEnterPressed"/>
+                        <Button
+                            Style="{StaticResource PrimaryKindButtonStyle}"
+                            IsEnabled="{Binding IsBusy, Converter={StaticResource InvertedBoolConverter}}"
+                            HorizontalOptions="Center"
+                            Text="Iniciar"
+                            Clicked="SignInButton_Clicked" />
+                    </VerticalStackLayout>
+                </Grid>
+            </ScrollView>
+            <Button
+                Style="{StaticResource FontIconImageButtonStyle}"
+                HorizontalOptions="End" VerticalOptions="Start"
+                Margin="16"
+                Text="&#xF66A;"
+                Clicked="SettingButton_Clicked" />
+            <caneyframework_presentation_views:BusyView IsVisible="{Binding IsBusy}"/>
+        </Grid>       
+    </ContentPage.Content>
+</caneyframework_mvvm_pages:BindingContextedContentPage>

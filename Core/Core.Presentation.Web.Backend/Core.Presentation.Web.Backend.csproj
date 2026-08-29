@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net8</TargetFramework>
+		<AssemblyName>MOROPO.SINETGIAGOB.Core.Presentation.Web.Backend</AssemblyName>
+		<RootNamespace>MOROPO.SINETGIAGOB.Core.Presentation.Web.Backend</RootNamespace>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="GuamaFramework.Core.Security.Common.Presentation.Web.Backend" Version="6.0.2" />
+		<PackageReference Include="GuamaFramework.Location.Presentation.Web.Backend" Version="6.0.2" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\Core.Presentation.Web.Common\Core.Presentation.Web.Common.csproj" />
+	  <ProjectReference Include="..\Core.Interop.API.Common\Core.Interop.API.Common.csproj" />
+	</ItemGroup>
+</Project>

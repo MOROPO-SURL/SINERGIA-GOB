@@ -1,0 +1,180 @@
+﻿@model MOROPO.Framework.Guama.Security.Personal.Presentation.Web.Backend.Models.View.UserWithPasswordInputViewModel
+
+@{
+    const string TITLE = "Agregar Usuario";
+    const string HEADER = "Administración de Usuarios";
+
+    ViewData["TITLE"] = TITLE;
+    ViewData["HEADER"] = HEADER;
+
+    ViewData[BreadcrumbViewModel.BREADCRUMBS_MAP_KEY] = new List<BreadcrumbViewModel>
+    {
+        new BreadcrumbViewModel
+        {
+            Caption = "<i class=\"mdi mdi-monitor-dashboard\"></i> Panel de Control",
+            Url = Url.Action("Index", "Dashboard", new { Area = "management" })
+        },
+        new BreadcrumbViewModel
+        {
+            Caption = HEADER,
+            Url = Url.Action("index")
+        },
+        new BreadcrumbViewModel
+        {
+            Caption = TITLE
+        }
+    };
+
+    Layout = "_BackendLayout";
+}
+
+@section styles {
+    <style type="text/css">
+        #ImageFile {
+            width: 0;
+            height: 0;
+            overflow: hidden;
+        }
+    </style>
+}
+
+@section scripts {
+    <script type="text/javascript">
+        $(function () {
+            $(document).on("change", "#ImageFile", function () {
+                var files = !!this.files ? this.files : [];
+
+                if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
+
+                if (/^image/.test(files[0].type)) {
+                    var reader = new FileReader();
+
+                    reader.readAsDataURL(files[0]);
+
+                    reader.onloadend = function () {
+                        $('#ImageFilePreview').attr('src', this.result);
+                    }
+                }
+
+            });
+        });
+    </script>
+}
+
+<hr class="mt-0 mb-4" />
+
+@using (Html.BeginForm("create", "users", new { Area = "security" }, FormMethod.Post, true, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+
+    <div class="card mb-4">
+        <div class="card-header"><h5 class="mb-0 font-weight-bold text-primary">@TITLE</h5></div>
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 mb-3">
+                    <div class="card">
+                        @if (Model.ImageId == null)
+                        {
+                            <img src="~/img/default-person-picture.jpg" class="card-img-top" id="ImageFilePreview" />
+                        }
+                        else
+                        {
+                            var imageSource = string.Format("/media/images/{0}.{1}", Model.ImageId, Model.ImageExtension);
+
+                            <img src="@imageSource" class="card-img-top" id="ImageFilePreview" />
+                        }
+                        <label class="btn btn-light" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-bottom: 0;">
+                            Cargar ...
+                            @Html.EditorFor(model => model.ImageFile)
+                        </label>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.ImageFile, null, new { @class = "text-danger" })
+                </div>
+                <div class="col-xl-10 col-lg-9 col-md-8 col-sm-8">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            @Html.LabelFor(model => model.Id, new { @class = "control-label" })
+                            @Html.TextBoxFor(model => model.Id, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Id, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            @Html.LabelFor(model => model.Name, new { @class = "control-label" })
+                            @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Name, null, new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            @Html.LabelFor(model => model.LastName, new { @class = "control-label" })
+                            @Html.TextBoxFor(model => model.LastName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.LastName, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            @Html.LabelFor(model => model.Password, new { @class = "control-label" })
+                            @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Password, null, new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            @Html.LabelFor(model => model.ConfirmPassword, new { @class = "control-label" })
+                            @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.ConfirmPassword, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4 mb-3">
+                    <div class="checkbox">
+                        <label>
+                            @Html.EditorFor(model => model.Enabled) Habilitado
+                            @Html.ValidationMessageFor(model => model.Enabled)
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-4 mb-3">
+                    <div class="checkbox">
+                        <label>
+                            @Html.EditorFor(model => model.PasswordChangeRequired) Debe cambiar la contraseña?
+                            @Html.ValidationMessageFor(model => model.PasswordChangeRequired)
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-4 mb-3">
+                    <div class="checkbox">
+                        <label>
+                            @Html.EditorFor(model => model.HasFullAccess) Es super usuario?
+                            @Html.ValidationMessageFor(model => model.HasFullAccess)
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <fieldset>
+                <legend class="border-bottom h5 font-weight-bold pb-2 mb-3">Roles</legend>
+                @if (Model.SelectableRoles != null && Model.SelectableRoles.Count > 0)
+                {
+                    <div class="row">
+                    @for (int i = 0; i < Model.SelectableRoles.Count; i++)
+                    {
+                        <div class="col-md-6">
+                            @Html.EditorFor(subModel => subModel.SelectableRoles[i], "SelectionDescriptedGuidIDItemInputViewModel")
+                        </div>
+                    }
+                    </div>
+                }
+                else
+                {
+                    <div class="text-muted">Sin elementos que mostrar.</div>
+                }
+            </fieldset>
+        </div>
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Agregar</button>
+            <a class="btn btn-secondary" href="@Url.Action("index")">Cancelar</a>
+        </div>
+    </div>
+}

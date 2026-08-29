@@ -1,0 +1,825 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="metadata">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" />
+							</xsd:sequence>
+							<xsd:attribute name="name" use="required" type="xsd:string" />
+							<xsd:attribute name="type" type="xsd:string" />
+							<xsd:attribute name="mimetype" type="xsd:string" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="assembly">
+						<xsd:complexType>
+							<xsd:attribute name="alias" type="xsd:string" />
+							<xsd:attribute name="name" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<data name="CreationSuccessMessage" xml:space="preserve">
+    <value>Cambios aplicados con éxito.</value>
+  </data>
+	<data name="CurrentUserNotRemovableMessage" xml:space="preserve">
+    <value>El usuario actual no puede ser eliminado</value>
+  </data>
+	<data name="DeletionSuccessMessage" xml:space="preserve">
+    <value>Cambios aplicados con éxito.</value>
+  </data>
+	<data name="DisableSuccessMessage" xml:space="preserve">
+    <value>Elemento deshabilitado con éxito.</value>
+  </data>
+	<data name="EditionSuccessMessage" xml:space="preserve">
+    <value>Cambios aplicados con éxito.</value>
+  </data>
+	<data name="EnableSuccessMessage" xml:space="preserve">
+    <value>Elemento habilitado con éxito.</value>
+  </data>
+	<data name="InvalidAuthenticationDataMessage" xml:space="preserve">
+    <value>Usuario y/o contraseña incorrectos.</value>
+  </data>
+	<data name="InvalidMessage" xml:space="preserve">
+    <value>Los datos introducidos no son válidos.</value>
+  </data>
+	<data name="NotFoundMessage" xml:space="preserve">
+    <value>El elemento especificado no encontrado.</value>
+  </data>
+	<data name="RequiredDataIncompleteMessage" xml:space="preserve">
+    <value>Algunos relacionados no pueden encontrarse.</value>
+  </data>
+	<data name="RequiredDataIncompleteTitle" xml:space="preserve">
+    <value>Datos necesarios para continuar</value>
+  </data>
+	<data name="RequiredValidationErrorMessage" xml:space="preserve">
+    <value>El campo {0} es obligatorio.</value>
+  </data>
+	<data name="MaxLengthValidationErrorMessage" xml:space="preserve">
+    <value>El campo {0} no debe exceder los {1} caracteres.</value>
+  </data>
+	<data name="RangeValidationErrorMessage" xml:space="preserve">
+    <value>El valor del campo {0} de estar entre {1} y {2}.</value>
+  </data>
+	<data name="CompareValidationErrorMessage" xml:space="preserve">
+    <value>Los campos {0} y {1} no coinciden.</value>
+  </data>
+	<data name="ConfirmPassword" xml:space="preserve">
+    <value>Confirmación de la Contraseña</value>
+  </data>
+	<data name="StringLengthMinMaxValidationErrorMessage" xml:space="preserve">
+    <value>El valor del campo {0} debe tener como mínimo {2} y como máximo {1} caracteres.</value>
+  </data>
+	<data name="UniqueValueConvinationValidationErrorMessage" xml:space="preserve">
+    <value>La combinación de valores de los campos {0} y {1} ya existe en el sistema y esta debe ser única.</value>
+  </data>
+	<data name="PasswordChangeRequiredMessage" xml:space="preserve">
+    <value>Cambio de contraseña requerido.</value>
+  </data>
+	<data name="ChangePasswordSuccessMessage" xml:space="preserve">
+    <value>Cambio de contraseña realizado con éxito. Inicie sesión nuevamente.</value>
+  </data>
+	<data name="UserDisabledMessage" xml:space="preserve">
+    <value>Usuario deshabilitado.</value>
+  </data>
+	<data name="system-admin-role" xml:space="preserve">
+    <value>Administrador del Sistema</value>
+  </data>
+	<data name="Administration" xml:space="preserve">
+    <value>Administración</value>
+  </data>
+	<data name="Dashboard" xml:space="preserve">
+    <value>Panel de Control</value>
+  </data>
+	<data name="traces" xml:space="preserve">
+    <value>Registros</value>
+  </data>
+	<data name="NewPassword" xml:space="preserve">
+    <value>Nueva Contraseña</value>
+  </data>
+	<data name="OldPassword" xml:space="preserve">
+    <value>Contraseña Anterior</value>
+  </data>
+	<data name="Upload" xml:space="preserve">
+    <value>Cargar archivo</value>
+  </data>
+	<data name="Title" xml:space="preserve">
+    <value>Título</value>
+  </data>
+	<data name="Description" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
+	<data name="Disabled" xml:space="preserve">
+    <value>No Habilitado(a)</value>
+  </data>
+	<data name="Enabled" xml:space="preserve">
+    <value>Habilitado(a)</value>
+  </data>
+	<data name="EnabledState" xml:space="preserve">
+    <value>Estado de Habilitación</value>
+  </data>
+	<data name="Eny" xml:space="preserve">
+    <value>Cualquiera</value>
+  </data>
+	<data name="About" xml:space="preserve">
+    <value>Acerca de</value>
+  </data>
+	<data name="BornDate" xml:space="preserve">
+    <value>Fecha de Nacimiento</value>
+  </data>
+	<data name="CivilStatus" xml:space="preserve">
+    <value>Estado Civil</value>
+  </data>
+	<data name="Divorced" xml:space="preserve">
+    <value>Divorciado(a)</value>
+  </data>
+	<data name="Famale" xml:space="preserve">
+    <value>Femenino</value>
+  </data>
+	<data name="LastName" xml:space="preserve">
+    <value>Apellidos</value>
+  </data>
+	<data name="Male" xml:space="preserve">
+    <value>Masculino</value>
+  </data>
+	<data name="Married" xml:space="preserve">
+    <value>Casado(a)</value>
+  </data>
+	<data name="Name" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+	<data name="Sex" xml:space="preserve">
+    <value>Sexo</value>
+  </data>
+	<data name="Single" xml:space="preserve">
+    <value>Soltero(a)</value>
+  </data>
+	<data name="Widower" xml:space="preserve">
+    <value>Viudo(a)</value>
+  </data>
+	<data name="RegularExpressionValidationErrorMessage" xml:space="preserve">
+    <value>Formato incorrecto</value>
+  </data>
+	<data name="DateTime" xml:space="preserve">
+    <value>Fecha y Hora</value>
+  </data>
+	<data name="SelectionRequiredValidationMessage" xml:space="preserve">
+    <value>La selección en el campo {0} es obligatoria</value>
+  </data>
+	<data name="InvalidVerificationCodeMessage" xml:space="preserve">
+    <value>Código de verificación incorrecto.</value>
+  </data>
+	<data name="Login" xml:space="preserve">
+    <value>Control de Acceso</value>
+  </data>
+	<data name="licensing-manager" xml:space="preserve">
+    <value>Licenciar</value>
+  </data>
+	<data name="licensing-manager-description" xml:space="preserve">
+    <value>Usuario que puede gestionar el licenciamiento</value>
+  </data>
+	<data name="shell-manager" xml:space="preserve">
+    <value>Administrar</value>
+  </data>
+	<data name="shell-manager-description" xml:space="preserve">
+    <value>Usuarios con acceso a la administración</value>
+  </data>
+	<data name="AfterData" xml:space="preserve">
+    <value>Datos Actuales</value>
+  </data>
+	<data name="Author" xml:space="preserve">
+    <value>Autor</value>
+  </data>
+	<data name="BeforeData" xml:space="preserve">
+    <value>Datos Anteriores</value>
+  </data>
+	<data name="EntityName" xml:space="preserve">
+    <value>Nombre de la Entidad</value>
+  </data>
+	<data name="Groups" xml:space="preserve">
+    <value>Roles</value>
+  </data>
+	<data name="Password" xml:space="preserve">
+    <value>Contraseña</value>
+  </data>
+	<data name="Registered" xml:space="preserve">
+    <value>Registro</value>
+  </data>
+	<data name="User" xml:space="preserve">
+    <value>Usuario</value>
+  </data>
+	<data name="Address" xml:space="preserve">
+    <value>Dirección</value>
+  </data>
+	<data name="Label" xml:space="preserve">
+    <value>Etiqueta</value>
+  </data>
+	<data name="Municipality" xml:space="preserve">
+    <value>Municipio</value>
+  </data>
+	<data name="Number" xml:space="preserve">
+    <value>Número</value>
+  </data>
+	<data name="Organization" xml:space="preserve">
+    <value>Organización</value>
+  </data>
+	<data name="State" xml:space="preserve">
+    <value>Provincia</value>
+  </data>
+	<data name="EmailAddressValidationErrorMessage" xml:space="preserve">
+    <value>El correo electrónico no es válido</value>
+  </data>
+	<data name="PhoneValidationErrorMessage" xml:space="preserve">
+    <value>El número de teléfono no es válido</value>
+  </data>
+	<data name="Unknown" xml:space="preserve">
+    <value>Desconocido</value>
+  </data>
+	<data name="Unknow" xml:space="preserve">
+    <value>Desconocido</value>
+  </data>
+	<data name="Country" xml:space="preserve">
+    <value>País</value>
+  </data>
+	<data name="Prefix" xml:space="preserve">
+    <value>Prefijo</value>
+  </data>
+	<data name="Sufix" xml:space="preserve">
+    <value>Sufijo</value>
+  </data>
+	<data name="Symbol" xml:space="preserve">
+    <value>Símbolo</value>
+  </data>
+	<data name="CurrentUserNotDisactivableMessage" xml:space="preserve">
+    <value>Este usuario no puede ser deshabilitado</value>
+  </data>
+	<data name="ExpirateAt" xml:space="preserve">
+    <value>Fecha de Expiración</value>
+  </data>
+	<data name="Options" xml:space="preserve">
+    <value>Opciones</value>
+  </data>
+	<data name="security-role-creator" xml:space="preserve">
+    <value>Agregar Rol</value>
+  </data>
+	<data name="security-role-creator-description" xml:space="preserve">
+    <value>Usuario que puede agregar rol de seguridad</value>
+  </data>
+	<data name="security-role-editor" xml:space="preserve">
+    <value>Modificar Rol</value>
+  </data>
+	<data name="security-role-editor-description" xml:space="preserve">
+    <value>Usuario que puede modificar rol de seguridad</value>
+  </data>
+	<data name="security-role-management" xml:space="preserve">
+    <value>Gestionar Roles</value>
+  </data>
+	<data name="security-role-remover" xml:space="preserve">
+    <value>Eliminar Rol</value>
+  </data>
+	<data name="security-role-remover-description" xml:space="preserve">
+    <value>Usuario que puede eliminar rol de seguridad</value>
+  </data>
+	<data name="security-role-viewer" xml:space="preserve">
+    <value>Visualizar Roles</value>
+  </data>
+	<data name="security-role-viewer-description" xml:space="preserve">
+    <value>Usuario que puede visualizar roles de seguridad</value>
+  </data>
+	<data name="security-trace-viewer" xml:space="preserve">
+    <value>Visualizar Registros</value>
+  </data>
+	<data name="security-trace-viewer-description" xml:space="preserve">
+    <value>Usuario que puede visualizar los registros</value>
+  </data>
+	<data name="security-user-creator" xml:space="preserve">
+    <value>Agregar Usuario</value>
+  </data>
+	<data name="security-user-creator-description" xml:space="preserve">
+    <value>Usuario que puede agregar usuario de seguridad</value>
+  </data>
+	<data name="security-user-editor" xml:space="preserve">
+    <value>Modificar Usuario</value>
+  </data>
+	<data name="security-user-editor-description" xml:space="preserve">
+    <value>Usuario que puede modificar usuario de seguridad</value>
+  </data>
+	<data name="security-user-management" xml:space="preserve">
+    <value>Gestionar Usuarios</value>
+  </data>
+	<data name="security-user-remover" xml:space="preserve">
+    <value>Eliminar Usuario</value>
+  </data>
+	<data name="security-user-remover-description" xml:space="preserve">
+    <value>Usuario que puede eliminar usuario de seguridad</value>
+  </data>
+	<data name="security-user-viewer" xml:space="preserve">
+    <value>Visualizar Usuarios</value>
+  </data>
+	<data name="security-user-viewer-description" xml:space="preserve">
+    <value>Usuario que puede visualizar usuarios de seguridad</value>
+  </data>
+	<data name="unit-measurement-management-permission-group" xml:space="preserve">
+    <value>Gestionar Unidades de Medida</value>
+  </data>
+	<data name="unit-measurement-creator-permission" xml:space="preserve">
+    <value>Agregar Unidades de Medida</value>
+  </data>
+	<data name="unit-measurement-creator-permission-description" xml:space="preserve">
+    <value>Usuario que puede agregar unidades de medida</value>
+  </data>
+	<data name="unit-measurement-editor-permission" xml:space="preserve">
+    <value>Modificar Unidades de Medida</value>
+  </data>
+	<data name="unit-measurement-editor-permission-description" xml:space="preserve">
+    <value>Usuario que puede modificar unidades de medida</value>
+  </data>
+	<data name="unit-measurement-remover-permission" xml:space="preserve">
+    <value>Eliminar Unidades de Medida</value>
+  </data>
+	<data name="unit-measurement-remover-permission-description" xml:space="preserve">
+    <value>Usuario que puede eliminar unidades de medida</value>
+  </data>
+	<data name="unit-measurement-viewer-permission" xml:space="preserve">
+    <value>Visualizar Unidades de Medida</value>
+  </data>
+	<data name="unit-measurement-viewer-permission-description" xml:space="preserve">
+    <value>Usuario que puede visualizar unidades de medida</value>
+  </data>
+	<data name="person-management-permission-group" xml:space="preserve">
+    <value>Gestionar Personas</value>
+  </data>
+	<data name="person-creator-permission" xml:space="preserve">
+    <value>Crear Persona</value>
+  </data>
+	<data name="person-creator-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden crear personas</value>
+  </data>
+	<data name="person-permission-editor" xml:space="preserve">
+    <value>Modificar Persona</value>
+  </data>
+	<data name="person-editor-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden modificar personas</value>
+  </data>
+	<data name="person-permission-remover" xml:space="preserve">
+    <value>Eliminar Persona</value>
+  </data>
+	<data name="person-remover-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden eliminar personas</value>
+  </data>
+	<data name="person-viewer-permission" xml:space="preserve">
+    <value>Visualizar Personas</value>
+  </data>
+	<data name="person-viewer-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden visualizar personas</value>
+  </data>
+	<data name="organization-management-permission-group" xml:space="preserve">
+    <value>Gestionar Organizaciones</value>
+  </data>
+	<data name="organization-creator-permission" xml:space="preserve">
+    <value>Crear Organización</value>
+  </data>
+	<data name="organization-creator-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden crear organizaciones</value>
+  </data>
+	<data name="organization-editor-permission" xml:space="preserve">
+    <value>Modificar Organización</value>
+  </data>
+	<data name="organization-editor-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden modificar organizaciones</value>
+  </data>
+	<data name="organization-remover-permission" xml:space="preserve">
+    <value>Eliminar Organización</value>
+  </data>
+	<data name="organization-remover-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden eliminar organizaciones</value>
+  </data>
+	<data name="organization-viewer-permission" xml:space="preserve">
+    <value>Visualizar Organizaciones</value>
+  </data>
+	<data name="organization-viewer-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden visualizar organizaciones</value>
+  </data>
+	<data name="guideline-management-permission-group" xml:space="preserve">
+    <value>Gestionar Lineamientos</value>
+  </data>
+	<data name="guideline-creator-permission" xml:space="preserve">
+    <value>Crear Lineamiento</value>
+  </data>
+	<data name="guideline-creator-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden crear lineamientos</value>
+  </data>
+	<data name="guideline-editor-permission" xml:space="preserve">
+    <value>Modificar Lineamiento</value>
+  </data>
+	<data name="guideline-editor-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden modificar lineamientos</value>
+  </data>
+	<data name="guideline-remover-permission" xml:space="preserve">
+    <value>Eliminar Lineamiento</value>
+  </data>
+	<data name="guideline-remover-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden eliminar lineamientos</value>
+  </data>
+	<data name="guideline-viewer-permission" xml:space="preserve">
+    <value>Visualizar Lineamientos</value>
+  </data>
+	<data name="guideline-viewer-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden visualizar lineamientos</value>
+  </data>
+	<data name="objective-management-permission-group" xml:space="preserve">
+    <value>Gestionar Objetivos</value>
+  </data>
+	<data name="objective-creator-permission" xml:space="preserve">
+    <value>Crear Objetivo</value>
+  </data>
+	<data name="objective-creator-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden crear objetivos</value>
+  </data>
+	<data name="objective-editor-permission" xml:space="preserve">
+    <value>Modificar Objetivo</value>
+  </data>
+	<data name="objective-editor-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden modificar objetivos</value>
+  </data>
+	<data name="objective-remover-permission" xml:space="preserve">
+    <value>Elimincar Objetivo</value>
+  </data>
+	<data name="objective-remover-permission-description" xml:space="preserve">
+    <value>Usuarios que puede eliminar objetivos</value>
+  </data>
+	<data name="objective-viewer-permission" xml:space="preserve">
+    <value>Visualizar Objetivos</value>
+  </data>
+	<data name="objective-viewer-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden visualizar objetivos</value>
+  </data>
+	<data name="proyection-management-permission-group" xml:space="preserve">
+    <value>Gestionar Objetivos Específicos</value>
+  </data>
+	<data name="proyection-creator-permission" xml:space="preserve">
+    <value>Crear Objetivo Específico</value>
+  </data>
+	<data name="proyection-creator-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden crear objetivos específicos</value>
+  </data>
+	<data name="proyection-editor-permission" xml:space="preserve">
+    <value>Modificar Objetivo Específico</value>
+  </data>
+	<data name="proyection-editor-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden modificar objetivos específicos</value>
+  </data>
+	<data name="proyection-remover-permission" xml:space="preserve">
+    <value>Elimincar Objetivo Específico</value>
+  </data>
+	<data name="proyection-remover-permission-description" xml:space="preserve">
+    <value>Usuarios que puede eliminar objetivos específicos</value>
+  </data>
+	<data name="proyection-viewer-permission" xml:space="preserve">
+    <value>Visualizar Objetivos Específicos</value>
+  </data>
+	<data name="proyection-viewer-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden visualizar objetivos específicos</value>
+  </data>
+	<data name="action-management-permission-group" xml:space="preserve">
+    <value>Gestionar Acciones</value>
+  </data>
+	<data name="action-creator-permission" xml:space="preserve">
+    <value>Crear Acción</value>
+  </data>
+	<data name="action-creator-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden crear acciones</value>
+  </data>
+	<data name="action-editor-permission" xml:space="preserve">
+    <value>Modificar Acción</value>
+  </data>
+	<data name="action-editor-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden modificar acciones</value>
+  </data>
+	<data name="action-remover-permission" xml:space="preserve">
+    <value>Eliminar Acción</value>
+  </data>
+	<data name="action-remover-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden eliminar acciones</value>
+  </data>
+	<data name="action-viewer-permission" xml:space="preserve">
+    <value>Visualizar Acciones</value>
+  </data>
+	<data name="action-viewer-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden visualizar acciones</value>
+  </data>	
+	<data name="action-indicator-management-permission-group" xml:space="preserve">
+    <value>Gestionar Indicadores de Acción</value>
+  </data>
+	<data name="action-indicator-creator-permission" xml:space="preserve">
+    <value>Crear Indicador de Acción</value>
+  </data>
+	<data name="action-indicator-creator-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden crear indicadores de acción</value>
+  </data>
+	<data name="action-indicator-editor-permission" xml:space="preserve">
+    <value>Modificar Indicador de Acción</value>
+  </data>
+	<data name="action-indicator-editor-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden modificar indicadores de acción</value>
+  </data>
+	<data name="action-indicator-remover-permission" xml:space="preserve">
+    <value>Eliminar Indicador de Acción</value>
+  </data>
+	<data name="action-indicator-remover-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden eliminar indicadores de acción</value>
+  </data>
+	<data name="action-indicator-viewer-permission" xml:space="preserve">
+    <value>Visualizar Indicadores de Acción</value>
+  </data>
+	<data name="action-indicator-viewer-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden visualizar indicadores de acción</value>
+  </data>
+	<data name="proyection-indicator-management-permission-group" xml:space="preserve">
+    <value>Gestionar Indicadores de Objetivo Específico</value>
+  </data>
+	<data name="proyection-indicator-creator-permission" xml:space="preserve">
+    <value>Crear Indicador de Objetivo Específico</value>
+  </data>
+	<data name="proyection-indicator-creator-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden crear indicadores de objetivo específico</value>
+  </data>
+	<data name="proyection-indicator-editor-permission" xml:space="preserve">
+    <value>Modificar Indicador de Objetivo Específico</value>
+  </data>
+	<data name="proyection-indicator-editor-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden modificar indicadores de objetivo específico</value>
+  </data>
+	<data name="proyection-indicator-remover-permission" xml:space="preserve">
+    <value>Eliminar Indicador de Objetivo Específico</value>
+  </data>
+	<data name="proyection-indicator-remover-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden eliminar indicadores de objetivo específico</value>
+  </data>
+	<data name="proyection-indicator-viewer-permission" xml:space="preserve">
+    <value>Visualizar Indicadores de Objetivo Específico</value>
+  </data>
+	<data name="proyection-indicator-viewer-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden visualizar indicadores de objetivo específico</value>
+  </data>
+	<data name="objective-indicator-management-permission-group" xml:space="preserve">
+    <value>Gestionar Indicadores de Objetivo</value>
+  </data>
+	<data name="objective-indicator-creator-permission" xml:space="preserve">
+    <value>Crear Indicador de Objetivo</value>
+  </data>
+	<data name="objective-indicator-creator-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden crear indicadores de objetivo</value>
+  </data>
+	<data name="objective-indicator-editor-permission" xml:space="preserve">
+    <value>Modificar Indicador de Objetivo</value>
+  </data>
+	<data name="objective-indicator-editor-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden modificar indicadores de objetivo</value>
+  </data>
+	<data name="objective-indicator-remover-permission" xml:space="preserve">
+    <value>Eliminar Indicador de Objetivo</value>
+  </data>
+	<data name="objective-indicator-remover-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden eliminar indicadores de objetivo</value>
+  </data>
+	<data name="objective-indicator-viewer-permission" xml:space="preserve">
+    <value>Visualizar Indicadores de Objetivo</value>
+  </data>
+	<data name="objective-indicator-viewer-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden visualizar indicadores de objetivo</value>
+  </data>
+	<data name="global-indicator-management-permission-group" xml:space="preserve">
+    <value>Gestionar Indicadores Globales</value>
+  </data>
+	<data name="global-indicator-creator-permission" xml:space="preserve">
+    <value>Crear Indicador Global</value>
+  </data>
+	<data name="global-indicator-creator-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden crear indicadores globales</value>
+  </data>
+	<data name="global-indicator-editor-permission" xml:space="preserve">
+    <value>Modificar Indicador Global</value>
+  </data>
+	<data name="global-indicator-editor-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden modificar indicadores globales</value>
+  </data>
+	<data name="global-indicator-remover-permission" xml:space="preserve">
+    <value>Eliminar Indicador Global</value>
+  </data>
+	<data name="global-indicator-remover-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden eliminar indicadores globales</value>
+  </data>
+	<data name="global-indicator-viewer-permission" xml:space="preserve">
+    <value>Visualizar Indicadores Global</value>
+  </data>
+	<data name="global-indicator-viewer-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden visualizar indicadores globales</value>
+  </data>	
+	<data name="action-indicator-result-management-permission-group" xml:space="preserve">
+    <value>Gestionar Estados de Indicador de Acción</value>
+  </data>
+	<data name="action-indicator-result-creator-permission" xml:space="preserve">
+    <value>Crear Estado de Indicador de Acción</value>
+  </data>
+	<data name="action-indicator-result-creator-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden crear estados de indicador de acción</value>
+  </data>
+	<data name="action-indicator-result-editor-permission" xml:space="preserve">
+    <value>Modificar Estado de Indicador de Acción</value>
+  </data>
+	<data name="action-indicator-result-editor-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden modificar estados de indicador de acción</value>
+  </data>
+	<data name="action-indicator-result-remover-permission" xml:space="preserve">
+    <value>Eliminar Estado de Indicador de Acción</value>
+  </data>
+	<data name="action-indicator-result-remover-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden eliminar estados de indicador de acción</value>
+  </data>
+	<data name="action-indicator-result-viewer-permission" xml:space="preserve">
+    <value>Visualizar Estados de Indicador de Acción</value>
+  </data>
+	<data name="action-indicator-result-viewer-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden visualizar estados de indicador de acción</value>
+  </data>
+	<data name="proyection-indicator-result-management-permission-group" xml:space="preserve">
+    <value>Gestionar Estados de Indicador de Objetivo Específico</value>
+  </data>
+	<data name="proyection-indicator-result-creator-permission" xml:space="preserve">
+    <value>Crear Estado de Indicador de Objetivo Específico</value>
+  </data>
+	<data name="proyection-indicator-result-creator-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden crear estados de indicador de objetivo específico</value>
+  </data>
+	<data name="proyection-indicator-result-editor-permission" xml:space="preserve">
+    <value>Modificar Estado de Indicador de Objetivo Específico</value>
+  </data>
+	<data name="proyection-indicator-result-editor-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden modificar estados de indicador de objetivo específico</value>
+  </data>
+	<data name="proyection-indicator-result-remover-permission" xml:space="preserve">
+    <value>Eliminar Estado de Indicador de Objetivo Específico</value>
+  </data>
+	<data name="proyection-indicator-result-remover-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden eliminar estados de indicador de objetivo específico</value>
+  </data>
+	<data name="proyection-indicator-result-viewer-permission" xml:space="preserve">
+    <value>Visualizar Estado de Indicador de Objetivo Específico</value>
+  </data>
+	<data name="proyection-indicator-result-viewer-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden visualizar estados de indicador de objetivo específico</value>
+  </data>
+	<data name="objective-indicator-result-management-permission-group" xml:space="preserve">
+    <value>Gestionar Estado de Indicador de Objetivo</value>
+  </data>
+	<data name="objective-indicator-result-creator-permission" xml:space="preserve">
+    <value>Crear Estado de Indicador de Objetivo</value>
+  </data>
+	<data name="objective-indicator-result-creator-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden crear estados de indicador de objetivo</value>
+  </data>
+	<data name="objective-indicator-result-editor-permission" xml:space="preserve">
+    <value>Modificar Estado de Indicador de Objetivo</value>
+  </data>
+	<data name="objective-indicator-result-editor-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden modificar estados de indicador de objetivo</value>
+  </data>
+	<data name="objective-indicator-result-remover-permission" xml:space="preserve">
+    <value>Eliminar Estado de Indicador de Objetivo</value>
+  </data>
+	<data name="objective-indicator-result-remover-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden eliminar estados de indicador de objetivo</value>
+  </data>
+	<data name="objective-indicator-result-viewer-permission" xml:space="preserve">
+    <value>Visualizar Estados de Indicador de Objetivo</value>
+  </data>
+	<data name="objective-indicator-result-viewer-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden visualizar estados de indicador de objetivo</value>
+  </data>
+	<data name="global-indicator-result-management-permission-group" xml:space="preserve">
+    <value>Gestionar Estado de Indicador Global</value>
+  </data>
+	<data name="global-indicator-result-creator-permission" xml:space="preserve">
+    <value>Crear Estado de Indicador Global</value>
+  </data>
+	<data name="global-indicator-result-creator-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden crear estados de indicador global</value>
+  </data>
+	<data name="global-indicator-result-editor-permission" xml:space="preserve">
+    <value>Modificar Estado de Indicador Global</value>
+  </data>
+	<data name="global-indicator-result-editor-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden modificar estados de indicador global</value>
+  </data>
+	<data name="global-indicator-result-remover-permission" xml:space="preserve">
+    <value>Eliminar Estado de Indicador Global</value>
+  </data>
+	<data name="global-indicator-result-remover-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden eliminar estados de indicador global</value>
+  </data>
+	<data name="global-indicator-result-viewer-permission" xml:space="preserve">
+    <value>Visualizar Estado de Indicadores Global</value>
+  </data>
+	<data name="global-indicator-result-viewer-permission-description" xml:space="preserve">
+    <value>Usuarios que pueden visualizar estados de indicador global</value>
+  </data>
+</root>

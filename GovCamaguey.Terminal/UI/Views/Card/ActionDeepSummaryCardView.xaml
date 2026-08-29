@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local_view_models="clr-namespace:MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Models.View"
+    xmlns:local_card_views="clr-namespace:MOROPO.SINETGIAGOB.GovCamaguey.Terminal.UI.Views.Card"
+    xmlns:interop_common_display_models="clr-namespace:MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Models.Display;assembly=MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common"
+    xmlns:core_models="clr-namespace:MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.Models;assembly=MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI"
+    xmlns:core_ui_converters="clr-namespace:MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Converters;assembly=MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI"
+    x:Class="MOROPO.SINETGIAGOB.GovCamaguey.Terminal.UI.Views.Card.ActionDeepSummaryCardView"
+    x:DataType="local_view_models:ActionSummaryViewModel">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <core_ui_converters:FlexLayoutItemResponsiveWithConverter x:Key="FlexLayoutItemResponsiveWithConverter" WrapSpacing="8" SingleSpacing="4" />
+            <core_ui_converters:ImageDisplayModelToImageSourceConverter x:Key="ImageDisplayModelToImageSourceConverter" />
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <Frame>
+        <VerticalStackLayout>
+            <Label FontSize="Medium">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span
+                            FontAttributes="Bold"
+                            Text="{Binding ObjectiveIndex, StringFormat='{0}.'}" />
+                        <Span
+                            FontAttributes="Bold"
+                            Text="{Binding ProyectionIndex, StringFormat='{0}.'}" />
+                        <Span
+                            FontAttributes="Bold"
+                            Text="{Binding Index, StringFormat='{0}.'}" />
+                        <Span Text=" " />
+                        <Span Text="{Binding Name}" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <ContentView>
+                <ContentView.Content>
+                    <OnIdiom x:TypeArguments="View">
+                        <OnIdiom.Default>
+                            <Grid ColumnSpacing="8">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <VerticalStackLayout 
+                                    Grid.Column="0"
+                                    Margin="8,4"
+                                    Spacing="6">
+                                    <Label 
+                                        Style="{StaticResource CaptionFieldLabelStyle}"
+                                        Margin="0,16,0,0"
+                                        Text="Responsables" />
+                                    <BoxView Color="DimGray" HeightRequest="1" /> 
+                                    <StackLayout BindableLayout.ItemsSource="{Binding ResponsabilityOrganizations}">
+                                        <BindableLayout.ItemTemplate>
+                                            <DataTemplate x:DataType="interop_common_display_models:OrganizationDisplayModel">
+                                                <Frame Margin="0,4" Padding="16">
+                                                    <Label Text="{Binding Identity.Name}" />
+                                                </Frame>
+                                            </DataTemplate>
+                                        </BindableLayout.ItemTemplate>
+                                    </StackLayout>
+                                </VerticalStackLayout>
+                                <VerticalStackLayout 
+                                    Grid.Column="1"
+                                    Margin="8,4"
+                                    Spacing="6">
+                                    <Label 
+                                        Style="{StaticResource CaptionFieldLabelStyle}"
+                                        Margin="0,16,0,0"
+                                        Text="Participantes" />
+                                    <BoxView Color="DimGray" HeightRequest="1" />
+                                    <StackLayout BindableLayout.ItemsSource="{Binding ParticipationOrganizations}">
+                                        <BindableLayout.ItemTemplate>
+                                            <DataTemplate x:DataType="interop_common_display_models:OrganizationDisplayModel">
+                                                <Frame Margin="0,4" Padding="16">
+                                                    <Label Text="{Binding Identity.Name}" />
+                                                </Frame>
+                                            </DataTemplate>
+                                        </BindableLayout.ItemTemplate>
+                                    </StackLayout>                 
+                                </VerticalStackLayout>
+                            </Grid>
+                        </OnIdiom.Default>
+                        <OnIdiom.Phone>
+                            <VerticalStackLayout>
+                                <VerticalStackLayout 
+                                    Margin="8,4"
+                                    Spacing="6">
+                                    <Label 
+                                        Style="{StaticResource CaptionFieldLabelStyle}"
+                                        Margin="0,16,0,0" 
+                                        Text="Responsables" />
+                                    <BoxView Color="DimGray" HeightRequest="1" /> 
+                                    <StackLayout BindableLayout.ItemsSource="{Binding ResponsabilityOrganizations}">
+                                        <BindableLayout.ItemTemplate>
+                                            <DataTemplate x:DataType="interop_common_display_models:OrganizationDisplayModel">
+                                                <Frame Margin="0,4" Padding="16">
+                                                    <Label Text="{Binding Identity.Name}" />
+                                                </Frame>
+                                            </DataTemplate>
+                                        </BindableLayout.ItemTemplate>
+                                    </StackLayout>
+                                </VerticalStackLayout>
+                                <VerticalStackLayout 
+                                    Margin="8,4"
+                                    Spacing="6">
+                                    <Label 
+                                        Style="{StaticResource CaptionFieldLabelStyle}"
+                                        Margin="0,16,0,0"
+                                        Text="Participantes" />
+                                    <BoxView Color="DimGray" HeightRequest="1" />
+                                    <StackLayout BindableLayout.ItemsSource="{Binding ParticipationOrganizations}">
+                                        <BindableLayout.ItemTemplate>
+                                            <DataTemplate x:DataType="interop_common_display_models:OrganizationDisplayModel">
+                                                <Frame Margin="0,4" Padding="16">
+                                                    <Label Text="{Binding Identity.Name}" />
+                                                </Frame>
+                                            </DataTemplate>
+                                        </BindableLayout.ItemTemplate>
+                                    </StackLayout>                    
+                                </VerticalStackLayout>
+                            </VerticalStackLayout>
+                        </OnIdiom.Phone>
+                    </OnIdiom>
+                </ContentView.Content>
+            </ContentView>
+            <Label 
+                Style="{StaticResource CaptionFieldLabelStyle}" 
+                Margin="8,16,8,0" 
+                Text="Controles de Cumplimiento" />
+            <BoxView Color="DimGray" Margin="8,4" HeightRequest="1" />
+            <CollectionView Margin="8,0" ItemsSource="{Binding MonthlyClosures}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout ItemSpacing="4" Orientation="Vertical" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="interop_common_display_models:ActionMonthlyClosureDisplayModel">
+                        <Frame 
+                            Padding="16"
+                            Margin="8,12,8,0">
+                            <Label
+                                LineBreakMode="TailTruncation"
+                                Text="{Binding At, StringFormat='{0:D}'}" />
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Label 
+                Style="{StaticResource CaptionFieldLabelStyle}" 
+                Margin="8,16,8,0" 
+                Text="Indicadores" />
+            <BoxView Color="DimGray" Margin="8,4" HeightRequest="1" />
+            <CollectionView Margin="8,0" ItemsSource="{Binding Indicators}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout ItemSpacing="4" Orientation="Vertical" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="interop_common_display_models:ActionIndicatorDisplayModel">
+                        <Frame Padding="16">
+                            <StackLayout Orientation="Horizontal" Spacing="12">
+                                <Label 
+                                    HorizontalOptions="FillAndExpand"
+                                    Text="{Binding Name}" />
+                                <Label>
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span FontAttributes="Bold" Text="Meta: " />
+                                            <Span Text="{Binding Amount}" />
+                                            <Span Text=" " />
+                                            <Span Text="{Binding UnitMeasurement.Symbol}" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </Frame>
+</ContentView>

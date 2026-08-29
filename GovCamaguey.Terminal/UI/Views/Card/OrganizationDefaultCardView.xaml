@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local_constants="clr-namespace:MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Constants"
+    xmlns:core_ui_converters="clr-namespace:MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Converters;assembly=MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI"
+    xmlns:interop_common_display_models="clr-namespace:MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Models.Display;assembly=MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common"
+    x:Class="MOROPO.SINETGIAGOB.GovCamaguey.Terminal.UI.Views.Card.OrganizationDefaultCardView"
+    x:DataType="interop_common_display_models:OrganizationDisplayModel">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <core_ui_converters:ImageDisplayModelToImageSourceConverter x:Key="ImageDisplayModelToImageSourceConverter" />
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <Frame Padding="0">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Image
+                Grid.Column="0"
+                Aspect="AspectFill"
+                WidthRequest="{Static local_constants:CardViewHeightConstants.ORGANIZATION_DEFAULT_CARD_VIEW_HEIGHT}"
+                Source="{Binding Identity.Image, Converter={StaticResource ImageDisplayModelToImageSourceConverter}, TargetNullValue='default_organization_picture.png'}" />
+            <Grid 
+                Grid.Column="1"
+                Padding="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="52*" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="48*" />
+                </Grid.RowDefinitions>
+                <Label 
+                    Grid.Row="0"
+                    FontAttributes="Bold"
+                    LineBreakMode="TailTruncation"
+                    MaxLines="2"
+                    Text="{Binding Identity.Name}"
+                    ToolTipProperties.Text="{Binding Identity.Name}"/>
+                <Label 
+                    Grid.Row="1"
+                    Margin="0,4,0,0"
+                    Text="Descripción"
+                    TextColor="DimGray"
+                    FontSize="Caption"
+                    FontAttributes="Bold" />
+                <Label
+                    Grid.Row="2"
+                    VerticalOptions="FillAndExpand"
+                    LineBreakMode="TailTruncation"
+                    MaxLines="2"
+                    TextColor="{AppThemeBinding Light={StaticResource OffBlack}, Dark={StaticResource OffWhite}}"
+                    Text="{Binding Identity.About, TargetNullValue='---', FallbackValue='---4577'}" />
+            </Grid>
+        </Grid>
+    </Frame>
+</ContentView>

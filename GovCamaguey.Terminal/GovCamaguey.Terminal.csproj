@@ -1,0 +1,159 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net8.0-android</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows10.0.19041.0</TargetFrameworks>
+		<OutputType>Exe</OutputType>
+		<AssemblyName>SINERGIA-GOB-CMG-Terminal</AssemblyName>
+		<RootNamespace>MOROPO.SINETGIAGOB.GovCamaguey.Terminal</RootNamespace>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<ImplicitUsings>disable</ImplicitUsings>
+		<Nullable>disable</Nullable>
+
+		<!-- Display name -->
+		<ApplicationTitle>SINERGIA GOB Camagüey</ApplicationTitle>
+
+		<!-- App Identifier -->
+		<ApplicationId>cu.moropo.sinergiagob.cmg.terminal</ApplicationId>
+
+		<!-- Versions -->
+		<ApplicationDisplayVersion>1.1.3</ApplicationDisplayVersion>
+		<ApplicationVersion>10103</ApplicationVersion>
+
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>		
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- App Icon -->
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#8C0202" />
+
+		<!-- Splash Screen -->
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#8C0202" BaseSize="128,128" />
+
+		<!-- Images -->
+		<MauiImage Include="Resources\Images\*" />
+		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
+
+		<!-- Custom Fonts -->
+		<MauiFont Include="Resources\Fonts\*" />
+
+		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Resources\Fonts\materialdesignicons-webfont.ttf" />
+	  <None Remove="Resources\Images\default_organization_picture.png" />
+	  <None Remove="Resources\Images\default_person_picture.jpg" />
+	  <None Remove="Resources\Images\domain.jpg" />
+	  <None Remove="Resources\Images\identity_color.png" />
+	  <None Remove="Resources\Images\logo_art_frame.svg" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.1" />
+		<PackageReference Include="LiveCharts.Core" Version="0.9.8" />
+		<PackageReference Include="LiveChartsCore.SkiaSharpView.Maui" Version="2.0.0-rc3.3" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Core\Core.Presentation.Terminal.MAUI.UI.Default\Core.Presentation.Terminal.MAUI.UI.Default.csproj" />
+	  <ProjectReference Include="..\GovCamaguey.Interop.API.Connect\GovCamaguey.Interop.API.Connect.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="UI\Pages\Configuration\ActionIndicatorConfigurationPage.xaml.cs">
+	    <DependentUpon>ActionIndicatorConfigurationPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="UI\Pages\Configuration\ActionIndicatorMontlyPlanConfigurationPage.xaml.cs">
+	    <DependentUpon>ActionIndicatorMontlyPlanConfigurationPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="UI\Pages\UserAuthenticationPage.xaml.cs">
+	    <DependentUpon>UserAuthenticationPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="UI\Pages\ObjectiveIndicatorHandlingPage.xaml.cs">
+	    <DependentUpon>ObjectiveIndicatorHandlingPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="UI\Pages\ObjectiveSummaryPage.xaml.cs">
+	    <DependentUpon>ObjectiveSummaryPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="UI\Views\Card\ActionDeepSummaryCardView.xaml.cs">
+	    <DependentUpon>ActionDeepSummaryCardView.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="UI\Views\Card\ObjectiveIndicatorDeepHandlingCardView.xaml.cs">
+	    <DependentUpon>ObjectiveIndicatorDeepHandlingCardView.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="UI\Views\Card\ProyectionDeepSummaryCardView.xaml.cs">
+	    <DependentUpon>ProyectionDeepSummaryCardView.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="UI\Views\Card\ProyectionIndicatorDeepHandlingCardView.xaml.cs">
+	    <DependentUpon>ProyectionIndicatorDeepHandlingCardView.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="UI\Pages\Configuration\CommonIndicatorResultConfigurationPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="UI\Pages\Configuration\GlobalIndicatorConfigurationPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="UI\Pages\Configuration\GlobalIndicatorMontlyPlanConfigurationPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="UI\Pages\Configuration\ObjectiveIndicatorConfigurationPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="UI\Pages\Configuration\ObjectiveIndicatorMontlyPlanConfigurationPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="UI\Pages\Configuration\ProyectionIndicatorConfigurationPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="UI\Pages\Configuration\ProyectionIndicatorMontlyPlanConfigurationPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="UI\Pages\Detail\CommonIndicatorResultDetailPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="UI\Pages\UserAuthenticationPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="UI\Pages\Detail\GlobalIndicatorDetailPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="UI\Pages\GlobalIndicatorHandlingPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="UI\Pages\GovernanceDashboardPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="UI\Pages\ObjectiveIndicatorHandlingPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="UI\Pages\Manage\GlobalIndicatorsManagePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="UI\Views\Card\ActionDeepHandlingCardView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="UI\Views\Card\ActionIndicatorDeepHandlingCardView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="UI\Views\Card\ObjectiveIndicatorDeepHandlingCardView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="UI\Views\Card\ProyectionDeepHandlingCardView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="UI\Views\Card\ProyectionIndicatorDeepHandlingCardView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
+</Project>

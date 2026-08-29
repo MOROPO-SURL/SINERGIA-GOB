@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<core_ui_base_pages:ConfigurationBaseContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local_configuration_page_models="clr-namespace:MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Models.Page.Configuration"
+    xmlns:core_models="clr-namespace:MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.Models;assembly=MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI"
+    xmlns:core_ui_base_pages="clr-namespace:MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Pages.Base;assembly=MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI"
+    xmlns:interop_common_input_models="clr-namespace:MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Models.Input;assembly=MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common"
+    x:Class="MOROPO.SINETGIAGOB.GovCamaguey.Terminal.UI.Pages.Configuration.ActionMonthlyClosureConfigurationPage"
+    x:TypeArguments="interop_common_input_models:ActionMonthlyClosureInputModel,interop_common_input_models:ActionMonthlyClosureInputModel,local_configuration_page_models:ActionMonthlyClosureConfigurationPageModel"
+    x:DataType="local_configuration_page_models:ActionMonthlyClosureConfigurationPageModel">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem 
+            Text="Aplicar"
+            Clicked="ApplyToolbarItem_Clicked">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource FontFamily="MaterialDesignIcons" Glyph="&#xf12c;" Color="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+        <ToolbarItem 
+            Text="Cancelar"
+            Clicked="CancelToolbarItem_Clicked">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource FontFamily="MaterialDesignIcons" Glyph="&#xf156;" Color="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ScrollView Orientation="Vertical">
+        <StackLayout 
+            Padding="12"
+            Spacing="16">
+            <VerticalStackLayout 
+                Margin="8"
+                Spacing="6">
+                <Label Style="{StaticResource CaptionFieldLabelStyle}" Text="Fecha límite" />
+                <DatePicker Date="{Binding At}" />
+            </VerticalStackLayout>
+        </StackLayout>
+    </ScrollView>
+</core_ui_base_pages:ConfigurationBaseContentPage>

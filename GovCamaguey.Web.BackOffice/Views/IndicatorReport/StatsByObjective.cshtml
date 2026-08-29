@@ -1,0 +1,231 @@
+﻿@model MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Models.View.ObjectiveIndicatorsStatsReportViewModel
+
+@{
+    Layout = "_ReportLayout";
+
+    string emptyMessage = "No se definieron elementos";
+}
+
+@section styles {
+    <style type="text/css">
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.0;
+        }
+
+        table {
+            background-color: transparent;
+        }
+
+            table th.numeric {
+                width: 180px;
+            }
+
+            table th.name {
+                width: 30%;
+            }
+
+            table th.context {
+                width: 20%;
+            }
+
+            table td {
+                text-align: left;
+            }
+
+                table td.numeric {
+                    text-align: right;
+                    vertical-align: central;
+                }
+
+                table td.datetime {
+                    text-align: center;
+                    vertical-align: central;
+                }
+
+        h5.h-seccion {
+            font-style: italic;
+            text-decoration: underline;
+            margin-bottom: 12px;
+        }
+
+        li.li-indicator {
+            margin-bottom: 12px;
+        }
+
+            li.li-indicator > p {
+                margin-top: 8px;
+            }
+
+        .text-muted {
+            color: dimgray;
+            font-style: italic;
+            font-size: 0.92rem;
+        }
+    </style>
+}
+
+<div style="text-align: center; margin-bottom: 60px;">
+    <h1>Estado de indicadores</h1>
+    <p><b>Fecha de emisión:</b> @DateTime.Now.Date.ToShortDateString()</p>
+    <p><b>Fecha de referencia:</b> @Model.ReferenceAt.Date.ToShortDateString()</p>
+</div>
+
+<h2>@Model.Objective.Index. @Model.Objective.Name</h2>
+<h5 class="h-seccion">Indicadores</h5>
+@if (Model.Objective.Indicators.Length <= 0)
+{
+    <div class="text-muted">@emptyMessage</div>
+}
+else
+{
+    <table>
+        <thead>
+            <tr>
+                <th class="name" rowspan="2">Indicador</th>
+                <th rowspan="2">UM</th>
+                <th class="numeric" rowspan="2">Meta</th>
+                <th colspan="2">Plan</th>
+                <th colspan="2">Estado</th>
+                <th class="context" rowspan="2">Valoración cualitativa</th>
+            </tr>
+            <tr>
+                <th class="numeric">Período</th>
+                <th class="numeric">Meta</th>
+                <th class="numeric">Previo</th>
+                <th class="numeric">Actual</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var _item in Model.Objective.Indicators)
+            {
+                <tr>
+                    <td>@_item.Name</td>
+                    <td style="text-align: center;">@_item.UnitMeasurement.Symbol</td>
+                    <td class="numeric">@_item.Amount</td>
+                    <td class="datetime">@Html.Raw(_item.Plan == null ? "---" : $"{_item.Plan.Month}/{_item.Plan.Year}")</td>
+                    <td class="numeric">@Html.Raw(_item.Plan == null ? "-" : _item.Plan.Amount)</td>
+                    <td class="numeric">@_item.ReferenceResult</td>
+                    <td class="numeric">@_item.LastResult</td>
+                    <td>@_item.Context</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+<h5 class="h-seccion">Objetivos específicos</h5>
+@if (Model.Objective.Proyections.Length <= 0)
+{
+    <div class="text-muted">@emptyMessage</div>
+}
+else
+{
+    <ul>
+        @foreach (var _item in Model.Objective.Proyections)
+        {
+            <li>
+                <h3>@Model.Objective.Index.@_item.Index @_item.Name</h3>
+                <h5 class="h-seccion">Indicadores</h5>
+                @if (_item.Indicators.Length <= 0)
+                {
+                    <div class="text-muted">@emptyMessage</div>
+                }
+                else
+                {
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="name" rowspan="2">Indicador</th>
+                                <th rowspan="2">UM</th>
+                                <th class="numeric" rowspan="2">Meta</th>
+                                <th colspan="2">Plan</th>
+                                <th colspan="2">Estado</th>
+                                <th class="context" rowspan="2">Valoración cualitativa</th>
+                            </tr>
+                            <tr>
+                                <th class="numeric">Período</th>
+                                <th class="numeric">Meta</th>
+                                <th class="numeric">Previo</th>
+                                <th class="numeric">Actual</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var __item in _item.Indicators)
+                            {
+                                <tr>
+                                    <td>@__item.Name</td>
+                                    <td style="text-align: center;">@__item.UnitMeasurement.Symbol</td>
+                                    <td class="numeric">@__item.Amount</td>
+                                    <td class="datetime">@Html.Raw(__item.Plan == null ? "---" : $"{__item.Plan.Month}/{__item.Plan.Year}")</td>
+                                    <td class="numeric">@Html.Raw(__item.Plan == null ? "-" : __item.Plan.Amount)</td>
+                                    <td class="numeric">@__item.ReferenceResult</td>
+                                    <td class="numeric">@__item.LastResult</td>
+                                    <td>@__item.Context</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                <h5 class="h-seccion">Acciones</h5>
+                @if (_item.Actions.Length <= 0)
+                {
+                    <div class="text-muted">@emptyMessage</div>
+                }
+                else
+                {
+                    <ul>
+                        @foreach (var __item in _item.Actions)
+                        {
+                            <li>
+                                <h4>@Model.Objective.Index.@_item.Index.@__item.Index @__item.Name</h4>
+                                <h5 class="h-seccion">Indicadores</h5>
+                                @if (__item.Indicators.Length <= 0)
+                                {
+                                    <div class="text-muted">@emptyMessage</div>
+                                }
+                                else
+                                {
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th class="name" rowspan="2">Indicador</th>
+                                                <th rowspan="2">UM</th>
+                                                <th class="numeric" rowspan="2">Meta</th>
+                                                <th colspan="2">Plan</th>
+                                                <th colspan="2">Estado</th>
+                                                <th class="context" rowspan="2">Valoración cualitativa</th>
+                                            </tr>
+                                            <tr>
+                                                <th class="numeric">Período</th>
+                                                <th class="numeric">Meta</th>
+                                                <th class="numeric">Previo</th>
+                                                <th class="numeric">Actual</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var ___item in __item.Indicators)
+                                            {
+                                                <tr>
+                                                    <td>@___item.Name</td>
+                                                    <td style="text-align: center;">@___item.UnitMeasurement.Symbol</td>
+                                                    <td class="numeric">@___item.Amount</td>
+                                                    <td class="datetime">@Html.Raw(___item.Plan == null ? "---" : $"{___item.Plan.Month}/{___item.Plan.Year}")</td>
+                                                    <td class="numeric">@Html.Raw(___item.Plan == null ? "-" : ___item.Plan.Amount)</td>
+                                                    <td class="numeric">@___item.ReferenceResult</td>
+                                                    <td class="numeric">@___item.LastResult</td>
+                                                    <td>@___item.Context</td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                }
+                            </li>
+                        }
+                    </ul>
+                }
+            </li>
+        }
+    </ul>
+}

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<caneyframework_mvvm_pages:BindingContextedContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local_behaviors="clr-namespace:MOROPO.SINETGIAGOB.GovCamaguey.Terminal.UI.Behaviors"
+    xmlns:local_configuration_page_models="clr-namespace:MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Models.Page.Configuration"
+    xmlns:core_models="clr-namespace:MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.Models;assembly=MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI"
+    xmlns:core_ui_converters="clr-namespace:MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Converters;assembly=MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI"
+    xmlns:core_ui_base_pages="clr-namespace:MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Pages.Base;assembly=MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI"
+    xmlns:caneyframework_mvvm_pages="clr-namespace:MOROPO.Framework.Caney.MVVM.Core.Pages;assembly=MOROPO.Framework.Caney.MVVM"
+    x:Class="MOROPO.SINETGIAGOB.GovCamaguey.Terminal.UI.Pages.Configuration.CommonIndicatorResultConfigurationPage"
+    x:TypeArguments="local_configuration_page_models:CommonIndicatorResultConfigurationPageModel"
+    x:DataType="local_configuration_page_models:CommonIndicatorResultConfigurationPageModel"
+    Title="Actualizar indicador"
+    Background="{StaticResource OverlayBackgroundBrush}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <core_ui_converters:ValidationResultToTargetPropertyErrorMessageConverter x:Key="ValidationResultToTargetPropertyErrorMessageConverter" />
+            <core_ui_converters:ValidationResultToTargetPropertyHasErrorConverter x:Key="ValidationResultToTargetPropertyHasErrorConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ScrollView Orientation="Vertical">
+        <Grid>
+            <Grid
+                Padding="10"
+                MaximumWidthRequest="480"
+                VerticalOptions="Center">
+                <Frame Style="{StaticResource PopupFrameStyle}">
+                    <StackLayout Margin="20" Spacing="20">
+                        <VerticalStackLayout Spacing="20">
+                            <Label 
+                                Margin="0,0,0,10"
+                                Text="Actualizar indicador"
+                                FontAttributes="Bold"
+                                FontSize="Medium" />
+                            <VerticalStackLayout Spacing="6">
+                                <Label Style="{StaticResource CaptionFieldLabelStyle}" Text="Indicador" />
+                                <Label Text="{Binding IndicatorName}" />
+                            </VerticalStackLayout>
+                            <VerticalStackLayout Spacing="6">
+                                <Label Style="{StaticResource CaptionFieldLabelStyle}" Text="Candidad" />
+                                <StackLayout Orientation="Horizontal" Spacing="10">
+                                    <Entry 
+                                        HorizontalOptions="FillAndExpand"
+                                        Text="{Binding Amount}" />
+                                    <Label
+                                        VerticalOptions="Center"
+                                        FontAttributes="Bold"
+                                        Text="{Binding IndicatorUnitMeasurement.Symbol}" />
+                                </StackLayout>
+                                <Label
+                                    IsVisible="{Binding ValidationResult, Converter={StaticResource ValidationResultToTargetPropertyHasErrorConverter}, ConverterParameter={Static local_configuration_page_models:CommonIndicatorResultConfigurationPageModel.AmountValidableProperty}}"
+                                    Text="{Binding ValidationResult, Converter={StaticResource ValidationResultToTargetPropertyErrorMessageConverter}, ConverterParameter={Static local_configuration_page_models:CommonIndicatorResultConfigurationPageModel.AmountValidableProperty}}"
+                                    TextColor="IndianRed" />
+                                <Label 
+                                    FontAttributes="Italic"
+                                    TextColor="{AppThemeBinding Dark={StaticResource LightInfoBorder}, Light={StaticResource DarkInfoBorder}}">
+                                    <Label.Behaviors>
+                                        <local_behaviors:DecimalSymbolIdicatotionLabelBehavior />
+                                    </Label.Behaviors>
+                                </Label>
+                            </VerticalStackLayout>
+                            <VerticalStackLayout Spacing="6">
+                                <Label Style="{StaticResource CaptionFieldLabelStyle}" Text="Fecha" />
+                                <DatePicker Date="{Binding At}" MaximumDate="{Static local_configuration_page_models:CommonIndicatorResultConfigurationPageModel.MAX_AT}" />
+                            </VerticalStackLayout>
+                            <VerticalStackLayout Spacing="6">
+                                <Label Style="{StaticResource CaptionFieldLabelStyle}" Text="Descrición (Opcional)" />
+                                <Editor Text="{Binding Description}" HeightRequest="96" />
+                                <Label
+                                    IsVisible="{Binding ValidationResult, Converter={StaticResource ValidationResultToTargetPropertyHasErrorConverter}, ConverterParameter={Static local_configuration_page_models:CommonIndicatorResultConfigurationPageModel.DescriptionValidableProperty}}"
+                                    Text="{Binding ValidationResult, Converter={StaticResource ValidationResultToTargetPropertyErrorMessageConverter}, ConverterParameter={Static local_configuration_page_models:CommonIndicatorResultConfigurationPageModel.DescriptionValidableProperty}}"
+                                    TextColor="IndianRed" />
+                            </VerticalStackLayout>
+                        </VerticalStackLayout>
+                        <StackLayout
+                            Orientation="Horizontal"
+                            Spacing="20">
+                            <Button 
+                                Style="{StaticResource PrimaryKindButtonStyle}"
+                                HorizontalOptions="FillAndExpand"
+                                Text="Aplicar"
+                                Clicked="ApplyButton_Clicked" />
+                            <Button 
+                                HorizontalOptions="FillAndExpand"
+                                Text="Cancelar"
+                                Clicked="DismissButton_Clicked" />
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+                <Button
+                    Style="{StaticResource DetailPageCloseButtonStyle}"
+                    Clicked="DismissButton_Clicked" />
+            </Grid>
+        </Grid>
+    </ScrollView>
+</caneyframework_mvvm_pages:BindingContextedContentPage>

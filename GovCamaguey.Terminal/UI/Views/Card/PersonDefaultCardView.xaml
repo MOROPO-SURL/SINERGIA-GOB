@@ -1,0 +1,51 @@
+<ContentView 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local_constants="clr-namespace:MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Constants"
+    xmlns:core_ui_converters="clr-namespace:MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Converters;assembly=MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI"
+    xmlns:interop_common_display_models="clr-namespace:MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Models.Display;assembly=MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common"
+    xmlns:communitytoolkit_converters="clr-namespace:CommunityToolkit.Maui.Converters;assembly=CommunityToolkit.Maui"
+    x:Class="MOROPO.SINETGIAGOB.GovCamaguey.Terminal.UI.Views.Card.PersonDefaultCardView"
+    x:DataType="interop_common_display_models:PersonDisplayModel">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <core_ui_converters:ImageDisplayModelToImageSourceConverter x:Key="ImageDisplayModelToImageSourceConverter" />
+
+            <communitytoolkit_converters:IsStringNotNullOrEmptyConverter x:Key="IsStringNotNullOrEmptyConverter" />
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <Frame Padding="0">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Image
+                Grid.Column="0" Grid.RowSpan="3"
+                Aspect="AspectFill"
+                WidthRequest="{Binding Source={RelativeSource Mode=Self}, Path=Height}"
+                Source="{Binding Identity.Image, Converter={StaticResource ImageDisplayModelToImageSourceConverter}, TargetNullValue='default_person_picture.jpg'}" />
+            <StackLayout 
+                Grid.Column="1"
+                Padding="10">
+                <Label 
+                    FontAttributes="Bold"
+                    FontSize="Medium"
+                    LineBreakMode="TailTruncation"
+                    Text="{Binding Identity.Name}" />
+                <Label 
+                    IsVisible="{Binding Identity.LastName, Converter={StaticResource IsStringNotNullOrEmptyConverter}}"
+                    FontAttributes="Bold"
+                    LineBreakMode="TailTruncation"
+                    Text="{Binding Identity.LastName}" />
+                <Label 
+                    Margin="0,6,0,0"
+                    Text="{Binding Identity.About}"
+                    TextColor="DimGray"
+                    FontSize="Caption"
+                    LineBreakMode="TailTruncation"
+                    MaxLines="2" />
+            </StackLayout>
+        </Grid>
+    </Frame>
+</ContentView>

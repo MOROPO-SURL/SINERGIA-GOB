@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local_page_models="clr-namespace:MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Models.Page"
+    xmlns:local_card_views="clr-namespace:MOROPO.SINETGIAGOB.GovCamaguey.Terminal.UI.Views.Card"
+    xmlns:interop_common_display_models="clr-namespace:MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Models.Display;assembly=MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common"
+    xmlns:core_models="clr-namespace:MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.Models;assembly=MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI"
+    xmlns:core_ui_converters="clr-namespace:MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Converters;assembly=MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI"
+    xmlns:caneyframework_presentation_views="clr-namespace:MOROPO.Framework.Caney.Presentation.UI.Views;assembly=MOROPO.Framework.Caney.Presentation"
+    xmlns:communitytoolkit_converters="clr-namespace:CommunityToolkit.Maui.Converters;assembly=CommunityToolkit.Maui"
+    x:Class="MOROPO.SINETGIAGOB.GovCamaguey.Terminal.UI.Pages.ObjectiveSummaryPage"
+    x:DataType="local_page_models:ObjectiveSummaryPageModel"
+    Title="Estado de Objetivos">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <core_ui_converters:FlexLayoutItemResponsiveWithConverter x:Key="FlexLayoutItemResponsiveWithConverter" WrapSpacing="8" SingleSpacing="4" />
+
+            <communitytoolkit_converters:IsNotNullConverter x:Key="IsNotNullConverter" />
+            <communitytoolkit_converters:IsNullConverter x:Key="IsNullConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem 
+            Text="Actualizar"
+            Clicked="ReloadToolbarItem_Clicked">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource FontFamily="MaterialDesignIcons" Glyph="&#xF450;" Color="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+        <ToolbarItem 
+            Text="Exportar Actual"
+            IsEnabled="{Binding Objective, Converter={StaticResource IsNotNullConverter}}"
+            Clicked="DownloadCurrentToolbarItems_Clicked">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource FontFamily="MaterialDesignIcons" Glyph="&#xF214;" Color="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+        <ToolbarItem 
+            Text="Exportar Todos"
+            Clicked="DownloadAllToolbarItems_Clicked">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource FontFamily="MaterialDesignIcons" Glyph="&#xF222;" Color="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <Grid>
+        <ScrollView Orientation="Vertical">
+            <VerticalStackLayout Spacing="0" Padding="16">
+                <VerticalStackLayout 
+                    Margin="4"
+                    Spacing="6">
+                    <Label Style="{StaticResource CaptionFieldLabelStyle}" Text="Objetivo" />
+                    <Picker 
+                        x:Name="ObjectivePicker" 
+                        ItemsSource="{Binding AvaialbleObjetives}"
+                        SelectedIndexChanged="ObjectivePicker_SelectedIndexChanged" />
+                </VerticalStackLayout>
+                <Label
+                    IsVisible="{Binding Objective, Converter={StaticResource IsNullConverter}}"
+                    Margin="8"
+                    HorizontalTextAlignment="Center"
+                    TextColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDark}}"
+                    Text="Seleccione un objetivo para detallar su estado ..." />
+                <VerticalStackLayout IsVisible="{Binding Objective, Converter={StaticResource IsNotNullConverter}}">
+                    <FlexLayout 
+                        Margin="0,8"
+                        Wrap="Wrap"
+                        AlignItems="Start" AlignContent="Start">
+                        <VerticalStackLayout 
+                            WidthRequest="{Binding Source={RelativeSource AncestorType={Type FlexLayout}}, Path=Width, Converter={StaticResource FlexLayoutItemResponsiveWithConverter}, ConverterParameter={core_models:ResponsiveColumnConfigurationModel LargeContainerColumn=4, MediumContainerColumn=6, SmallContainerColumn=8}}"
+                            Margin="4"
+                            Spacing="6">
+                            <Label Style="{StaticResource CaptionFieldLabelStyle}" Text="Responsable" />
+                            <ContentView HeightRequest="120">
+                                <local_card_views:PersonDefaultCardView BindingContext="{Binding Objective.Responsible}" />
+                            </ContentView>
+                        </VerticalStackLayout>
+                    </FlexLayout>
+                    <Label 
+                        Style="{StaticResource CaptionFieldLabelStyle}" 
+                        Margin="8,8,8,0" 
+                        Text="Indicadores" />
+                    <BoxView Color="DimGray" Margin="8,4" HeightRequest="1" />
+                    <CollectionView Margin="8,0" ItemsSource="{Binding Objective.Indicators}">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout ItemSpacing="4" Orientation="Vertical" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="interop_common_display_models:ObjectiveIndicatorDisplayModel">
+                                <Frame Padding="16">
+                                    <StackLayout Orientation="Horizontal" Spacing="12">
+                                        <Label 
+                                            HorizontalOptions="FillAndExpand"
+                                            Text="{Binding Name}" />
+                                        <Label>
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span FontAttributes="Bold" Text="Meta: " />
+                                                    <Span Text="{Binding Amount}" />
+                                                    <Span Text=" " />
+                                                    <Span Text="{Binding UnitMeasurement.Symbol}" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <Label 
+                        Style="{StaticResource CaptionFieldLabelStyle}" 
+                        Margin="8,16,8,0" 
+                        Text="Objetivos específicos" />
+                    <BoxView Color="DimGray" Margin="8,4,8,8" HeightRequest="1" />
+                    <CollectionView ItemsSource="{Binding Objective.Proyections}">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout ItemSpacing="4" Orientation="Vertical" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <local_card_views:ProyectionDeepSummaryCardView Padding="8,4" />
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+        </ScrollView>
+        <caneyframework_presentation_views:BusyView IsVisible="{Binding IsBusy}"/>
+    </Grid>
+</ContentPage>

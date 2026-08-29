@@ -1,0 +1,49 @@
+﻿@model MOROPO.Framework.Guama.Location.Presentation.Web.Backend.Models.View.StateDisplayViewModel
+
+@{
+    const string TITLE = "Eliminar Provincia";
+    const string HEADER = "Administración de Provincias";
+
+    ViewData["TITLE"] = TITLE;
+    ViewData["HEADER"] = HEADER;
+
+    ViewData[BreadcrumbViewModel.BREADCRUMBS_MAP_KEY] = new List<BreadcrumbViewModel>
+    {
+        new BreadcrumbViewModel
+        {
+            Caption = "<span class=\"mdi mdi-desktop-mac-dashboard\" style=\"margin-right: 4px;\"></span> Panel de Control",
+            Url = "/"
+        },
+        new BreadcrumbViewModel
+        {
+            Caption = HEADER,
+            Url = Url.Action("index")
+        },
+        new BreadcrumbViewModel
+        {
+            Caption = TITLE
+        }
+    };
+
+    Layout = "_BackendLayout";
+}
+
+<h3>Está seguro que desea eliminar la provincia detallada a continuación?</h3>
+<dl>
+
+    <dt>Nombre</dt>
+    <dd>@Model.Name</dd>
+    <dt>Región</dt>
+    <dd>@Model.Region.Name</dd>
+    <dt>País</dt>
+    <dd>@Model.Region.Country.Name</dd>    
+</dl>
+
+@using (Html.BeginForm("delete", "states", new { Area = "location", key = string.Empty }, FormMethod.Post, true, null))
+{
+    @Html.HiddenFor(model => model.Id)
+    <div>
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+        <a class="btn btn-light" href="@Url.Action("index")">Cancelar</a>
+    </div>
+}
