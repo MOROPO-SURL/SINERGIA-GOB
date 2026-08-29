@@ -427,3 +427,7 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+/GovCamaguey.Web.BackOffice/dpkeys
+/GovCamaguey.Web.BackOffice/.config
+/GovCamaguey.Web.BackOffice/Properties
+/GovCamaguey.Web.BackOffice/wwwroot/media/images
