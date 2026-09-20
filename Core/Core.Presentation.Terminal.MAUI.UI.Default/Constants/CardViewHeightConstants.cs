@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Default.Constants;
+﻿namespace MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.UI.Default.Constants;
 
 public static class CardViewHeightConstants
 {

@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Models.Page.Configuration;
+﻿namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.Models.Page.Configuration;
 
 public class ObjectiveIndicatorMontlyPlanConfigurationPageModel : Contract.AbstractIndicatorMontlyPlanConfigurationPageModel<GovCamaguey.Persistence.Entities.ObjectiveIndicatorMontlyPlan, Interop.API.Common.Models.Input.ObjectiveIndicatorMontlyPlanInputModel>
 {

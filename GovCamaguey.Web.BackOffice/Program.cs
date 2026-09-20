@@ -6,18 +6,18 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using MOROPO.SINETGIAGOB.Core.Presentation.Web.Frontend.Options;
+using MOROPO.SINERGIAGOB.Core.Presentation.Web.Frontend.Options;
 using MOROPO.Framework.Guama.Core.Persistence.Repositories;
 using MOROPO.Framework.Guama.Core.Security.Common.Presentation.Web.Frontend.Extensions;
 using MOROPO.Framework.Guama.Location.Presentation.Web.Common.Extensions;
 using MOROPO.Framework.Guama.Media.Presentation.Web.Common.Extensions;
 using MOROPO.Framework.Guama.Security.Personal.Persistence.ORM.EF.Extensions;
 using MOROPO.Framework.Guama.Security.Personal.Presentation.Web.Backend.Extensions;
-using MOROPO.SINETGIAGOB.GovCamaguey.Persistence.Entities;
-using MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Persistence.ORM.EF.Repositories;
+using MOROPO.SINERGIAGOB.GovCamaguey.Persistence.Entities;
+using MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Persistence.ORM.EF.Repositories;
 using Serilog;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice
 {
     public class Program
     {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.Maui.Controls;
 
-namespace MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Extensions
+namespace MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.UI.Extensions
 {
     public static class ContentPageExtensions
     {

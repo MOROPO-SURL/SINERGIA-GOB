@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Models.Input
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common.Models.Input
 {
     public class ProyectionIndicatorInputModel : Contract.AbstractIndicatorInputModel<GovCamaguey.Persistence.Entities.ProyectionIndicator>
     {

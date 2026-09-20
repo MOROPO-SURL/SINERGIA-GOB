@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.Extensions
+﻿namespace MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.Extensions
 {
     public static class ImageInputModelExtensions
     {

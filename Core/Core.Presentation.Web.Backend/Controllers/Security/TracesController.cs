@@ -2,7 +2,7 @@
 using MOROPO.Framework.Guama.Core.Persistence.ORM.EF.Entities;
 using MOROPO.Framework.Guama.Core.Presentation.Web.Security.Attributes;
 
-namespace MOROPO.SINETGIAGOB.Core.Presentation.Web.Backend.Controllers.Security
+namespace MOROPO.SINERGIAGOB.Core.Presentation.Web.Backend.Controllers.Security
 {
     [Microsoft.AspNetCore.Authorization.Authorize]
     [RequirePermissions(Framework.Guama.Core.Security.Presentation.Constants.Permissions.ShellManager)]

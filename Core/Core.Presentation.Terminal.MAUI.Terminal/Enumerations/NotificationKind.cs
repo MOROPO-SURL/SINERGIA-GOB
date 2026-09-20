@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.Enumerations;
+﻿namespace MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.Enumerations;
 
 public enum NotificationKind
 {

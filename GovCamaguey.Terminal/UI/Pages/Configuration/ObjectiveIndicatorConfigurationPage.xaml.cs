@@ -1,10 +1,10 @@
 using MOROPO.Framework.Caney.MVVM.Core.Extensions;
-using MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Models.Display;
-using MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Models.Input;
+using MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common.Models.Display;
+using MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common.Models.Input;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.UI.Pages.Configuration;
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.UI.Pages.Configuration;
 
 public partial class ObjectiveIndicatorConfigurationPage : Core.Presentation.Terminal.MAUI.UI.Pages.Base.ConfigurationBaseContentPage<ObjectiveIndicatorInputModel, ObjectiveIndicatorInputModel, Models.Page.Configuration.ObjectiveIndicatorConfigurationPageModel>
 {

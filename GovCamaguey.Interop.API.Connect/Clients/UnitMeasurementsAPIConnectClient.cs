@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Connect.Clients
+﻿namespace MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Connect.Clients
 {
     public class UnitMeasurementsAPIConnectClient : Framework.Guama.Core.Presentation.API.Connect.Clients.Contract.AbstractArchivableEnableableEntityManagementAPIConnectClient<GovCamaguey.Persistence.Entities.UnitMeasurement, System.Guid, Common.Models.Input.UnitMeasurementInputModel, Common.Models.Display.UnitMeasurementDisplayModel>
     {

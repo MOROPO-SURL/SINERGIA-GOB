@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.Helpers.Facade
+﻿namespace MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.Helpers.Facade
 {
     public interface IExceptionHandlingHelperFacade
     {

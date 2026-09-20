@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Models.Options;
+﻿namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Models.Options;
 
 public class PdfOptionsModel
 {

@@ -4,8 +4,8 @@
 		<TargetFramework>net8.0</TargetFramework>
 		<Nullable>disable</Nullable>
 		<ImplicitUsings>disable</ImplicitUsings>
-		<AssemblyName>MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice</AssemblyName>
-		<RootNamespace>MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice</RootNamespace>
+		<AssemblyName>MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice</AssemblyName>
+		<RootNamespace>MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice</RootNamespace>
 		<VersionPrefix>1.1.3</VersionPrefix>
 	</PropertyGroup>
 	<ItemGroup>

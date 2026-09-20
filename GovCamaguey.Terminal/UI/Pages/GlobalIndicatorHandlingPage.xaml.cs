@@ -1,11 +1,11 @@
 using Microsoft.Extensions.DependencyInjection;
 using MOROPO.Framework.Caney.MVVM.Core.Extensions;
-using MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Extensions;
-using MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Factories;
+using MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.UI.Extensions;
+using MOROPO.SINERGIAGOB.GovCamaguey.Terminal.Factories;
 using System.Linq;
 using static SkiaSharp.HarfBuzz.SKShaper;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.UI.Pages;
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.UI.Pages;
 
 public partial class GlobalIndicatorHandlingPage : Microsoft.Maui.Controls.ContentPage
 {

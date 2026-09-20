@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.Models.Page
+﻿namespace MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.Models.Page
 {
 	public class MainPageModel : Framework.Caney.MVVM.Core.Models.Page.BasePageModel
 	{

@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.GovCamaguey.Persistence.Entities
+﻿namespace MOROPO.SINERGIAGOB.GovCamaguey.Persistence.Entities
 {
     public class ProyectionMonthlyClosure : Framework.Guama.Core.Persistence.Entities.Contract.IEntity<System.Guid>
     {

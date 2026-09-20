@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.Core.Interop.API.Common.Models
+﻿namespace MOROPO.SINERGIAGOB.Core.Interop.API.Common.Models
 {
     public class AuthenticationIntentModel
     {

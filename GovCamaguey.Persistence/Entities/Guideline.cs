@@ -1,6 +1,6 @@
 ﻿using MOROPO.Framework.Guama.Core.Persistence.Entities.Contract;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Persistence.Entities
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Persistence.Entities
 {
     public class Guideline : INamedEntity<System.Guid>, IArchivableEntity<System.Guid>, IEnableableEntity<System.Guid>
     {

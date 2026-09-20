@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Models
+﻿namespace MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common.Models
 {
     public sealed class CurrentTerminalReleaseDetailModel
     {

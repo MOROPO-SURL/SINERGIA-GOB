@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Behaviors;
+﻿namespace MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.UI.Behaviors;
 
 public sealed class DecimalSymbolIdicatotionLabelBehavior : Microsoft.Maui.Controls.Behavior<Microsoft.Maui.Controls.Label>
 {

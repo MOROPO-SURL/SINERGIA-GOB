@@ -1,4 +1,4 @@
-namespace MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Default.Views.Card;
+namespace MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.UI.Default.Views.Card;
 
 public partial class UserDefaultCardView : Microsoft.Maui.Controls.ContentView
 {

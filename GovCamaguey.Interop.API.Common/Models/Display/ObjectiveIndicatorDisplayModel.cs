@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Models.Display
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common.Models.Display
 {
     public class ObjectiveIndicatorDisplayModel : Contract.AbstractIndicatorDisplayModel<GovCamaguey.Persistence.Entities.ObjectiveIndicator>
     {

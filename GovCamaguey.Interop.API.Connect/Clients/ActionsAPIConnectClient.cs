@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Connect.Clients
+﻿namespace MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Connect.Clients
 {
     public class ActionsAPIConnectClient : Framework.Guama.Core.Presentation.API.Connect.Clients.Contract.AbstractArchivableEntityManagementAPIConnectClient<GovCamaguey.Persistence.Entities.Action, System.Guid, Common.Models.Input.ActionInputModel, Common.Models.Display.ActionDisplayModel>
     {

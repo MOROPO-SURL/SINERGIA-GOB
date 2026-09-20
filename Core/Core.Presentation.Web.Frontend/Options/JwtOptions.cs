@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.Core.Presentation.Web.Frontend.Options
+﻿namespace MOROPO.SINERGIAGOB.Core.Presentation.Web.Frontend.Options
 {
     public class JwtOptions
     {

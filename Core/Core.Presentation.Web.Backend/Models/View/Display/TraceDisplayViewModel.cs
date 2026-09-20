@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.Core.Presentation.Web.Backend.Models.View.Display
+﻿namespace MOROPO.SINERGIAGOB.Core.Presentation.Web.Backend.Models.View.Display
 {
     public class TraceDisplayViewModel : Framework.Guama.Core.Persistence.Presentation.Models.Contract.IEntityDisplayModel<Framework.Guama.Core.Persistence.ORM.EF.Entities.Trace, long>
     {

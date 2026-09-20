@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Models.Display
+﻿namespace MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common.Models.Display
 {
     public class GuidelineDisplayModel : Framework.Guama.Core.Persistence.Presentation.Models.Contract.IEntityDisplayModel<GovCamaguey.Persistence.Entities.Guideline, System.Guid>
     {

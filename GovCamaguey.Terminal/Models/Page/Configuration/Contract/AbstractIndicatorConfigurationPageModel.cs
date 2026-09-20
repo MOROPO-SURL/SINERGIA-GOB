@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Models.Page.Configuration.Contract;
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.Models.Page.Configuration.Contract;
 
 public abstract class AbstractIndicatorConfigurationPageModel<TIndicatorEntity, TIndicatorInputModel, TIndicatorMontlyPlanEntity, TIndicatorMontlyPlanDisplayModel> : Core.Presentation.Terminal.MAUI.Models.Page.Contract.AbstractConfigurationPageModel<TIndicatorInputModel>
     where TIndicatorEntity : GovCamaguey.Persistence.Entities.Contract.AbstractIndicator

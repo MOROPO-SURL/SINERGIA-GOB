@@ -1,6 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.UI.Pages.Configuration;
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.UI.Pages.Configuration;
 
 public partial class UnitMeasurementConfigurationPage : Core.Presentation.Terminal.MAUI.UI.Pages.Base.ConfigurationBaseContentPage<Interop.API.Common.Models.Display.UnitMeasurementDisplayModel, Interop.API.Common.Models.Display.UnitMeasurementDisplayModel, Models.Page.Configuration.UnitMeasurementConfigurationPageModel>
 {

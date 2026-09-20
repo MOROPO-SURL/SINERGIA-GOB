@@ -1,4 +1,4 @@
-namespace MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Default.Pages.Configuration;
+namespace MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.UI.Default.Pages.Configuration;
 
 public partial class WebContactItemConfigurationPage : UI.Pages.Base.ConfigurationBaseContentPage<Interop.API.Common.Models.Display.WebContactItemDisplayModel, Interop.API.Common.Models.Display.WebContactItemDisplayModel, Models.Page.Configuration.WebContactItemConfigurationPageModel>
 {

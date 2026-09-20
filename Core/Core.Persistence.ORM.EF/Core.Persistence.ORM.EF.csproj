@@ -2,8 +2,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<TargetFramework>net8</TargetFramework>
-		<AssemblyName>MOROPO.SINETGIAGOB.Core.Persistence.ORM.EF</AssemblyName>
-		<RootNamespace>MOROPO.SINETGIAGOB.Core.Persistence.ORM.EF</RootNamespace>
+		<AssemblyName>MOROPO.SINERGIAGOB.Core.Persistence.ORM.EF</AssemblyName>
+		<RootNamespace>MOROPO.SINERGIAGOB.Core.Persistence.ORM.EF</RootNamespace>
 	</PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="7.0.4" />

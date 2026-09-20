@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using MOROPO.Framework.Caney.MVVM.Core.Extensions;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.UI.Shells
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.UI.Shells
 {
     public partial class AppShell : Microsoft.Maui.Controls.Shell
     {

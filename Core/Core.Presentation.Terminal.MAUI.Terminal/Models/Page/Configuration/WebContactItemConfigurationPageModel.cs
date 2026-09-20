@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.Models.Page.Configuration
+﻿namespace MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.Models.Page.Configuration
 {
     public class WebContactItemConfigurationPageModel : Contract.AbstractConfigurationPageModel<Interop.API.Common.Models.Display.WebContactItemDisplayModel>
     {

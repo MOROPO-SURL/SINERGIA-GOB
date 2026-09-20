@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Persistence.ORM.EF.Migrations
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Persistence.ORM.EF.Migrations
 {
     /// <inheritdoc />
     public partial class ReplaceTargetPriorityByIndexSchemaMigration : Migration

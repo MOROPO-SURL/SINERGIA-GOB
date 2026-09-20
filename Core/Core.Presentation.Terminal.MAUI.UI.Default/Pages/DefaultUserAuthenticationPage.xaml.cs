@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using MOROPO.Framework.Caney.MVVM.Core.Extensions;
-using MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Extensions;
+using MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.UI.Extensions;
 
-namespace MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Default.Pages;
+namespace MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.UI.Default.Pages;
 
 public partial class DefaultUserAuthenticationPage : Framework.Caney.MVVM.Core.Pages.BindingContextedContentPage<Models.Page.UserAuthenticationPageModel>
 {

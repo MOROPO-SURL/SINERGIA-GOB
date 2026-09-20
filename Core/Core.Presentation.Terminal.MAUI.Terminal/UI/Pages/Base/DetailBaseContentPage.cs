@@ -1,6 +1,6 @@
 ﻿using MOROPO.Framework.Caney.MVVM.Core.Extensions;
 
-namespace MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Pages.Base
+namespace MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.UI.Pages.Base
 {
     public class DetailBaseContentPage<TModel> : Framework.Caney.MVVM.Core.Pages.ContentPage where TModel : class
     {

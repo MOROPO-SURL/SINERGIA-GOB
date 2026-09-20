@@ -1,6 +1,6 @@
-using MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Models.Input;
+using MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common.Models.Input;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.UI.Pages.Configuration;
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.UI.Pages.Configuration;
 
 public partial class ActionIndicatorMontlyPlanConfigurationPage : Core.Presentation.Terminal.MAUI.UI.Pages.Base.ConfigurationBaseContentPage<ActionIndicatorMontlyPlanInputModel, ActionIndicatorMontlyPlanInputModel, Models.Page.Configuration.ActionIndicatorMontlyPlanConfigurationPageModel>
 {

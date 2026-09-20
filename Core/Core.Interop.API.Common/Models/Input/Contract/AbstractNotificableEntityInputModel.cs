@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.Core.Interop.API.Common.Models.Input.Contract
+﻿namespace MOROPO.SINERGIAGOB.Core.Interop.API.Common.Models.Input.Contract
 {
     public abstract class AbstractNotificableEntityInputModel<TEntity, TId> : Framework.Guama.Core.Persistence.Presentation.Models.Contract.IEntityInputModel<TEntity, TId> where TEntity : class, Framework.Guama.Core.Persistence.Entities.Contract.IEntity<TId>
     {

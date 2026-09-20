@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.Core.Interop.API.Common.Models.Input
+﻿namespace MOROPO.SINERGIAGOB.Core.Interop.API.Common.Models.Input
 {
     public class DocumentInputModel : Framework.Guama.Core.Persistence.Presentation.Models.Contract.IEntityInputModel<Framework.Guama.Media.Persistence.Entities.Document, System.Guid>
     {

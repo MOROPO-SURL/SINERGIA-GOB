@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Models.View.Contract;
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Models.View.Contract;
 
 public abstract class AbstractProyectionViewModel
 {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MOROPO.SINETGIAGOB.Core.Interop.API.Common.Models.Display
+namespace MOROPO.SINERGIAGOB.Core.Interop.API.Common.Models.Display
 {
     public class MunicipalityDisplayModel : Framework.Guama.Core.Persistence.Presentation.Models.Contract.IEntityDisplayModel<Framework.Guama.Location.Persistence.Entities.Municipality, System.Guid>
     {

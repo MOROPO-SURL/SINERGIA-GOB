@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Controllers;
+﻿namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Controllers;
 
 public class StartController : Microsoft.AspNetCore.Mvc.Controller
 {

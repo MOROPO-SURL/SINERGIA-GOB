@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Constants.Security
+﻿namespace MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common.Constants.Security
 {
     public static class Authorization
     {

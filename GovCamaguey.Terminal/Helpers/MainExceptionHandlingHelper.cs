@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Helpers
+﻿namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.Helpers
 {
     public class MainExceptionHandlingHelper : Core.Presentation.Terminal.MAUI.Helpers.Facade.IExceptionHandlingHelperFacade
     {

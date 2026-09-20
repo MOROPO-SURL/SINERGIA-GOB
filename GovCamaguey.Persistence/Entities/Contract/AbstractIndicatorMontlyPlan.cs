@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.GovCamaguey.Persistence.Entities.Contract
+﻿namespace MOROPO.SINERGIAGOB.GovCamaguey.Persistence.Entities.Contract
 {
     [System.ComponentModel.DataAnnotations.Schema.NotMapped]
     public abstract class AbstractIndicatorMontlyPlan : Framework.Guama.Core.Persistence.Entities.Contract.IEntity<System.Guid>

@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Models.Page.Configuration;
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.Models.Page.Configuration;
 
 public class ActionIndicatorConfigurationPageModel : Contract.AbstractIndicatorConfigurationPageModel<GovCamaguey.Persistence.Entities.ActionIndicator, Interop.API.Common.Models.Input.ActionIndicatorInputModel, GovCamaguey.Persistence.Entities.ActionIndicatorMontlyPlan, Interop.API.Common.Models.Display.ActionIndicatorMontlyPlanDisplayModel>
 {

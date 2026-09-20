@@ -2,7 +2,7 @@ using Microsoft.Extensions.DependencyInjection;
 using MOROPO.Framework.Caney.MVVM.Core.Extensions;
 using System.Linq;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.UI.Pages.Pick;
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.UI.Pages.Pick;
 
 public partial class GuidelinePickPage : Core.Presentation.Terminal.MAUI.UI.Pages.Base.ListBaseContentPage<Interop.API.Common.Models.Display.GuidelineDisplayModel, Models.Page.Pick.GuidelinePickPageModel>
 {

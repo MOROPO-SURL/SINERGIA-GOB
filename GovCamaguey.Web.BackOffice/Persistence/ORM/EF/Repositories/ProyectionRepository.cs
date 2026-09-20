@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Persistence.ORM.EF.Repositories;
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Persistence.ORM.EF.Repositories;
 
 public class ProyectionRepository : Framework.Guama.Core.Persistence.ORM.EF.Repositories.Contract.AbstractEntityRepository<GovCamaguey.Persistence.Entities.Proyection, System.Guid>
 {
@@ -14,6 +14,7 @@ public class ProyectionRepository : Framework.Guama.Core.Persistence.ORM.EF.Repo
             //.AsNoTracking()
             .AsSplitQuery()
             .Include(entity => entity.Objective)
+            .Include(entity => entity.MonthlyClosures)
             .Include(entity => entity.GuidelineBridges).ThenInclude(bridge => bridge.Stern)
             .Include(entity => entity.OrganizationResponsabilityBridges).ThenInclude(bridge => bridge.Stern).ThenInclude(entity => entity.Identity).ThenInclude(entity => entity.Image)
             .Include(entity => entity.OrganizationParticipationBridges).ThenInclude(bridge => bridge.Stern).ThenInclude(entity => entity.Identity).ThenInclude(entity => entity.Image)

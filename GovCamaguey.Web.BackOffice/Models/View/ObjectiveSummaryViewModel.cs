@@ -1,7 +1,7 @@
-﻿using MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Models.View.Contract;
+﻿using MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Models.View.Contract;
 using System.Linq;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Models.View;
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Models.View;
 
 public class ObjectiveSummaryViewModel : AbstractObjectiveViewModel
 {

@@ -2,9 +2,9 @@
 <ContentView 
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local_view_models="clr-namespace:MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Models.View"
-    xmlns:local_card_views="clr-namespace:MOROPO.SINETGIAGOB.GovCamaguey.Terminal.UI.Views.Card"
-    x:Class="MOROPO.SINETGIAGOB.GovCamaguey.Terminal.UI.Views.Card.ProyectionDeepHandlingCardView"
+    xmlns:local_view_models="clr-namespace:MOROPO.SINERGIAGOB.GovCamaguey.Terminal.Models.View"
+    xmlns:local_card_views="clr-namespace:MOROPO.SINERGIAGOB.GovCamaguey.Terminal.UI.Views.Card"
+    x:Class="MOROPO.SINERGIAGOB.GovCamaguey.Terminal.UI.Views.Card.ProyectionDeepHandlingCardView"
     x:DataType="local_view_models:ProyectionIndicatorHandlingViewModel">
     <Frame>
         <VerticalStackLayout>

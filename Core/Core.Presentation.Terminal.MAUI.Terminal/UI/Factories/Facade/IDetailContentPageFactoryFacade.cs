@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Factories.Facade
+﻿namespace MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.UI.Factories.Facade
 {
     public interface IDetailContentPageFactoryFacade<TModel> where TModel : class 
     {

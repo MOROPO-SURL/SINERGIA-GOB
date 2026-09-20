@@ -1,7 +1,7 @@
-﻿using MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Models.Display;
+﻿using MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common.Models.Display;
 using System.Collections.Generic;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Models.Input
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common.Models.Input
 {
     public class ActionInputModel : Framework.Guama.Core.Persistence.Presentation.Models.Contract.IEntityInputModel<GovCamaguey.Persistence.Entities.Action, System.Guid>
     {

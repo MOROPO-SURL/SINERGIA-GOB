@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Services.Contract;
+using MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Services.Contract;
 using System.IO;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Services;
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Services;
 
 internal class WkhtmltopdfHtmlToPdfService : IHtmlToPdfService
 {

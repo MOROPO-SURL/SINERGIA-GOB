@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Models.View
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Models.View
 {
     public class ManagementHomeViewModel
     {

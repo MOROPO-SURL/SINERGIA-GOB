@@ -1,9 +1,9 @@
 using Microsoft.Extensions.DependencyInjection;
 using MOROPO.Framework.Caney.MVVM.Core.Extensions;
-using MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Models.Display;
-using MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Models.Page.Pick;
+using MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common.Models.Display;
+using MOROPO.SINERGIAGOB.GovCamaguey.Terminal.Models.Page.Pick;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.UI.Pages.Pick;
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.UI.Pages.Pick;
 
 public partial class PersonPickPage : Core.Presentation.Terminal.MAUI.UI.Pages.Base.ListBaseContentPage<PersonDisplayModel, PersonPickPageModel>
 {

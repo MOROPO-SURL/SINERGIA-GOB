@@ -15,8 +15,8 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
-		<RootNamespace>MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Default</RootNamespace>
-		<AssemblyName>MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Default</AssemblyName>
+		<RootNamespace>MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.UI.Default</RootNamespace>
+		<AssemblyName>MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.UI.Default</AssemblyName>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-ios|AnyCPU'">
 		<CreatePackage>false</CreatePackage>

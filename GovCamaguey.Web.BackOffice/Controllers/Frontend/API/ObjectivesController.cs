@@ -3,12 +3,12 @@ using MOROPO.Framework.Guama.Core.Persistence.Repositories;
 using MOROPO.Framework.Guama.Core.Presentation.Models;
 using MOROPO.Framework.Guama.Core.Presentation.Web.Security.Attributes;
 using MOROPO.Framework.Guama.Security.Personal.Persistence.Entities;
-using MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Models.Display;
-using MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Models.Input;
-using MOROPO.SINETGIAGOB.GovCamaguey.Persistence.Entities;
+using MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common.Models.Display;
+using MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common.Models.Input;
+using MOROPO.SINERGIAGOB.GovCamaguey.Persistence.Entities;
 using System.Linq;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Controllers.Frontend.API;
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Controllers.Frontend.API;
 
 [Microsoft.AspNetCore.Authorization.Authorize(AuthenticationSchemes = Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerDefaults.AuthenticationScheme)]
 [Route("api/governance/[controller]")]
@@ -18,6 +18,7 @@ public class ObjectivesController : Framework.Guama.Core.Presentation.Web.API.Co
     private readonly IEntityRepository<Proyection, System.Guid> proyectionRepository;
     private readonly IEntityRepository<ProyectionIndicator, System.Guid> proyectionIndicatorRepository;
     private readonly IEntityRepository<ProyectionIndicatorMontlyPlan, System.Guid> proyectionIndicatorMontlyPlanRepository;
+    private readonly IEntityRepository<ProyectionMonthlyClosure, System.Guid> proyectionMonthlyClosureRepository;
     private readonly IEntityRepository<Action, System.Guid> actionRepository;
     private readonly IEntityRepository<ActionMonthlyClosure, System.Guid> actionMonthlyClosureRepository;
     private readonly IEntityRepository<ActionIndicator, System.Guid> actionIndicatorRepository;
@@ -38,6 +39,7 @@ public class ObjectivesController : Framework.Guama.Core.Presentation.Web.API.Co
         IEntityRepository<ActionIndicator, System.Guid> actionIndicatorRepository,
         IEntityRepository<ActionMonthlyClosure, System.Guid> actionMonthlyClosureRepository,
         IEntityRepository<Action, System.Guid> actionRepository,
+        IEntityRepository<ProyectionMonthlyClosure, System.Guid> proyectionMonthlyClosureRepository,
         IEntityRepository<ProyectionIndicatorMontlyPlan, System.Guid> proyectionIndicatorMontlyPlanRepository,
         IEntityRepository<ProyectionIndicator, System.Guid> proyectionIndicatorRepository,
         IEntityRepository<Proyection, System.Guid> proyectionRepository,
@@ -58,6 +60,7 @@ public class ObjectivesController : Framework.Guama.Core.Presentation.Web.API.Co
         this.objectiveUserBridgeRepository = objectiveUserBridgeRepository;
         this.proyectionUserBridgeRepository = proyectionUserBridgeRepository;
         this.actionUserBridgeRepository = actionUserBridgeRepository;
+        this.proyectionMonthlyClosureRepository = proyectionMonthlyClosureRepository;
     }
 
     protected override System.Linq.Expressions.Expression<System.Func<Objective, bool>> GetGlobalSelector()
@@ -339,6 +342,15 @@ public class ObjectivesController : Framework.Guama.Core.Presentation.Web.API.Co
 
             ExtendCreate(_entity, _model);
         }
+
+        foreach (var _model in model.IncomingMonthlyClosures)
+        {
+            var _entity = _model.Export();
+
+            _entity.ProyectionId = entity.Id;
+
+            proyectionMonthlyClosureRepository.Add(_entity, User.Identity.Name, false);
+        }
     }
 
     protected void ExtendEdit(Proyection entity, ProyectionInputModel model)
@@ -407,6 +419,31 @@ public class ObjectivesController : Framework.Guama.Core.Presentation.Web.API.Co
             actionRepository.Add(_entity, User.Identity.Name, false);
 
             ExtendCreate(_entity, _model);
+        }
+
+        foreach (var _model in model.OutgoingMonthlyClosures)
+        {
+            var _entity = entity.MonthlyClosures.First(bridge => bridge.Id == _model.Id);
+
+            proyectionMonthlyClosureRepository.Delete(_entity, User.Identity.Name, false);
+        }
+
+        foreach (var _model in model.EditionMonthlyClosures)
+        {
+            var _entity = entity.MonthlyClosures.First(bridge => bridge.Id == _model.Id);
+
+            _model.Mergue(_entity);
+
+            proyectionMonthlyClosureRepository.Update(_entity, User.Identity.Name, false);
+        }
+
+        foreach (var _model in model.IncomingMonthlyClosures)
+        {
+            var _entity = _model.Export();
+
+            _entity.ProyectionId = entity.Id;
+
+            proyectionMonthlyClosureRepository.Add(_entity, User.Identity.Name, false);
         }
     }
 

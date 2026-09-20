@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
-using MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Models.Page.Configuration;
+using MOROPO.SINERGIAGOB.GovCamaguey.Terminal.Models.Page.Configuration;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Validators;
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.Validators;
 
 public sealed class CommonIndicatorResultConfigurationValidator : AbstractValidator<CommonIndicatorResultConfigurationPageModel>
 {

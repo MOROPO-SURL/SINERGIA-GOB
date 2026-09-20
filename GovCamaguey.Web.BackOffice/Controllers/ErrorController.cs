@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Controllers;
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Controllers;
 
 public class ErrorController : Framework.Guama.Core.Presentation.Web.Common.Controllers.BaseWebController
 {

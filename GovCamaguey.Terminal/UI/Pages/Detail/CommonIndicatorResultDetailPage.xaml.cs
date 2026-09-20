@@ -1,4 +1,4 @@
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.UI.Pages.Detail;
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.UI.Pages.Detail;
 
 public partial class CommonIndicatorResultDetailPage : Core.Presentation.Terminal.MAUI.UI.Pages.Base.DetailBaseContentPage<Models.Data.CommonIndicatorResultDataModel>
 {

@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Models.Display
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common.Models.Display
 {
     public class ObjectiveDisplayModel : Framework.Guama.Core.Persistence.Presentation.Models.Contract.IEntityDisplayModel<GovCamaguey.Persistence.Entities.Objective, System.Guid>, Contract.IModerableModel
     {

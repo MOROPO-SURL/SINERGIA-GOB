@@ -1,10 +1,10 @@
-﻿using MOROPO.SINETGIAGOB.Core.Interop.API.Common.Models.Display;
-using MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.Extensions;
+﻿using MOROPO.SINERGIAGOB.Core.Interop.API.Common.Models.Display;
+using MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.Extensions;
 using MOROPO.Framework.Guama.Identity.Persistence.Enumerations;
-using MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Models.Display;
+using MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common.Models.Display;
 using System.Collections.ObjectModel;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Models.Page.Configuration
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.Models.Page.Configuration
 {
     public class PersonConfigurationPageModel : Core.Presentation.Terminal.MAUI.Models.Page.Contract.AbstractConfigurationPageModel<PersonDisplayModel>
     {

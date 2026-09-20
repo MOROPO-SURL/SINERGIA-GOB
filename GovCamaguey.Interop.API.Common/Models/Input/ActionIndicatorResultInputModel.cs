@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Models.Input
+﻿namespace MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common.Models.Input
 {
     public class ActionIndicatorResultInputModel : Contract.AbstractIndicatorResultInputModel<GovCamaguey.Persistence.Entities.ActionIndicatorResult>
     {

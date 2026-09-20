@@ -1,12 +1,12 @@
 using Microsoft.Extensions.DependencyInjection;
 using MOROPO.Framework.Caney.MVVM.Core.Extensions;
-using MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Extensions;
-using MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Models.Display;
-using MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Models.Input;
+using MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.UI.Extensions;
+using MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common.Models.Display;
+using MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common.Models.Input;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.UI.Pages.Configuration;
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.UI.Pages.Configuration;
 
 public partial class ObjectiveConfigurationPage : Core.Presentation.Terminal.MAUI.UI.Pages.Base.ConfigurationBaseContentPage<ObjectiveDisplayModel, ObjectiveDisplayModel, Models.Page.Configuration.ObjectiveConfigurationPageModel>
 {
@@ -342,7 +342,7 @@ public partial class ObjectiveConfigurationPage : Core.Presentation.Terminal.MAU
             ParticipationOrganizations = target.ParticipationOrganizations
         };
         
-        this.NavigationPushPageAsync(new ProyectionConfigurationPage(ProyectionEditSuccess_Callback, new Models.Page.Configuration.ProyectionConfigurationPageModel(model, target.Indicators, target.Actions), model.EditionIndicators, model.IncomingIndicators, model.OutgoingIndicators, model.EditionActions, model.IncomingActions, model.OutgoingActions));
+        this.NavigationPushPageAsync(new ProyectionConfigurationPage(ProyectionEditSuccess_Callback, new Models.Page.Configuration.ProyectionConfigurationPageModel(model, target.Indicators, target.Actions, target.MonthlyClosures), model.EditionIndicators, model.IncomingIndicators, model.OutgoingIndicators, model.EditionActions, model.IncomingActions, model.OutgoingActions, model.EditionMonthlyClosures, model.IncomingMonthlyClosures, model.OutgoingMonthlyClosures));
     }
 
     private bool IsPermissionByPassForChildModeration(ProyectionDisplayModel target, Core.Interop.API.Common.Models.Display.UserDisplayModel user)

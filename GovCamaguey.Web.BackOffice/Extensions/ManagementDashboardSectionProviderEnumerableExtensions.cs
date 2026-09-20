@@ -1,7 +1,7 @@
 ﻿using MOROPO.Framework.Guama.Core.Presentation.Web.Backend.Models.View;
 using System.Collections.Generic;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Extensions
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Extensions
 {
     public static class ManagementDashboardSectionProviderEnumerableExtensions
     {

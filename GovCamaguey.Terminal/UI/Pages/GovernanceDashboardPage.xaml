@@ -2,16 +2,16 @@
 <ContentPage 
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local_page_models="clr-namespace:MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Models.Page"
-    xmlns:local_view_models="clr-namespace:MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Models.View"
-    xmlns:fwrk_core_models="clr-namespace:MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.Models;assembly=MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI"
-    xmlns:fwrk_core_ui_converters="clr-namespace:MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Converters;assembly=MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI"
+    xmlns:local_page_models="clr-namespace:MOROPO.SINERGIAGOB.GovCamaguey.Terminal.Models.Page"
+    xmlns:local_view_models="clr-namespace:MOROPO.SINERGIAGOB.GovCamaguey.Terminal.Models.View"
+    xmlns:fwrk_core_models="clr-namespace:MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.Models;assembly=MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI"
+    xmlns:fwrk_core_ui_converters="clr-namespace:MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.UI.Converters;assembly=MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI"
     xmlns:caneyframework_presentation_views="clr-namespace:MOROPO.Framework.Caney.Presentation.UI.Views;assembly=MOROPO.Framework.Caney.Presentation"
     xmlns:live_charts_controls="clr-namespace:LiveChartsCore.SkiaSharpView.Maui;assembly=LiveChartsCore.SkiaSharpView.Maui"
     xmlns:live_charts_core_skiasharpview_painting="clr-namespace:LiveChartsCore.SkiaSharpView.Painting;assembly=LiveChartsCore.SkiaSharpView"
     xmlns:live_charts_core_skiasharpview_draw="clr-namespace:LiveChartsCore.SkiaSharpView.SKCharts;assembly=LiveChartsCore.SkiaSharpView"
     xmlns:communitytoolkit_converters="clr-namespace:CommunityToolkit.Maui.Converters;assembly=CommunityToolkit.Maui"
-    x:Class="MOROPO.SINETGIAGOB.GovCamaguey.Terminal.UI.Pages.GovernanceDashboardPage"
+    x:Class="MOROPO.SINERGIAGOB.GovCamaguey.Terminal.UI.Pages.GovernanceDashboardPage"
     x:DataType="local_page_models:GovernanceDashboardPageModel"
     Title="Panel de Control">
     <ContentPage.Resources>

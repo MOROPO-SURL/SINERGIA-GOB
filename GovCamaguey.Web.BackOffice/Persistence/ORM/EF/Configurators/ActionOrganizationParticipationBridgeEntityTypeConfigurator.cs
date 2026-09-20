@@ -1,6 +1,6 @@
-﻿using MOROPO.SINETGIAGOB.GovCamaguey.Persistence.Entities;
+﻿using MOROPO.SINERGIAGOB.GovCamaguey.Persistence.Entities;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Persistence.ORM.EF.Configurators;
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Persistence.ORM.EF.Configurators;
 
 public class ActionOrganizationParticipationBridgeEntityTypeConfigurator : Framework.Guama.Core.Persistence.ORM.EF.Configurators.Contract.AbstractBridgeEntityTypeConfigurator<ActionOrganizationParticipationBridge, Action, System.Guid, Organization, System.Guid>
 {

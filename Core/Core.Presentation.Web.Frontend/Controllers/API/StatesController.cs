@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.Core.Presentation.Web.Frontend.Controllers.API
+﻿namespace MOROPO.SINERGIAGOB.Core.Presentation.Web.Frontend.Controllers.API
 {
     [Microsoft.AspNetCore.Mvc.Route("api/fwrk/[controller]")]
     [Microsoft.AspNetCore.Mvc.ApiController]

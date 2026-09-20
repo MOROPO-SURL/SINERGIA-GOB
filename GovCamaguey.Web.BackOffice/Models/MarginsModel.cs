@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Models;
+﻿namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Models;
 
 public class MarginsModel
 {

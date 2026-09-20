@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Converters;
+namespace MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.UI.Converters;
 
 public class StringToLocalizedStringConverter : Microsoft.Maui.Controls.IValueConverter
 {

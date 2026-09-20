@@ -2,7 +2,7 @@ using Microsoft.Extensions.DependencyInjection;
 using MOROPO.Framework.Caney.MVVM.Core.Extensions;
 using System.Linq;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.UI.Views.Card;
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.UI.Views.Card;
 
 public partial class ProyectionIndicatorDeepHandlingCardView : Microsoft.Maui.Controls.ContentView
 {

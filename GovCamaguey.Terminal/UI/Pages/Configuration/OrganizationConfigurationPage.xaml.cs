@@ -1,12 +1,12 @@
 using Microsoft.Extensions.DependencyInjection;
 using MOROPO.Framework.Caney.MVVM.Core.Extensions;
-using MOROPO.SINETGIAGOB.Core.Interop.API.Common.Models.Display;
-using MOROPO.SINETGIAGOB.Core.Interop.API.Common.Models.Input;
-using MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Models.Display;
+using MOROPO.SINERGIAGOB.Core.Interop.API.Common.Models.Display;
+using MOROPO.SINERGIAGOB.Core.Interop.API.Common.Models.Input;
+using MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common.Models.Display;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.UI.Pages.Configuration;
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.UI.Pages.Configuration;
 
 public partial class OrganizationConfigurationPage : Core.Presentation.Terminal.MAUI.UI.Pages.Base.ConfigurationBaseContentPage<OrganizationDisplayModel, OrganizationDisplayModel, Models.Page.Configuration.OrganizationConfigurationPageModel>
 {

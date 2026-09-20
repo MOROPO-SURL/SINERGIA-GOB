@@ -1,12 +1,12 @@
 <core_ui_base_pages:ConfigurationBaseContentPage 
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:presentation_configuration_page_models="clr-namespace:MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.Models.Page.Configuration;assembly=MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI"
-    xmlns:core_ui_base_pages="clr-namespace:MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Pages.Base;assembly=MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI"
-    xmlns:core_ui_converters="clr-namespace:MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Converters;assembly=MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI"
-    xmlns:core_models="clr-namespace:MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.Models;assembly=MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI"
-    xmlns:interop_common_display_models="clr-namespace:MOROPO.SINETGIAGOB.Core.Interop.API.Common.Models.Display;assembly=MOROPO.SINETGIAGOB.Core.Interop.API.Common"
-    x:Class="MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Default.Pages.Configuration.WebContactItemConfigurationPage"
+    xmlns:presentation_configuration_page_models="clr-namespace:MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.Models.Page.Configuration;assembly=MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI"
+    xmlns:core_ui_base_pages="clr-namespace:MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.UI.Pages.Base;assembly=MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI"
+    xmlns:core_ui_converters="clr-namespace:MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.UI.Converters;assembly=MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI"
+    xmlns:core_models="clr-namespace:MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.Models;assembly=MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI"
+    xmlns:interop_common_display_models="clr-namespace:MOROPO.SINERGIAGOB.Core.Interop.API.Common.Models.Display;assembly=MOROPO.SINERGIAGOB.Core.Interop.API.Common"
+    x:Class="MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.UI.Default.Pages.Configuration.WebContactItemConfigurationPage"
     x:TypeArguments="interop_common_display_models:WebContactItemDisplayModel,interop_common_display_models:WebContactItemDisplayModel,presentation_configuration_page_models:WebContactItemConfigurationPageModel"
     x:DataType="presentation_configuration_page_models:WebContactItemConfigurationPageModel">
     <ContentPage.Resources>

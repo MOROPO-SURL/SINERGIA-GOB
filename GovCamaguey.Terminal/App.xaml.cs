@@ -1,7 +1,7 @@
 ﻿using LiveChartsCore.Drawing;
 using LiveChartsCore.Kernel;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal;
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal;
 
 public partial class App : Microsoft.Maui.Controls.Application
 {

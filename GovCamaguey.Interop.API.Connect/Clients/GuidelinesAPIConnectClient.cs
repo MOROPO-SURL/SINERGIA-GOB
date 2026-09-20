@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Connect.Clients
+﻿namespace MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Connect.Clients
 {
     public class GuidelinesAPIConnectClient : Framework.Guama.Core.Presentation.API.Connect.Clients.Contract.AbstractArchivableEnableableEntityManagementAPIConnectClient<GovCamaguey.Persistence.Entities.Guideline, System.Guid, Common.Models.Input.GuidelineInputModel, Common.Models.Display.GuidelineDisplayModel>
     {

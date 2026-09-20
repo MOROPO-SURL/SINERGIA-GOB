@@ -2,7 +2,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<TargetFramework>net8</TargetFramework>
-		<AssemblyName>MOROPO.SINETGIAGOB.Core.Presentation.Web.Common</AssemblyName>
-		<RootNamespace>MOROPO.SINETGIAGOB.Core.Presentation.Web.Common</RootNamespace>
+		<AssemblyName>MOROPO.SINERGIAGOB.Core.Presentation.Web.Common</AssemblyName>
+		<RootNamespace>MOROPO.SINERGIAGOB.Core.Presentation.Web.Common</RootNamespace>
 	</PropertyGroup>
 </Project> 

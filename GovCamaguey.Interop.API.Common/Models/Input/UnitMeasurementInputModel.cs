@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Models.Input
+﻿namespace MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common.Models.Input
 {
     public class UnitMeasurementInputModel : Framework.Guama.Core.Persistence.Presentation.Models.Contract.IEntityInputModel<GovCamaguey.Persistence.Entities.UnitMeasurement, System.Guid>
     {

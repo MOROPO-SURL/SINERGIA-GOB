@@ -1,7 +1,7 @@
-﻿using MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Models.Display;
+﻿using MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common.Models.Display;
 using System.Linq;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Models.View;
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.Models.View;
 
 public class ProyectionIndicatorHandlingViewModel : Contract.AbstractProyectionViewModel
 {

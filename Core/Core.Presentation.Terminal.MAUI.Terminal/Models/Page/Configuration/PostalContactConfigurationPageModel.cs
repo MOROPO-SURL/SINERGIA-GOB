@@ -1,6 +1,6 @@
-﻿using MOROPO.SINETGIAGOB.Core.Interop.API.Common.Models.Display;
+﻿using MOROPO.SINERGIAGOB.Core.Interop.API.Common.Models.Display;
 
-namespace MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.Models.Page.Configuration
+namespace MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.Models.Page.Configuration
 {
     public class PostalContactConfigurationPageModel : Contract.AbstractConfigurationPageModel<PostalContactItemDisplayModel>
     {

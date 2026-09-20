@@ -2,8 +2,8 @@
 <Application 
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:fwrk_core_presentation_dictionary_resources="clr-namespace:MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.Resources.Styles;assembly=MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI"
-    x:Class="MOROPO.SINETGIAGOB.GovCamaguey.Terminal.App">
+    xmlns:fwrk_core_presentation_dictionary_resources="clr-namespace:MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.Resources.Styles;assembly=MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI"
+    x:Class="MOROPO.SINERGIAGOB.GovCamaguey.Terminal.App">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

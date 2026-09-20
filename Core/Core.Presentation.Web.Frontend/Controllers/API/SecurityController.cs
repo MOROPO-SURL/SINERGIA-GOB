@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using MOROPO.SINETGIAGOB.Core.Interop.API.Common.Models;
-using MOROPO.SINETGIAGOB.Core.Presentation.Web.Frontend.Options;
+using MOROPO.SINERGIAGOB.Core.Interop.API.Common.Models;
+using MOROPO.SINERGIAGOB.Core.Presentation.Web.Frontend.Options;
 using MOROPO.Framework.Guama.Core.Persistence.Repositories;
 using MOROPO.Framework.Guama.Core.Presentation.Web.Security.Providers.Facade;
 using MOROPO.Framework.Guama.Security.Personal.Persistence.Entities;
 
-namespace MOROPO.SINETGIAGOB.Core.Presentation.Web.Frontend.Controllers.API
+namespace MOROPO.SINERGIAGOB.Core.Presentation.Web.Frontend.Controllers.API
 {
     [Route("api/fwrk/[controller]")]
     [ApiController]

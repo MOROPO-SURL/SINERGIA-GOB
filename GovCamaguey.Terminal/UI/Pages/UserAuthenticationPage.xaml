@@ -2,11 +2,11 @@
 <caneyframework_mvvm_pages:BindingContextedContentPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:presentation_page_models="clr-namespace:MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.Models.Page;assembly=MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI"
+    xmlns:presentation_page_models="clr-namespace:MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.Models.Page;assembly=MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI"
     xmlns:caneyframework_mvvm_pages="clr-namespace:MOROPO.Framework.Caney.MVVM.Core.Pages;assembly=MOROPO.Framework.Caney.MVVM"
     xmlns:caneyframework_presentation_views="clr-namespace:MOROPO.Framework.Caney.Presentation.UI.Views;assembly=MOROPO.Framework.Caney.Presentation"
     xmlns:communitytoolkit_converters="clr-namespace:CommunityToolkit.Maui.Converters;assembly=CommunityToolkit.Maui"
-    x:Class="MOROPO.SINETGIAGOB.GovCamaguey.Terminal.UI.Pages.UserAuthenticationPage"
+    x:Class="MOROPO.SINERGIAGOB.GovCamaguey.Terminal.UI.Pages.UserAuthenticationPage"
     x:TypeArguments="presentation_page_models:UserAuthenticationPageModel"
     x:DataType="presentation_page_models:UserAuthenticationPageModel"
     Title="Iniciar sesión">

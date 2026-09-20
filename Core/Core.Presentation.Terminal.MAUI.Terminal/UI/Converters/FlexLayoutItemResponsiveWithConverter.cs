@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Converters
+﻿namespace MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.UI.Converters
 {
     public class FlexLayoutItemResponsiveWithConverter : Microsoft.Maui.Controls.IValueConverter
     {

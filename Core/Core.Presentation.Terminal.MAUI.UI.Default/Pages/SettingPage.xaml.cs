@@ -1,6 +1,6 @@
 using MOROPO.Framework.Caney.MVVM.Core.Extensions;
 
-namespace MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Default.Pages;
+namespace MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.UI.Default.Pages;
 
 public partial class SettingPage : Microsoft.Maui.Controls.ContentPage
 {

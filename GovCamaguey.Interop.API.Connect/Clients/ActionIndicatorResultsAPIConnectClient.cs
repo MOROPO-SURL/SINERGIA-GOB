@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Connect.Clients
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Connect.Clients
 {
     public class ActionIndicatorResultsAPIConnectClient : Framework.Guama.Core.Presentation.API.Connect.Clients.Contract.AbstractEntityManagementAPIConnectClient<GovCamaguey.Persistence.Entities.ActionIndicatorResult, long, Common.Models.Input.ActionIndicatorResultInputModel, Common.Models.Display.ActionIndicatorResultDisplayModel>
     {

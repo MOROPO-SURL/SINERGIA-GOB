@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Validators
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.Validators
 {
     public class ProyectionConfigurationValidator : AbstractValidator<Models.Page.Configuration.ProyectionConfigurationPageModel>
     {

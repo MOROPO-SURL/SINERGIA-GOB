@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net8</TargetFramework>
+		<AssemblyName>MOROPO.SINERGIAGOBSINERGIAGOB.Core.Persistence.ORM.EF</AssemblyName>
+		<RootNamespace>MOROPO.SINERGIAGOBSINERGIAGOB.Core.Persistence.ORM.EF</RootNamespace>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="7.0.4" />
+		<PackageReference Include="GuamaFramework.Identity.Persistence.ORM.EF" Version="6.0.2" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Core.Persistence\Core.Persistence.csproj" />
+	</ItemGroup>
+</Project>

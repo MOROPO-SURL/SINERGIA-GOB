@@ -1,6 +1,6 @@
-﻿using MOROPO.SINETGIAGOB.Core.Interop.API.Common.Models;
+﻿using MOROPO.SINERGIAGOB.Core.Interop.API.Common.Models;
 
-namespace MOROPO.SINETGIAGOB.Core.Interop.API.Connect.Clients
+namespace MOROPO.SINERGIAGOB.Core.Interop.API.Connect.Clients
 {
 	public class SecurityAPIConnectClient
 	{

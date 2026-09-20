@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Models.Page.Configuration;
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.Models.Page.Configuration;
 
 public class GlobalIndicatorMontlyPlanConfigurationPageModel : Core.Presentation.Terminal.MAUI.Models.Page.Contract.AbstractConfigurationPageModel<Interop.API.Common.Models.Input.GlobalIndicatorMontlyPlanInputModel>
 {

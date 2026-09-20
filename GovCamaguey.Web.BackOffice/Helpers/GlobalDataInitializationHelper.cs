@@ -1,8 +1,8 @@
 ﻿using System.Linq;
-using MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Constants.Security;
+using MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common.Constants.Security;
 using MOROPO.Framework.Guama.Core.Security.Common.Persistence.ORM.EF.Extensions;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Helpers
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Helpers
 {
     public class GlobalDataInitializationHelper : Framework.Guama.Core.Persistence.ORM.EF.Helpers.Facade.IDataInitializationHelper
     {

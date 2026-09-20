@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Converters
+namespace MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.UI.Converters
 {
     public class ValidationResultToTargetPropertyHasErrorConverter : Microsoft.Maui.Controls.IValueConverter
     {

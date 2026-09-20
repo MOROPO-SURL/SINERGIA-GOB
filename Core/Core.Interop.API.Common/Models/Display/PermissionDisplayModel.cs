@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.Core.Interop.API.Common.Models.Display
+﻿namespace MOROPO.SINERGIAGOB.Core.Interop.API.Common.Models.Display
 {
 	public class PermissionDisplayModel : Framework.Guama.Core.Persistence.Presentation.Models.Contract.IEntityDisplayModel<Framework.Guama.Core.Security.Common.Persistence.Entities.Permission, int>
 	{

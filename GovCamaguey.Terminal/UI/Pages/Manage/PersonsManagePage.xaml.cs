@@ -1,6 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.UI.Pages.Manage;
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.UI.Pages.Manage;
 
 public partial class PersonsManagePage : Core.Presentation.Terminal.MAUI.UI.Pages.Base.ManageBaseContentPage<Interop.API.Common.Models.Display.PersonDisplayModel, Models.Page.Manage.PersonsManagePageModel, Models.Page.Configuration.PersonConfigurationPageModel>
 {

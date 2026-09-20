@@ -1,7 +1,7 @@
-﻿using MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Models.Display;
+﻿using MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common.Models.Display;
 using System.Collections.Generic;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Models.Input
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common.Models.Input
 {
     public class ProyectionInputModel : Framework.Guama.Core.Persistence.Presentation.Models.Contract.IEntityInputModel<GovCamaguey.Persistence.Entities.Proyection, System.Guid>
     {
@@ -29,6 +29,10 @@ namespace MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Models.Input
         public List<ActionInputModel> EditionActions { get; set; } = new List<ActionInputModel>();
         public List<ActionInputModel> IncomingActions { get; set; } = new List<ActionInputModel>();
         public List<ActionDisplayModel> OutgoingActions { get; set; } = new List<ActionDisplayModel>();
+
+        public List<ProyectionMonthlyClosureInputModel> EditionMonthlyClosures { get; set; } = new List<ProyectionMonthlyClosureInputModel>();
+        public List<ProyectionMonthlyClosureInputModel> IncomingMonthlyClosures { get; set; } = new List<ProyectionMonthlyClosureInputModel>();
+        public List<ProyectionMonthlyClosureDisplayModel> OutgoingMonthlyClosures { get; set; } = new List<ProyectionMonthlyClosureDisplayModel>();
 
         public GovCamaguey.Persistence.Entities.Proyection Export()
         {

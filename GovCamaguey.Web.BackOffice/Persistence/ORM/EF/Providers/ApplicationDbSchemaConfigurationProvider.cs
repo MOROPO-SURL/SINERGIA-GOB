@@ -1,6 +1,6 @@
-﻿using MOROPO.SINETGIAGOB.Core.Persistence.ORM.EF.Configurators.Base;
+﻿using MOROPO.SINERGIAGOB.Core.Persistence.ORM.EF.Configurators.Base;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Persistence.ORM.EF.Providers
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Persistence.ORM.EF.Providers
 {
     public class ApplicationDbSchemaConfigurationProvider : Framework.Guama.Core.Persistence.ORM.EF.Providers.Facade.IDbSchemaConfigurationProviderFacade
     {

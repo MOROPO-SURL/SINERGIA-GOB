@@ -2,7 +2,7 @@ using Microsoft.Extensions.DependencyInjection;
 using MOROPO.Framework.Caney.MVVM.Core.Extensions;
 using System.Linq;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.UI.Pages.Detail;
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.UI.Pages.Detail;
 
 public partial class GlobalIndicatorDetailPage : Core.Presentation.Terminal.MAUI.UI.Pages.Base.DetailBaseContentPage<Interop.API.Common.Models.Display.GlobalIndicatorDisplayModel>
 {

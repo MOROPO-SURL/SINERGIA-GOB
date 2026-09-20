@@ -1,7 +1,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using MOROPO.Framework.Caney.MVVM.Core.Extensions;
 
-namespace MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Pages.Configuration;
+namespace MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.UI.Pages.Configuration;
 
 public class BaseConfigurationContentPage<TModel> : Framework.Caney.MVVM.Core.Pages.ContentPage
 {

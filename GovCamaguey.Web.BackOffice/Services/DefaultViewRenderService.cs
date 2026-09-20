@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
-using MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Services.Contract;
+using MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Services.Contract;
 using System.IO;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Services;
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Services;
 
 internal sealed class DefaultViewRenderService : IViewRenderService
 {

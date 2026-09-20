@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.Models.View
+﻿namespace MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.Models.View
 {
     public class OwnerInformationViewModel
     {

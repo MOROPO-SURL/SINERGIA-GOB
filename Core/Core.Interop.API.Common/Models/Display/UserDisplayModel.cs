@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace MOROPO.SINETGIAGOB.Core.Interop.API.Common.Models.Display
+namespace MOROPO.SINERGIAGOB.Core.Interop.API.Common.Models.Display
 {
     public class UserDisplayModel : Framework.Guama.Core.Persistence.Presentation.Models.Contract.IEntityDisplayModel<Framework.Guama.Security.Personal.Persistence.Entities.User, string>
     {

@@ -1,8 +1,8 @@
 using Microsoft.Extensions.DependencyInjection;
-using MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Extensions;
-using MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Factories;
+using MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.UI.Extensions;
+using MOROPO.SINERGIAGOB.GovCamaguey.Terminal.Factories;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.UI.Pages;
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.UI.Pages;
 
 public partial class ObjectiveSummaryPage : Microsoft.Maui.Controls.ContentPage
 {

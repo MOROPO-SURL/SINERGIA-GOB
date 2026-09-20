@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.Core.Interop.API.Common.Models.Display
+﻿namespace MOROPO.SINERGIAGOB.Core.Interop.API.Common.Models.Display
 {
     public class PostalContactItemDisplayModel : Framework.Guama.Core.Persistence.Presentation.Models.Contract.IEntityDisplayModel<Framework.Guama.Identity.Persistence.Entities.PostalContactItem, System.Guid>
     {

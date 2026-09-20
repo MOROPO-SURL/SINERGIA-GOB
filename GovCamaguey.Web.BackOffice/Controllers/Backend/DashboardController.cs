@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MOROPO.Framework.Guama.Core.Persistence.Repositories;
-using MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Extensions;
+using MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Extensions;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Controllers.Backend
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Controllers.Backend
 {
     [Microsoft.AspNetCore.Authorization.Authorize]
     [Framework.Guama.Core.Presentation.Web.Security.Attributes.RequirePermissions(Framework.Guama.Core.Security.Presentation.Constants.Permissions.ShellManager)]

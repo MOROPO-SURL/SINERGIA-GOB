@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Factories;
+using MOROPO.SINERGIAGOB.GovCamaguey.Terminal.Factories;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Providers
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.Providers
 {
     public class HttpClientHelperProvider : Core.Presentation.Terminal.MAUI.Providers.Facade.IReseableHttpClientHelperProviderFacade
     {

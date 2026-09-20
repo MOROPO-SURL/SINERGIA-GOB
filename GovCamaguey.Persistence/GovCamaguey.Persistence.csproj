@@ -2,8 +2,8 @@
 
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
-		<AssemblyName>MOROPO.SINETGIAGOB.GovCamaguey.Persistence</AssemblyName>
-		<RootNamespace>MOROPO.SINETGIAGOB.GovCamaguey.Persistence</RootNamespace>
+		<AssemblyName>MOROPO.SINERGIAGOB.GovCamaguey.Persistence</AssemblyName>
+		<RootNamespace>MOROPO.SINERGIAGOB.GovCamaguey.Persistence</RootNamespace>
 	</PropertyGroup>
 
 	<ItemGroup>

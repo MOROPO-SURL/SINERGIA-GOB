@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Localization;
 using Microsoft.Extensions.Localization;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Helpers
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Helpers
 {
     public class GlobalViewLocalizationHelper
     {

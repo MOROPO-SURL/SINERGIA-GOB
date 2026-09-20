@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Helpers
+﻿namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Helpers
 {
     public class ConcretModelBindHelper : Framework.Guama.Core.Presentation.Web.Common.ModelBinding.Contract.IConcretModelBindHelper
     {

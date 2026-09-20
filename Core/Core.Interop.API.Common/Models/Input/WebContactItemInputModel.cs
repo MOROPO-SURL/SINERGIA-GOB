@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.Core.Interop.API.Common.Models.Input
+﻿namespace MOROPO.SINERGIAGOB.Core.Interop.API.Common.Models.Input
 {
     public class WebContactItemInputModel
     {

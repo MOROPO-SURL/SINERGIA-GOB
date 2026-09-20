@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Factories.Configuration;
+﻿namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.Factories.Configuration;
 
 public class OrganizationConfigurationPageFactory : Core.Presentation.Terminal.MAUI.UI.Factories.Facade.IConfigurationContentPageFactoryFacade<Interop.API.Common.Models.Display.OrganizationDisplayModel, Models.Page.Configuration.OrganizationConfigurationPageModel>
 {

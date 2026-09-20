@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Enumerations;
+﻿namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Enumerations;
 
 public enum Orientation
 {

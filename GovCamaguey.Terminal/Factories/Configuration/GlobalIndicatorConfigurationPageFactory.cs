@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Factories.Configuration;
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.Factories.Configuration;
 
 public class GlobalIndicatorConfigurationPageFactory : Core.Presentation.Terminal.MAUI.UI.Factories.Facade.IConfigurationContentPageFactoryFacade<Interop.API.Common.Models.Display.GlobalIndicatorDisplayModel, Models.Page.Configuration.GlobalIndicatorConfigurationPageModel>
 {

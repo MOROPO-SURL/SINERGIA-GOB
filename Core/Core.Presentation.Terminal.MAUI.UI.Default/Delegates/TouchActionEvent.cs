@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Default.Delegates
+﻿namespace MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.UI.Default.Delegates
 {
     public delegate void TouchActionEventHandler(object sender, TouchActionEventArgs args);
 

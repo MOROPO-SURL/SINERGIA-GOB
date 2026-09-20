@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Models.Display
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common.Models.Display
 {
     public class ProyectionDisplayModel : Framework.Guama.Core.Persistence.Presentation.Models.Contract.IEntityDisplayModel<GovCamaguey.Persistence.Entities.Proyection, System.Guid>, Contract.IModerableModel
     {
@@ -23,6 +23,8 @@ namespace MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Models.Display
         public OrganizationDisplayModel[] ParticipationOrganizations { get; set; }
 
         public ProyectionIndicatorDisplayModel[] Indicators { get; set; }
+
+        public ProyectionMonthlyClosureDisplayModel[] MonthlyClosures { get; set; }
 
         public ActionDisplayModel[] Actions { get; set; }
 
@@ -64,6 +66,15 @@ namespace MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Models.Display
             Indicators = entity.Indicators.Where(_entity => !_entity.Archived).OrderBy(_entity => _entity.Priority).Select(_entity =>
             {
                 var model = new ProyectionIndicatorDisplayModel();
+
+                model.Import(_entity);
+
+                return model;
+            }).ToArray();
+
+            MonthlyClosures = entity.MonthlyClosures?.OrderBy(_entity => _entity.At).Select(_entity =>
+            {
+                var model = new ProyectionMonthlyClosureDisplayModel();
 
                 model.Import(_entity);
 

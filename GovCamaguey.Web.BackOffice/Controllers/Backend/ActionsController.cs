@@ -4,13 +4,13 @@ using MOROPO.Framework.Guama.Core.Persistence.Repositories;
 using MOROPO.Framework.Guama.Core.Presentation.Models.View;
 using MOROPO.Framework.Guama.Core.Presentation.Web.Security.Attributes;
 using MOROPO.Framework.Guama.Security.Personal.Persistence.Entities;
-using MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Models.Input;
-using MOROPO.SINETGIAGOB.GovCamaguey.Persistence.Entities;
-using MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Models.View;
-using MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Models.View.Display;
+using MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common.Models.Input;
+using MOROPO.SINERGIAGOB.GovCamaguey.Persistence.Entities;
+using MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Models.View;
+using MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Models.View.Display;
 using System.Linq;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Controllers.Backend;
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Controllers.Backend;
 
 [Microsoft.AspNetCore.Authorization.Authorize]
 [RequirePermissions(Framework.Guama.Core.Security.Presentation.Constants.Permissions.ShellManager)]

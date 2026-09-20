@@ -1,7 +1,7 @@
 ﻿using Android.App;
 using Android.Runtime;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Droid
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.Droid
 {
     [Application]
     public class MainApplication : Microsoft.Maui.MauiApplication

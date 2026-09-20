@@ -2,12 +2,12 @@
 <ContentPage 
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local_page_models="clr-namespace:MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Models.Page"
-    xmlns:interop_common_display_models="clr-namespace:MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Models.Display;assembly=MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common"
-    xmlns:fwrk_core_presentation_behaviors="clr-namespace:MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Behaviors;assembly=MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI"
+    xmlns:local_page_models="clr-namespace:MOROPO.SINERGIAGOB.GovCamaguey.Terminal.Models.Page"
+    xmlns:interop_common_display_models="clr-namespace:MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common.Models.Display;assembly=MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common"
+    xmlns:fwrk_core_presentation_behaviors="clr-namespace:MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.UI.Behaviors;assembly=MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI"
     xmlns:caneyframework_presentation_views="clr-namespace:MOROPO.Framework.Caney.Presentation.UI.Views;assembly=MOROPO.Framework.Caney.Presentation"
     xmlns:communitytoolkit_converters="clr-namespace:CommunityToolkit.Maui.Converters;assembly=CommunityToolkit.Maui"
-    x:Class="MOROPO.SINETGIAGOB.GovCamaguey.Terminal.UI.Pages.GlobalIndicatorHandlingPage"
+    x:Class="MOROPO.SINERGIAGOB.GovCamaguey.Terminal.UI.Pages.GlobalIndicatorHandlingPage"
     x:DataType="local_page_models:GlobalIndicatorHandlingPageModel"
     Title="Actualización de Indicadores Globales">
     <ContentPage.Resources>

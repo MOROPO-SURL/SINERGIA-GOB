@@ -10,7 +10,7 @@ using SkiaSharp;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.UI.Pages;
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.UI.Pages;
 
 public partial class GovernanceDashboardPage : Microsoft.Maui.Controls.ContentPage
 {

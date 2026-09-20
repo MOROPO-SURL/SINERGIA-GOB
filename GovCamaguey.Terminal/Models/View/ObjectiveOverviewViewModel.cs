@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Models.View
+﻿namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.Models.View
 {
     public class ObjectiveOverviewViewModel
     {

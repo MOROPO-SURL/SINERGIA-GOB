@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Models.Display
+﻿namespace MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common.Models.Display
 {
     public class GlobalIndicatorResultDisplayModel : Contract.AbstractIndicatorResultDisplayModel<GovCamaguey.Persistence.Entities.GlobalIndicatorResult>
     {

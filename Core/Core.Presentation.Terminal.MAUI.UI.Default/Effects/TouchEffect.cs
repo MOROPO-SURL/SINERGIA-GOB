@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Default.Effects
+﻿namespace MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.UI.Default.Effects
 {
     public class TouchEffect : Microsoft.Maui.Controls.RoutingEffect
     {

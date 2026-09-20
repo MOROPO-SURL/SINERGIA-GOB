@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Behaviors;
+﻿namespace MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.UI.Behaviors;
 
 public sealed class AdaptableGridItemLayoutCollectionViewBehavior : Microsoft.Maui.Controls.Behavior
 {

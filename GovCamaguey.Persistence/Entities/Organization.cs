@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.GovCamaguey.Persistence.Entities
+﻿namespace MOROPO.SINERGIAGOB.GovCamaguey.Persistence.Entities
 {
     public class Organization : Core.Persistence.Entities.Contract.IFullFeatureEntity<System.Guid>
     {

@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.UI.Behaviors;
+﻿namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.UI.Behaviors;
 
 public sealed class DecimalSymbolIdicatotionLabelBehavior : Microsoft.Maui.Controls.Behavior<Microsoft.Maui.Controls.Label>
 {

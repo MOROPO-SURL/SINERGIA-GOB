@@ -1,6 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.UI.Pages.Manage;
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.UI.Pages.Manage;
 
 public partial class GuidelinesManagePage : Core.Presentation.Terminal.MAUI.UI.Pages.Base.ManageBaseContentPage<Interop.API.Common.Models.Display.GuidelineDisplayModel, Models.Page.Manage.GuidelinesManagePageModel, Models.Page.Configuration.GuidelineConfigurationPageModel>
 {

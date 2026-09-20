@@ -1,8 +1,8 @@
-﻿using MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Models.Display;
+﻿using MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common.Models.Display;
 using System.Collections.ObjectModel;
 using System.Linq;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Models.Page.Configuration
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.Models.Page.Configuration
 {
     public class ProyectionConfigurationPageModel : Core.Presentation.Terminal.MAUI.Models.Page.Contract.AbstractConfigurationPageModel<Interop.API.Common.Models.Input.ProyectionInputModel>
     {
@@ -17,7 +17,7 @@ namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Models.Page.Configuration
 
         public ProyectionConfigurationPageModel() : this(null) { }
 
-        public ProyectionConfigurationPageModel(Interop.API.Common.Models.Input.ProyectionInputModel model, ProyectionIndicatorDisplayModel[] indicators = null, ActionDisplayModel[] actions = null) : base(model)
+        public ProyectionConfigurationPageModel(Interop.API.Common.Models.Input.ProyectionInputModel model, ProyectionIndicatorDisplayModel[] indicators = null, ActionDisplayModel[] actions = null, ProyectionMonthlyClosureDisplayModel[] monthlyClosures = null) : base(model)
         {
             if (model != null)
             {
@@ -37,6 +37,11 @@ namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Models.Page.Configuration
                 if (actions != null)
                 {
                     Actions = new ObservableCollection<ActionDisplayModel>(actions.OrderBy(_model => _model.Index));
+                }
+
+                if (monthlyClosures != null)
+                {
+                    MonthlyClosures = new ObservableCollection<ProyectionMonthlyClosureDisplayModel>(monthlyClosures.OrderBy(_model => _model.At));
                 }
             }
         }
@@ -58,5 +63,7 @@ namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Models.Page.Configuration
         public ObservableCollection<ProyectionIndicatorDisplayModel> Indicators { get; set; } = [];
 
         public ObservableCollection<ActionDisplayModel> Actions { get; set; } = [];
+
+        public ObservableCollection<ProyectionMonthlyClosureDisplayModel> MonthlyClosures { get; set; } = [];
     }
 }

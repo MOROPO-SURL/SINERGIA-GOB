@@ -1,6 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.UI.Pages.Manage;
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.UI.Pages.Manage;
 
 public partial class GlobalIndicatorsManagePage : Core.Presentation.Terminal.MAUI.UI.Pages.Base.ManageBaseContentPage<Interop.API.Common.Models.Display.GlobalIndicatorDisplayModel, Models.Page.Manage.GlobalIndicatorsManagePageModel, Models.Page.Configuration.GlobalIndicatorConfigurationPageModel>
 {

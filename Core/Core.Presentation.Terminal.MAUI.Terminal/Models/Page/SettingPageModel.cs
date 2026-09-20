@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System.ComponentModel.DataAnnotations;
 
-namespace MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.Models.Page
+namespace MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.Models.Page
 {
     public class SettingPageModel : Framework.Caney.MVVM.Core.Models.Page.BasePageModel
     {

@@ -1,6 +1,6 @@
-﻿using MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Models.Display;
+﻿using MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common.Models.Display;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Models.Page;
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.Models.Page;
 
 public class ObjectiveIndicatorHandlingPageModel : Framework.Caney.MVVM.Core.Models.Page.BasePageModel
 {

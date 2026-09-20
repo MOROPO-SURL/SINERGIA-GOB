@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Models.Input.Contract
+﻿namespace MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common.Models.Input.Contract
 {
     public abstract class AbstractIndicatorResultInputModel<TModel> : Framework.Guama.Core.Persistence.Presentation.Models.Contract.IEntityInputModel<TModel, long>
         where TModel : GovCamaguey.Persistence.Entities.Contract.AbstractIndicatorResult

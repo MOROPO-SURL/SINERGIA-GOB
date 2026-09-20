@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Models.Page;
+﻿namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.Models.Page;
 
 public class GovernanceDashboardPageModel : Framework.Caney.MVVM.Core.Models.Page.BasePageModel
 {

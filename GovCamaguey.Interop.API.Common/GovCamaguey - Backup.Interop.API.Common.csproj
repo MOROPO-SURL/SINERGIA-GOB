@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<AssemblyName>MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common</AssemblyName>
+		<RootNamespace>MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common</RootNamespace>
+	</PropertyGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Core\Core.Interop.API.Common\Core.Interop.API.Common.csproj" />
+		<ProjectReference Include="..\GovCamaguey.Persistence\GovCamaguey.Persistence.csproj" />
+	</ItemGroup>
+</Project>

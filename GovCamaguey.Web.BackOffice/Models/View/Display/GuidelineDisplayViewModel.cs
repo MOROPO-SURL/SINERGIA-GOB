@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Models.View.Display
+﻿namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Models.View.Display
 {
     public class GuidelineDisplayViewModel : Interop.API.Common.Models.Display.GuidelineDisplayModel
     {

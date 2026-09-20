@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.UI.Converters
+﻿namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.UI.Converters
 {
     public class YearMonthKeyValuePairToStringConverter : Microsoft.Maui.Controls.IValueConverter
     {

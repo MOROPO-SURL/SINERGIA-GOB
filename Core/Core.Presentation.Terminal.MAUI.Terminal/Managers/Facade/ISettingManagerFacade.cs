@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.Managers.Facade
+﻿namespace MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.Managers.Facade
 {
     public interface ISettingManagerFacade
     {

@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.Models.Page.Dashboard.Contract;
+﻿namespace MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.Models.Page.Dashboard.Contract;
 
 public abstract class AbstractDashboardPageModel : Framework.Caney.MVVM.Core.Models.Page.BasePageModel
 {

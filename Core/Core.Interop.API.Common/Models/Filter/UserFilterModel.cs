@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.Core.Interop.API.Common.Models.Filter
+﻿namespace MOROPO.SINERGIAGOB.Core.Interop.API.Common.Models.Filter
 {
     public class UserFilterModel : Framework.Guama.Core.Persistence.Presentation.Models.Filter.Contract.IEntityFilterModel<Framework.Guama.Security.Personal.Persistence.Entities.User, string>
     {

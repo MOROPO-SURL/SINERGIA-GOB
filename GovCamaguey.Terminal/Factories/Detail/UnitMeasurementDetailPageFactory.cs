@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Factories.Detail
+﻿namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.Factories.Detail
 {
     public class UnitMeasurementDetailPageFactory : Core.Presentation.Terminal.MAUI.UI.Factories.Facade.IDetailContentPageFactoryFacade<Interop.API.Common.Models.Display.UnitMeasurementDisplayModel>
     {

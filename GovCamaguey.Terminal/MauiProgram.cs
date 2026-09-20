@@ -3,14 +3,14 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Maui.Controls.Hosting;
 using Microsoft.Maui.Hosting;
-using MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Factories.Facade;
-using MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Models.Display;
-using MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Factories.Configuration;
-using MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Factories.Detail;
-using MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Models.Page.Configuration;
+using MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.UI.Factories.Facade;
+using MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common.Models.Display;
+using MOROPO.SINERGIAGOB.GovCamaguey.Terminal.Factories.Configuration;
+using MOROPO.SINERGIAGOB.GovCamaguey.Terminal.Factories.Detail;
+using MOROPO.SINERGIAGOB.GovCamaguey.Terminal.Models.Page.Configuration;
 using SkiaSharp.Views.Maui.Controls.Hosting;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal
 {
     public static class MauiProgram
     {

@@ -1,15 +1,15 @@
 <core_ui_base_pages:ConfigurationBaseContentPage 
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local_configuration_page_models="clr-namespace:MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Models.Page.Configuration"
-    xmlns:core_models="clr-namespace:MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.Models;assembly=MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI"
-    xmlns:core_ui_converters="clr-namespace:MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Converters;assembly=MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI"
-    xmlns:core_ui_base_pages="clr-namespace:MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Pages.Base;assembly=MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI"
-    xmlns:core_interop_common_display_models="clr-namespace:MOROPO.SINETGIAGOB.Core.Interop.API.Common.Models.Display;assembly=MOROPO.SINETGIAGOB.Core.Interop.API.Common"
-    xmlns:interop_common_display_models="clr-namespace:MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Models.Display;assembly=MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common"
+    xmlns:local_configuration_page_models="clr-namespace:MOROPO.SINERGIAGOB.GovCamaguey.Terminal.Models.Page.Configuration"
+    xmlns:core_models="clr-namespace:MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.Models;assembly=MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI"
+    xmlns:core_ui_converters="clr-namespace:MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.UI.Converters;assembly=MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI"
+    xmlns:core_ui_base_pages="clr-namespace:MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.UI.Pages.Base;assembly=MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI"
+    xmlns:core_interop_common_display_models="clr-namespace:MOROPO.SINERGIAGOB.Core.Interop.API.Common.Models.Display;assembly=MOROPO.SINERGIAGOB.Core.Interop.API.Common"
+    xmlns:interop_common_display_models="clr-namespace:MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common.Models.Display;assembly=MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common"
     xmlns:caneyframework_presentation_views="clr-namespace:MOROPO.Framework.Caney.Presentation.UI.Views;assembly=MOROPO.Framework.Caney.Presentation"
     xmlns:communitytoolkit_converters="clr-namespace:CommunityToolkit.Maui.Converters;assembly=CommunityToolkit.Maui"
-    x:Class="MOROPO.SINETGIAGOB.GovCamaguey.Terminal.UI.Pages.Configuration.OrganizationConfigurationPage"
+    x:Class="MOROPO.SINERGIAGOB.GovCamaguey.Terminal.UI.Pages.Configuration.OrganizationConfigurationPage"
     x:TypeArguments="interop_common_display_models:OrganizationDisplayModel,interop_common_display_models:OrganizationDisplayModel,local_configuration_page_models:OrganizationConfigurationPageModel"
     x:DataType="local_configuration_page_models:OrganizationConfigurationPageModel">
     <ContentPage.Resources>

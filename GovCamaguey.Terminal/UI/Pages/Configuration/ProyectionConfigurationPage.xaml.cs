@@ -1,12 +1,12 @@
 using Microsoft.Extensions.DependencyInjection;
 using MOROPO.Framework.Caney.MVVM.Core.Extensions;
-using MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Extensions;
-using MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Models.Display;
-using MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Models.Input;
+using MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.UI.Extensions;
+using MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common.Models.Display;
+using MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common.Models.Input;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.UI.Pages.Configuration;
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.UI.Pages.Configuration;
 
 public partial class ProyectionConfigurationPage : Core.Presentation.Terminal.MAUI.UI.Pages.Base.ConfigurationBaseContentPage<ProyectionInputModel, ProyectionInputModel, Models.Page.Configuration.ProyectionConfigurationPageModel>
 {
@@ -17,6 +17,10 @@ public partial class ProyectionConfigurationPage : Core.Presentation.Terminal.MA
     private readonly List<ActionInputModel> editionActions = [];
     private readonly List<ActionInputModel> incomingActions = [];
     private readonly List<ActionDisplayModel> outgoingActions = [];
+
+    private readonly List<ProyectionMonthlyClosureInputModel> editionMonthlyClosures = [];
+    private readonly List<ProyectionMonthlyClosureInputModel> incomingMonthlyClosures = [];
+    private readonly List<ProyectionMonthlyClosureDisplayModel> outgoingMonthlyClosures = [];
 
     public ProyectionConfigurationPage(System.Action<ProyectionInputModel> successAction, Models.Page.Configuration.ProyectionConfigurationPageModel model) : base(successAction, model, new Validators.ProyectionConfigurationValidator())
     {
@@ -31,7 +35,10 @@ public partial class ProyectionConfigurationPage : Core.Presentation.Terminal.MA
         List<ProyectionIndicatorDisplayModel> outgoingIndicators,
         List<ActionInputModel> editionActions, 
         List<ActionInputModel> incomingActions, 
-        List<ActionDisplayModel> outgoingActions) 
+        List<ActionDisplayModel> outgoingActions,
+        List<ProyectionMonthlyClosureInputModel> editionMonthlyClosures,
+        List<ProyectionMonthlyClosureInputModel> incomingMonthlyClosures,
+        List<ProyectionMonthlyClosureDisplayModel> outgoingMonthlyClosures) 
         : this(successAction, model)
     {
         this.editionIndicators = editionIndicators;
@@ -41,6 +48,10 @@ public partial class ProyectionConfigurationPage : Core.Presentation.Terminal.MA
         this.editionActions = editionActions;
         this.incomingActions = incomingActions;
         this.outgoingActions = outgoingActions;
+
+        this.editionMonthlyClosures = editionMonthlyClosures;
+        this.incomingMonthlyClosures = incomingMonthlyClosures;
+        this.outgoingMonthlyClosures = outgoingMonthlyClosures;
     }
 
     protected override string EntityTypeName => "Objetivo Específico";
@@ -61,7 +72,8 @@ public partial class ProyectionConfigurationPage : Core.Presentation.Terminal.MA
             ResponsabilityOrganizations = [.. ConcreteBindingContext.ResponsabilityOrganizations],
             ParticipationOrganizations = [.. ConcreteBindingContext.ParticipationOrganizations],
             IncomingIndicators = incomingIndicators,
-            IncomingActions = incomingActions
+            IncomingActions = incomingActions,
+            IncomingMonthlyClosures = incomingMonthlyClosures
         });
     }
 
@@ -81,7 +93,10 @@ public partial class ProyectionConfigurationPage : Core.Presentation.Terminal.MA
             OutgoingIndicators = outgoingIndicators,
             IncomingActions = incomingActions,
             EditionActions = editionActions,
-            OutgoingActions = outgoingActions
+            OutgoingActions = outgoingActions,
+            IncomingMonthlyClosures = incomingMonthlyClosures,
+            EditionMonthlyClosures = editionMonthlyClosures,
+            OutgoingMonthlyClosures = outgoingMonthlyClosures
         });
     }
 
@@ -539,6 +554,132 @@ public partial class ProyectionConfigurationPage : Core.Presentation.Terminal.MA
                 hasChangesFlag = true;
             });
         });
+    }
+
+    private void MonthlyClosureAgregationButton_Clicked(object sender, System.EventArgs e)
+    {
+        this.NavigationPushPageAsync(new ProyectionMonthlyClosureConfigurationPage(MonthlyClosureCreateSuccess_Callback, new Models.Page.Configuration.ProyectionMonthlyClosureConfigurationPageModel(null)));
+    }
+
+    private void MonthlyClosureEditionButton_Clicked(object sender, System.EventArgs e)
+    {
+        var target = ((Microsoft.Maui.Controls.BindableObject)sender).BindingContext as ProyectionMonthlyClosureDisplayModel;
+
+        this.NavigationPushPageAsync(new ProyectionMonthlyClosureConfigurationPage(MonthlyClosureEditSuccess_Callback, new Models.Page.Configuration.ProyectionMonthlyClosureConfigurationPageModel(new ProyectionMonthlyClosureInputModel { Id = target.Id, At = target.At })));
+    }
+
+    private void MonthlyClosureRemotionButton_Clicked(object sender, System.EventArgs e)
+    {
+        DisplayAlert("Confirmación", "Está seguro que desea retirar este elemento?", "Confirmar", "Cancelar").ContinueWith(task =>
+        {
+            if (!task.Result) return;
+
+            Dispatcher.Dispatch(() =>
+            {
+                var target = ((Microsoft.Maui.Controls.BindableObject)sender).BindingContext as ProyectionMonthlyClosureDisplayModel;
+
+                var handled = false;
+
+                foreach (var item in incomingMonthlyClosures)
+                {
+                    if (item.Id != target.Id) continue;
+
+                    incomingMonthlyClosures.Remove(incomingMonthlyClosures.First(model => model.Id == target.Id));
+
+                    handled = true;
+
+                    break;
+                }
+
+                if (!handled)
+                {
+                    foreach (var item in editionMonthlyClosures)
+                    {
+                        if (item.Id != target.Id) continue;
+
+                        editionMonthlyClosures.Remove(editionMonthlyClosures.First(model => model.Id == target.Id));
+
+                        break;
+                    }
+                }
+
+                if (!handled)
+                {
+                    outgoingMonthlyClosures.Add(target);
+                }
+
+                ConcreteBindingContext.MonthlyClosures.Remove(target);
+
+                hasChangesFlag = true;
+            });
+        });
+    }
+
+    private void MonthlyClosureCreateSuccess_Callback(ProyectionMonthlyClosureInputModel model)
+    {
+        incomingMonthlyClosures.Add(model);
+
+        ConcreteBindingContext.MonthlyClosures.Add(new ProyectionMonthlyClosureDisplayModel
+        {
+            Id = model.Id,
+            At = model.At
+        });
+
+        hasChangesFlag = true;
+    }
+
+    private void MonthlyClosureEditSuccess_Callback(ProyectionMonthlyClosureInputModel model)
+    {
+        var handled = false;
+
+        foreach (var item in incomingMonthlyClosures)
+        {
+            if (item.Id != model.Id) continue;
+
+            item.At = model.At;
+
+            handled = true;
+
+            break;
+        }
+
+        if (!handled)
+        {
+            foreach (var item in editionMonthlyClosures)
+            {
+                if (item.Id != model.Id) continue;
+
+                item.At = model.At;
+
+                handled = true;
+
+                break;
+            }
+        }
+
+        if (!handled)
+        {
+            editionMonthlyClosures.Add(model);
+        }
+
+        var index = -1;
+
+        foreach (var item in ConcreteBindingContext.MonthlyClosures)
+        {
+            index++;
+
+            if (item.Id != model.Id) continue;
+
+            ConcreteBindingContext.MonthlyClosures[index] = new ProyectionMonthlyClosureDisplayModel
+            {
+                Id = model.Id,
+                At = model.At
+            };
+
+            break;
+        }
+
+        hasChangesFlag = true;
     }
 
     private void ActionCreateSuccess_Callback(ActionInputModel model)

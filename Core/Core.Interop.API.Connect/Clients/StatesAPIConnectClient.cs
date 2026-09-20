@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.Core.Interop.API.Connect.Clients
+﻿namespace MOROPO.SINERGIAGOB.Core.Interop.API.Connect.Clients
 {
     public class StatesAPIConnectClient : Framework.Guama.Core.Presentation.API.Connect.Clients.Contract.AbstractEntityConsultAPIConnectClient<Framework.Guama.Location.Persistence.Entities.State, System.Guid, Common.Models.Display.StateDisplayModel>
     {

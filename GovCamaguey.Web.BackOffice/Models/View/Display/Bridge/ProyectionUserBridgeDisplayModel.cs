@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Models.View.Display.Bridge;
+﻿namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Models.View.Display.Bridge;
 
 public class ProyectionUserBridgeDisplayModel
 {

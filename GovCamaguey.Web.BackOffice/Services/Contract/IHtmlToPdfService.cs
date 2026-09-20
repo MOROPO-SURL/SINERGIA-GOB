@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Services.Contract;
+﻿namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Services.Contract;
 
 public interface IHtmlToPdfService
 {

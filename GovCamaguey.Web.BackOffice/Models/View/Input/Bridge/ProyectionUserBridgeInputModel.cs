@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Models.View.Input.Bridge;
+﻿namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Models.View.Input.Bridge;
 
 public class ProyectionUserBridgeInputModel
 {

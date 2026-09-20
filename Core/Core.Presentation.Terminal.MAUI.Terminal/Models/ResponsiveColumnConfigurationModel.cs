@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.Models
+﻿namespace MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.Models
 {
     public class ResponsiveColumnConfigurationModel
     {

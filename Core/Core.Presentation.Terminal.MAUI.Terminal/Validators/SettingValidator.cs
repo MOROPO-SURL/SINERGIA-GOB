@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-namespace MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.Validators
+namespace MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.Validators
 {
     public class SettingValidator : AbstractValidator<Models.Page.SettingPageModel>
     {

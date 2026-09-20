@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Configurations
+﻿namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Configurations
 {
     public class CurrentTerminalReleaseDetailConfiguration
     {

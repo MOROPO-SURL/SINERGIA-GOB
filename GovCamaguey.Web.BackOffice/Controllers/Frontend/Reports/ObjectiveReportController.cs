@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MOROPO.Framework.Guama.Core.Persistence.Repositories;
-using MOROPO.SINETGIAGOB.GovCamaguey.Persistence.Entities;
-using MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Enumerations;
+using MOROPO.SINERGIAGOB.GovCamaguey.Persistence.Entities;
+using MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Enumerations;
 using System.Linq;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Controllers.Frontend.Reports;
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Controllers.Frontend.Reports;
 
 //[Microsoft.AspNetCore.Authorization.Authorize(AuthenticationSchemes = Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerDefaults.AuthenticationScheme)]
 [Route("report/objectives")]

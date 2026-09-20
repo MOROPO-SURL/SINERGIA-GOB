@@ -1,6 +1,6 @@
 using MOROPO.Framework.Caney.MVVM.Core.Extensions;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.UI.Pages.Configuration;
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.UI.Pages.Configuration;
 
 public partial class CommonIndicatorResultConfigurationPage : Framework.Caney.MVVM.Core.Pages.BindingContextedContentPage<Models.Page.Configuration.CommonIndicatorResultConfigurationPageModel>
 {

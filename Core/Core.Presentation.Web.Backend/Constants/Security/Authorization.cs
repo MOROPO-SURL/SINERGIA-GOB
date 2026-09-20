@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.Core.Presentation.Web.Backend.Constants.Security
+﻿namespace MOROPO.SINERGIAGOB.Core.Presentation.Web.Backend.Constants.Security
 {
     public static class Authorization
     {

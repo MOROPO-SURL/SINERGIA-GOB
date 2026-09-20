@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Constants;
+﻿namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.Constants;
 
 public static class CardViewHeightConstants
 {

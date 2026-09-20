@@ -1,14 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MOROPO.Framework.Guama.Core.Persistence.Repositories;
-using MOROPO.SINETGIAGOB.GovCamaguey.Persistence.Entities;
-using MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Enumerations;
-using MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Models.View;
+using MOROPO.SINERGIAGOB.GovCamaguey.Persistence.Entities;
+using MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Enumerations;
+using MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Models.View;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Controllers.Frontend.Reports;
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Controllers.Frontend.Reports;
 
 [Route("report/indicators")]
 public class IndicatorReportController : Framework.Guama.Core.Presentation.Web.Common.Controllers.BaseWebController

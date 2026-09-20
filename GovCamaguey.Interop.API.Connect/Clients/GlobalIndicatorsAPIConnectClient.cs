@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Connect.Clients
+﻿namespace MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Connect.Clients
 {
     public class GlobalIndicatorsAPIConnectClient : Framework.Guama.Core.Presentation.API.Connect.Clients.Contract.AbstractArchivableEnableableEntityManagementFilteredAPIConnectClient<GovCamaguey.Persistence.Entities.GlobalIndicator, System.Guid, Common.Models.Input.GlobalIndicatorInputModel, Common.Models.Display.GlobalIndicatorDisplayModel, Common.Models.Filter.GlobalIndicatorFilterModel>
     {

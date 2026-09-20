@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Models.View.Contract;
+﻿namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.Models.View.Contract;
 
 public abstract class AbstractObjectiveViewModel
 {

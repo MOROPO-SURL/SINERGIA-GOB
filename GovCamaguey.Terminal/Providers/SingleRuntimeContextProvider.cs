@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Providers
+﻿namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.Providers
 {
     public class SingleRuntimeContextProvider : Core.Presentation.Terminal.MAUI.Providers.Facade.IRuntimeContextProviderFacade
     {

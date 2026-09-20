@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.Core.Persistence.Entities.Contract
+﻿namespace MOROPO.SINERGIAGOB.Core.Persistence.Entities.Contract
 {
     public abstract class AbstractGoods : Framework.Guama.Core.Persistence.Entities.Contract.INamedEntity<System.Guid>, IFullFeatureEntity<System.Guid>
     {

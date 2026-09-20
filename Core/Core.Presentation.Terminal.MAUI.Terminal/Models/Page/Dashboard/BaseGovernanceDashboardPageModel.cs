@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.Models.Page.Dashboard;
+﻿namespace MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.Models.Page.Dashboard;
 
 public class BaseGovernanceDashboardPageModel : Contract.AbstractDashboardPageModel
 {

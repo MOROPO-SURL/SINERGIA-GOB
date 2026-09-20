@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MOROPO.Framework.Guama.Core.Presentation.Web.Security.Attributes;
-using MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Models.Input;
-using MOROPO.SINETGIAGOB.GovCamaguey.Persistence.Entities;
-using MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Models.View.Display;
+using MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common.Models.Input;
+using MOROPO.SINERGIAGOB.GovCamaguey.Persistence.Entities;
+using MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Models.View.Display;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Controllers.Backend
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Controllers.Backend
 {
     [Microsoft.AspNetCore.Authorization.Authorize]
     [RequirePermissions(Framework.Guama.Core.Security.Presentation.Constants.Permissions.ShellManager)]

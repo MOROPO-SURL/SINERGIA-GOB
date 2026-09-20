@@ -2,14 +2,14 @@
 <core_ui_base_pages:ConfigurationBaseContentPage 
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local_behaviors="clr-namespace:MOROPO.SINETGIAGOB.GovCamaguey.Terminal.UI.Behaviors"
-    xmlns:local_converters="clr-namespace:MOROPO.SINETGIAGOB.GovCamaguey.Terminal.UI.Converters"
-    xmlns:local_configuration_page_models="clr-namespace:MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Models.Page.Configuration"
-    xmlns:core_models="clr-namespace:MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.Models;assembly=MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI"
-    xmlns:core_ui_converters="clr-namespace:MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Converters;assembly=MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI"
-    xmlns:core_ui_base_pages="clr-namespace:MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Pages.Base;assembly=MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI"
-    xmlns:interop_common_input_models="clr-namespace:MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Models.Input;assembly=MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common"    
-    x:Class="MOROPO.SINETGIAGOB.GovCamaguey.Terminal.UI.Pages.Configuration.GlobalIndicatorMontlyPlanConfigurationPage"
+    xmlns:local_behaviors="clr-namespace:MOROPO.SINERGIAGOB.GovCamaguey.Terminal.UI.Behaviors"
+    xmlns:local_converters="clr-namespace:MOROPO.SINERGIAGOB.GovCamaguey.Terminal.UI.Converters"
+    xmlns:local_configuration_page_models="clr-namespace:MOROPO.SINERGIAGOB.GovCamaguey.Terminal.Models.Page.Configuration"
+    xmlns:core_models="clr-namespace:MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.Models;assembly=MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI"
+    xmlns:core_ui_converters="clr-namespace:MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.UI.Converters;assembly=MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI"
+    xmlns:core_ui_base_pages="clr-namespace:MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.UI.Pages.Base;assembly=MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI"
+    xmlns:interop_common_input_models="clr-namespace:MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common.Models.Input;assembly=MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common"    
+    x:Class="MOROPO.SINERGIAGOB.GovCamaguey.Terminal.UI.Pages.Configuration.GlobalIndicatorMontlyPlanConfigurationPage"
     x:TypeArguments="interop_common_input_models:GlobalIndicatorMontlyPlanInputModel,interop_common_input_models:GlobalIndicatorMontlyPlanInputModel,local_configuration_page_models:GlobalIndicatorMontlyPlanConfigurationPageModel"
     x:DataType="local_configuration_page_models:GlobalIndicatorMontlyPlanConfigurationPageModel">
     <ContentPage.Resources>

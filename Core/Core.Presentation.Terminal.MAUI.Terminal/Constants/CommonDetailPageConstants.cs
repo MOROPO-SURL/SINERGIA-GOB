@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.Constants;
+﻿namespace MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.Constants;
 
 public static class CommonDetailPageConstants
 {

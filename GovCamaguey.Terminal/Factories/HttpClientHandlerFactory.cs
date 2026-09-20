@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Factories;
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.Factories;
 
 internal static class HttpClientHandlerFactory
 {

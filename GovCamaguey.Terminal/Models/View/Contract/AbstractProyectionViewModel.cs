@@ -1,6 +1,6 @@
-﻿using MOROPO.SINETGIAGOB.GovCamaguey.Interop.API.Common.Models.Display;
+﻿using MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common.Models.Display;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Models.View.Contract;
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.Models.View.Contract;
 
 public abstract class AbstractProyectionViewModel
 {

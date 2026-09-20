@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.Core.Interop.API.Common.Models.Display
+﻿namespace MOROPO.SINERGIAGOB.Core.Interop.API.Common.Models.Display
 {
     public class StateDisplayModel : Framework.Guama.Core.Persistence.Presentation.Models.Contract.IEntityDisplayModel<Framework.Guama.Location.Persistence.Entities.State, System.Guid>
     {

@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.Core.Presentation.Web.Backend.Models.View.Filter
+﻿namespace MOROPO.SINERGIAGOB.Core.Presentation.Web.Backend.Models.View.Filter
 {
     public class TracesFilterViewModel : Framework.Guama.Core.Persistence.Presentation.Models.Filter.Contract.IEntityFilterModel<Framework.Guama.Core.Persistence.ORM.EF.Entities.Trace, long>
     {

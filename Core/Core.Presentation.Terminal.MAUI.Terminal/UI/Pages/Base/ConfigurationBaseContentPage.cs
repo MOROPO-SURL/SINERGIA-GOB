@@ -2,7 +2,7 @@
 using MOROPO.Framework.Caney.MVVM.Core.Extensions;
 using System.Linq;
 
-namespace MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Pages.Base
+namespace MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.UI.Pages.Base
 {
     public class ConfigurationBaseContentPage<TInModel, TOutModel, TConfigurationPageModel> : Framework.Caney.MVVM.Core.Pages.ContentPage
         where TInModel : class

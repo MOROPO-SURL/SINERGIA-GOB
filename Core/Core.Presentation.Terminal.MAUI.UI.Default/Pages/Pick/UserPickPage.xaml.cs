@@ -1,7 +1,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using MOROPO.Framework.Caney.MVVM.Core.Extensions;
 
-namespace MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Default.Pages.Pick;
+namespace MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.UI.Default.Pages.Pick;
 
 public partial class UserPickPage : UI.Pages.Base.ListBaseContentPage<Interop.API.Common.Models.Display.UserDisplayModel, Models.Page.Pick.UserPickPageModel>
 {

@@ -1,4 +1,4 @@
-﻿@model MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Models.View.ObjectiveSummaryViewModel
+﻿@model MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Models.View.ObjectiveSummaryViewModel
 
 @{
     Layout = "_ReportLayout";
@@ -105,7 +105,7 @@
 
                 int proyectionRowSpan = proyectionIndicatorCount <= 0 ? 1 : proyectionIndicatorCount;
 
-                MOROPO.SINETGIAGOB.GovCamaguey.Persistence.Entities.ProyectionIndicator firstProyectionIndicator = proyectionIndicatorCount > 0 ? _item.Indicators.ElementAt(0) : null;
+                MOROPO.SINERGIAGOB.GovCamaguey.Persistence.Entities.ProyectionIndicator firstProyectionIndicator = proyectionIndicatorCount > 0 ? _item.Indicators.ElementAt(0) : null;
 
                 <tr>
                     <th rowspan="@proyectionRowSpan">@Model.Index.@_item.Index</th>
@@ -138,7 +138,7 @@
                 </tr>
                 @for (int i = 1; i < proyectionIndicatorCount; i++)
                 {
-                    MOROPO.SINETGIAGOB.GovCamaguey.Persistence.Entities.ProyectionIndicator currentProyectionIndicator = _item.Indicators.ElementAt(i);
+                    MOROPO.SINERGIAGOB.GovCamaguey.Persistence.Entities.ProyectionIndicator currentProyectionIndicator = _item.Indicators.ElementAt(i);
 
                     <tr>
                         <th style="text-align:left;">@currentProyectionIndicator.Name</th>
@@ -152,7 +152,7 @@
 
                     int actionRowSpan = actionIndicatorCount <= 0 ? 1 : actionIndicatorCount;
 
-                    MOROPO.SINETGIAGOB.GovCamaguey.Persistence.Entities.ActionIndicator firstActionIndicator = actionIndicatorCount > 0 ? __item.Indicators.ElementAt(0) : null;
+                    MOROPO.SINERGIAGOB.GovCamaguey.Persistence.Entities.ActionIndicator firstActionIndicator = actionIndicatorCount > 0 ? __item.Indicators.ElementAt(0) : null;
 
                     <tr>
                         <td rowspan="@actionRowSpan">@Model.Index.@_item.Index.@__item.Index</td>
@@ -183,7 +183,7 @@
                     </tr>
                     @for (int i = 1; i < actionIndicatorCount; i++)
                     {
-                        MOROPO.SINETGIAGOB.GovCamaguey.Persistence.Entities.ActionIndicator currentActionIndicator = __item.Indicators.ElementAt(i);
+                        MOROPO.SINERGIAGOB.GovCamaguey.Persistence.Entities.ActionIndicator currentActionIndicator = __item.Indicators.ElementAt(i);
 
                         <tr>
                             <td style="text-align:left;">@currentActionIndicator.Name</td>

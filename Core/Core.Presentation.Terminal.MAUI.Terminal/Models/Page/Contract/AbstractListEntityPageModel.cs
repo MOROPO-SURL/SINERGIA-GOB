@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.Models.Page.Contract
+﻿namespace MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.Models.Page.Contract
 {
     public abstract class AbstractListEntityPageModel<T> : Framework.Caney.MVVM.Core.Models.Page.BasePageModel
     {

@@ -2,9 +2,9 @@
 using MOROPO.Framework.Guama.Media.Persistence.Entities;
 using MOROPO.Framework.Guama.Media.Presentation.Web.Common.Managers.Facade;
 using MOROPO.Framework.Guama.Security.Personal.Persistence.Entities;
-using MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Models.View;
+using MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Models.View;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Managers
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Managers
 {
     public class UserProfileManager : Framework.Guama.Core.Presentation.Web.Security.Managers.Facade.IUserProfileManagerFacade
     {

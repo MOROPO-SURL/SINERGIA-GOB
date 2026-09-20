@@ -1,8 +1,8 @@
 ﻿using Microsoft.Maui.Dispatching;
 using MOROPO.Framework.Caney.MVVM.Core.Extensions;
-using MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.Constants;
+using MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.Constants;
 
-namespace MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Default.Presenters
+namespace MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.UI.Default.Presenters
 {
     public sealed class ImagePickPresenter
     {

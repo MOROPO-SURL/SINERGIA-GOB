@@ -1,6 +1,6 @@
 ﻿using MOROPO.Framework.Guama.Core.Persistence.Entities.Contract;
 
-namespace MOROPO.SINETGIAGOB.Core.Persistence.Entities.Contract
+namespace MOROPO.SINERGIAGOB.Core.Persistence.Entities.Contract
 {
     [System.ComponentModel.DataAnnotations.Schema.NotMapped]
     public abstract class AbstractNomenclator : INamedEntity<System.Guid>, IFullFeatureEntity<System.Guid>

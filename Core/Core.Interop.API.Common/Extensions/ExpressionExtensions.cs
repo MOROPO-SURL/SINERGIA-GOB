@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 
-namespace MOROPO.SINETGIAGOB.Core.Interop.API.Common.Extensions
+namespace MOROPO.SINERGIAGOB.Core.Interop.API.Common.Extensions
 {
     public static class ExpressionExtensions
     {

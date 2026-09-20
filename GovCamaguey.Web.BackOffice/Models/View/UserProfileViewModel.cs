@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using MOROPO.Framework.Guama.Core.Presentation.Web.Common.ComponentModel.DataAnnotations;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Models.View
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Models.View
 {
     [Microsoft.AspNetCore.Mvc.ModelMetadataType(typeof(Framework.Guama.Core.Presentation.Web.Security.Models.View.Contrat.IUserProfileViewModel))]
     public class UserProfileViewModel : Framework.Guama.Core.Presentation.Web.Security.Models.View.Contrat.IUserProfileViewModel

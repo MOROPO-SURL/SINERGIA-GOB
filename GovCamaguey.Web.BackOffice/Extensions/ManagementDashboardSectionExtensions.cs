@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Extensions
+﻿namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Extensions
 {
     public static class ManagementDashboardSectionExtensions
     {

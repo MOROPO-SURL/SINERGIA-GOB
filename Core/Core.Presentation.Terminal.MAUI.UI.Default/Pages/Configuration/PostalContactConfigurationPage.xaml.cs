@@ -1,6 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 
-namespace MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Default.Pages.Configuration;
+namespace MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.UI.Default.Pages.Configuration;
 
 public partial class PostalContactConfigurationPage : UI.Pages.Base.ConfigurationBaseContentPage<Interop.API.Common.Models.Display.PostalContactItemDisplayModel, Interop.API.Common.Models.Display.PostalContactItemDisplayModel, Models.Page.Configuration.PostalContactConfigurationPageModel>
 {

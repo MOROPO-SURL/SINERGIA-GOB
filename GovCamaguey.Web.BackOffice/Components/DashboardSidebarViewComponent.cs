@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MOROPO.Framework.Guama.Core.Presentation.Web.Backend.Providers.Facade;
-using MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Extensions;
+using MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Extensions;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Components
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Components
 {
     public class DashboardSidebarViewComponent : ViewComponent
     {

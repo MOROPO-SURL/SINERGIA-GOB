@@ -1,6 +1,6 @@
-﻿using MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.Extensions;
+﻿using MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.Extensions;
 
-namespace MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Converters
+namespace MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.UI.Converters
 {
     public class ImageDisplayModelToImageSourceConverter : Microsoft.Maui.Controls.IValueConverter
     {

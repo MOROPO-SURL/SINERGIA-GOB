@@ -3,7 +3,7 @@ using SkiaSharp;
 using SkiaSharp.Views.Maui.Controls;
 using System.Collections.Generic;
 
-namespace MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Default.Pages;
+namespace MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.UI.Default.Pages;
 
 public partial class ImageCropPage : Framework.Caney.MVVM.Core.Pages.ContentPage
 {

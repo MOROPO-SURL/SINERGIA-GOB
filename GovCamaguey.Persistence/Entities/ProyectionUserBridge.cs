@@ -1,4 +1,4 @@
-﻿namespace MOROPO.SINETGIAGOB.GovCamaguey.Persistence.Entities
+﻿namespace MOROPO.SINERGIAGOB.GovCamaguey.Persistence.Entities
 {
     public class ProyectionUserBridge : Framework.Guama.Core.Persistence.Entities.Contract.IBridge<Proyection, System.Guid, Framework.Guama.Security.Personal.Persistence.Entities.User, string>
     {

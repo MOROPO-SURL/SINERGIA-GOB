@@ -1,9 +1,9 @@
 using Microsoft.Extensions.DependencyInjection;
-using MOROPO.SINETGIAGOB.Core.Presentation.Terminal.MAUI.UI.Extensions;
-using MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Models.Page.Configuration;
+using MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.UI.Extensions;
+using MOROPO.SINERGIAGOB.GovCamaguey.Terminal.Models.Page.Configuration;
 using System.Linq;
 
-namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.UI.Pages.Manage;
+namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.UI.Pages.Manage;
 
 public partial class ObjectivesManagePage : Core.Presentation.Terminal.MAUI.UI.Pages.Base.ManageBaseContentPage<Interop.API.Common.Models.Display.ObjectiveDisplayModel, Models.Page.Manage.ObjectivesManagePageModel, Models.Page.Configuration.ObjectiveConfigurationPageModel>
 {
