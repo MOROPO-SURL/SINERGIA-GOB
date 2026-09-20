@@ -21,18 +21,24 @@ public class ObjectiveReportController : Framework.Guama.Core.Presentation.Web.C
         this.objectiveRepository = objectiveRepository;
     }
 
-    [Route("summary/web")]
-    public IActionResult Summary()
+    [Route("book/web")]
+    public IActionResult Book()
     {
-        return View(GetObjectivesSummaryModel());
+        return View(GetObjectivesOverviewModel());
     }
 
-    [Route("summary/print")]
-    public async System.Threading.Tasks.Task<IActionResult> PrintSummarySync()
+    [Route("table/web")]
+    public IActionResult Table()
+    {
+        return View(GetObjectivesOverviewModel());
+    }
+
+    [Route("book/print")]
+    public async System.Threading.Tasks.Task<IActionResult> PrintBookAsync()
     {
         var htmlContent = await viewRenderService.RenderViewToStringAsync(
-                "~/Views/ObjectiveReport/Summary.cshtml",
-                GetObjectivesSummaryModel()
+                "~/Views/ObjectiveReport/Book.cshtml",
+                GetObjectivesOverviewModel()
             );
 
         // Opciones para el PDF
@@ -48,22 +54,52 @@ public class ObjectiveReportController : Framework.Guama.Core.Presentation.Web.C
         // Generar PDF
         var pdfBytes = await htmlToPdfService.GeneratePdfFromHtmlAsync(htmlContent, pdfOptions);
 
-        return File(pdfBytes, "application/pdf", $"Resumen de Objetivos - {System.DateTime.Now.Ticks}.pdf");
+        return File(pdfBytes, "application/pdf", $"Libro Resumen de Objetivos - {System.DateTime.Now.Ticks}.pdf");
     }
 
-    [Route("summary/{key}/web")]
-    public IActionResult SummaryByObjective(System.Guid key)
+    [Route("table/print")]
+    public async System.Threading.Tasks.Task<IActionResult> PrintTableSync()
+    {
+        var htmlContent = await viewRenderService.RenderViewToStringAsync(
+                "~/Views/ObjectiveReport/Table.cshtml",
+                GetObjectivesOverviewModel()
+            );
+
+        // Opciones para el PDF
+        var pdfOptions = new Models.Options.PdfOptionsModel
+        {
+            PageSize = "Letter",
+            Orientation = Orientation.Portrait,
+            Margins = new Models.MarginsModel { Top = 10, Right = 10, Bottom = 10, Left = 10 },
+            EnableJavaScript = false,
+            PrintBackground = false
+        };
+
+        // Generar PDF
+        var pdfBytes = await htmlToPdfService.GeneratePdfFromHtmlAsync(htmlContent, pdfOptions);
+
+        return File(pdfBytes, "application/pdf", $"Tabla Resumen de Objetivos - {System.DateTime.Now.Ticks}.pdf");
+    }
+
+    [Route("book/{key}/web")]
+    public IActionResult BookByObjective(System.Guid key)
     {
         return View(GetObjectiveSummaryModel(key));
     }
 
-    [Route("summary/{key}/print")]
-    public async System.Threading.Tasks.Task<IActionResult> PrintSummaryByObjectiveAsync(System.Guid key)
+    [Route("table/{key}/web")]
+    public IActionResult TableByObjective(System.Guid key)
+    {
+        return View(GetObjectiveSummaryModel(key));
+    }
+
+    [Route("book/{key}/print")]
+    public async System.Threading.Tasks.Task<IActionResult> PrintBookByObjectiveAsync(System.Guid key)
     {
         var model = GetObjectiveSummaryModel(key);
 
         var htmlContent = await viewRenderService.RenderViewToStringAsync(
-                "~/Views/ObjectiveReport/SummaryByObjective.cshtml",
+                "~/Views/ObjectiveReport/BookByObjective.cshtml",
                 model
             );
 
@@ -80,10 +116,36 @@ public class ObjectiveReportController : Framework.Guama.Core.Presentation.Web.C
         // Generar PDF
         var pdfBytes = await htmlToPdfService.GeneratePdfFromHtmlAsync(htmlContent, pdfOptions);
 
-        return File(pdfBytes, "application/pdf", $"Resumen de Objetivo {model.Index} - {System.DateTime.Now.Ticks}.pdf");
+        return File(pdfBytes, "application/pdf", $"Libro Resumen de Objetivo {model.Index} - {System.DateTime.Now.Ticks}.pdf");
     }
 
-    private Models.View.ObjectiveSummaryViewModel[] GetObjectivesSummaryModel()
+    [Route("table/{key}/print")]
+    public async System.Threading.Tasks.Task<IActionResult> PrintTableByObjectiveAsync(System.Guid key)
+    {
+        var model = GetObjectiveSummaryModel(key);
+
+        var htmlContent = await viewRenderService.RenderViewToStringAsync(
+                "~/Views/ObjectiveReport/TableByObjective.cshtml",
+                model
+            );
+
+        // Opciones para el PDF
+        var pdfOptions = new Models.Options.PdfOptionsModel
+        {
+            PageSize = "Letter",
+            Orientation = Orientation.Portrait,
+            Margins = new Models.MarginsModel { Top = 10, Right = 10, Bottom = 10, Left = 10 },
+            EnableJavaScript = false,
+            PrintBackground = false
+        };
+
+        // Generar PDF
+        var pdfBytes = await htmlToPdfService.GeneratePdfFromHtmlAsync(htmlContent, pdfOptions);
+
+        return File(pdfBytes, "application/pdf", $"Tabla Resumen de Objetivo {model.Index} - {System.DateTime.Now.Ticks}.pdf");
+    }
+
+    private Models.View.ObjectiveSummaryViewModel[] GetObjectivesOverviewModel()
     {
         return objectiveRepository.FindBy(entity => !entity.Archived).OrderBy(entity => entity.Index).ToArray().Select(entity => new Models.View.ObjectiveSummaryViewModel(entity)).ToArray();
     }

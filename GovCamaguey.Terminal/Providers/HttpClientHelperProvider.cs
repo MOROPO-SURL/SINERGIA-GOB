@@ -19,7 +19,7 @@ namespace MOROPO.SINETGIAGOB.GovCamaguey.Terminal.Providers
 #if DEBUG
             var serverBaseUri = Microsoft.Maui.Devices.DeviceInfo.Platform == Microsoft.Maui.Devices.DevicePlatform.Android ? "https://10.0.2.2:7208" : "https://localhost:7208";
 #else
-            var serverBaseUri = "https://cmi.gpcmg.co.cu";
+            var serverBaseUri = "https://127.0.0.1:7208"; // TODO Restore "https://cmi.gpcmg.co.cu";
 #endif
 
             HttpClientHelper = new Framework.Guama.Core.Presentation.API.Connect.Helpers.HttpClientHelper(HttpClientHandlerFactory.Build(), serverBaseUri, GetAuthorizeHeader);

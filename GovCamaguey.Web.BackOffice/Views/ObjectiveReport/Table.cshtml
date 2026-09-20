@@ -1,0 +1,200 @@
+﻿@model MOROPO.SINETGIAGOB.GovCamaguey.Web.BackOffice.Models.View.ObjectiveSummaryViewModel[]
+
+@{
+    Layout = "_ReportLayout";
+
+    string emptyMessage = "No se definieron elementos";
+}
+
+@section styles {
+    <style type="text/css">
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.0;
+        }
+
+        table {
+            background-color: transparent;
+            margin-bottom: 16px;
+        }
+
+            table > tbody th {
+                background-color: lightgray;
+            }
+
+        h5.h-seccion {
+            font-style: italic; 
+            text-decoration: underline;
+            margin-bottom: 12px;
+        }
+
+        .text-muted {
+            color: dimgray;
+            font-style: italic;
+            font-size: 0.92rem;
+        }
+    </style>
+}
+
+@foreach (var item in Model)
+{
+    <h2>Objetivo @item.Index: @item.Name</h2>
+    <table style="width:auto;">
+        <thead>
+            <tr>
+                <th>Indicadores</th>
+                <th>Metas</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (item.Indicators.Length <= 0)
+            {
+                <tr><td colspan="2" class="text-muted">@emptyMessage</td></tr>
+            }
+            else
+            {
+                foreach (var _item in item.Indicators)
+                {
+                    <tr>
+                        <td style="text-align:left;">@_item.Name</td>
+                        <td style="text-align:right;">@_item.Amount @_item.UnitMeasurement.Symbol</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    <table>
+        <thead>
+            <tr>
+                <th rowspan="2">No.</th>
+                <th rowspan="2">OBJ. ESPECIFICOS Y ACCIONES</th>
+                <th colspan="12">PLAZO</th>
+                <th rowspan="2">ORIGEN</th>
+                <th rowspan="2">RESPONSABLES</th>
+                <th rowspan="2">PARTICIPANTES</th>
+                <th rowspan="2">LINEAMIENTOS</th>
+                <th rowspan="2">INDICADORES</th>
+                <th rowspan="2">METAS</th>
+                <th rowspan="2">RESULTADO ESPERADO</th>
+            </tr>
+            <tr>
+                <th>E</th>
+                <th>F</th>
+                <th>M</th>
+                <th>A</th>
+                <th>M</th>
+                <th>J</th>
+                <th>J</th>
+                <th>A</th>
+                <th>S</th>
+                <th>O</th>
+                <th>N</th>
+                <th>D</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (item.Proyections.Length <= 0)
+            {
+                <tr><td colspan="21" class="text-muted">@emptyMessage</td></tr>
+            }
+            else
+            {                        
+                @foreach (var _item in item.Proyections)
+                {
+                    int proyectionIndicatorCount = _item.Indicators.Count();
+
+                    int proyectionRowSpan = proyectionIndicatorCount <= 0 ? 1 : proyectionIndicatorCount;
+
+                    MOROPO.SINETGIAGOB.GovCamaguey.Persistence.Entities.ProyectionIndicator firstProyectionIndicator = proyectionIndicatorCount > 0 ? _item.Indicators.ElementAt(0) : null;
+
+                    <tr>
+                        <th rowspan="@proyectionRowSpan">@item.Index.@_item.Index</th>
+                        <th rowspan="@proyectionRowSpan" style="text-align:left;">@_item.Name</th>
+                        <th rowspan="@proyectionRowSpan">@_item.MonthlyClosures.OrderByDescending(___item => ___item.At).FirstOrDefault(___item => ___item.At.Month == 1)?.At.Day</th>
+                        <th rowspan="@proyectionRowSpan">@_item.MonthlyClosures.OrderByDescending(___item => ___item.At).FirstOrDefault(___item => ___item.At.Month == 2)?.At.Day</th>
+                        <th rowspan="@proyectionRowSpan">@_item.MonthlyClosures.OrderByDescending(___item => ___item.At).FirstOrDefault(___item => ___item.At.Month == 3)?.At.Day</th>
+                        <th rowspan="@proyectionRowSpan">@_item.MonthlyClosures.OrderByDescending(___item => ___item.At).FirstOrDefault(___item => ___item.At.Month == 4)?.At.Day</th>
+                        <th rowspan="@proyectionRowSpan">@_item.MonthlyClosures.OrderByDescending(___item => ___item.At).FirstOrDefault(___item => ___item.At.Month == 5)?.At.Day</th>
+                        <th rowspan="@proyectionRowSpan">@_item.MonthlyClosures.OrderByDescending(___item => ___item.At).FirstOrDefault(___item => ___item.At.Month == 6)?.At.Day</th>
+                        <th rowspan="@proyectionRowSpan">@_item.MonthlyClosures.OrderByDescending(___item => ___item.At).FirstOrDefault(___item => ___item.At.Month == 7)?.At.Day</th>
+                        <th rowspan="@proyectionRowSpan">@_item.MonthlyClosures.OrderByDescending(___item => ___item.At).FirstOrDefault(___item => ___item.At.Month == 8)?.At.Day</th>
+                        <th rowspan="@proyectionRowSpan">@_item.MonthlyClosures.OrderByDescending(___item => ___item.At).FirstOrDefault(___item => ___item.At.Month == 9)?.At.Day</th>
+                        <th rowspan="@proyectionRowSpan">@_item.MonthlyClosures.OrderByDescending(___item => ___item.At).FirstOrDefault(___item => ___item.At.Month == 10)?.At.Day</th>
+                        <th rowspan="@proyectionRowSpan">@_item.MonthlyClosures.OrderByDescending(___item => ___item.At).FirstOrDefault(___item => ___item.At.Month == 11)?.At.Day</th>
+                        <th rowspan="@proyectionRowSpan">@_item.MonthlyClosures.OrderByDescending(___item => ___item.At).FirstOrDefault(___item => ___item.At.Month == 12)?.At.Day</th>
+                        <th rowspan="@proyectionRowSpan"></th>
+                        <th rowspan="@proyectionRowSpan">
+                            @string.Join(", ", _item.ResponsabilityOrganizations.Select(__item => __item.Identity.Name))
+                        </th>
+                        <th rowspan="@proyectionRowSpan">
+                            @string.Join(", ", _item.ParticipationOrganizations.Select(__item => __item.Identity.Name))
+                        </th>
+                        <th rowspan="@proyectionRowSpan">
+                            @string.Join(", ", _item.Guidelines.Select(__item => __item.Index))
+                        </th>
+                        <th style="text-align:left;">@firstProyectionIndicator?.Name</th>
+                        <th style="text-align:right;">@firstProyectionIndicator?.Amount @firstProyectionIndicator?.UnitMeasurement.Symbol</th>
+                        <th rowspan="@proyectionRowSpan"></th>
+                    </tr>
+                    @for (int i = 1; i < proyectionIndicatorCount; i++)
+                    {
+                        MOROPO.SINETGIAGOB.GovCamaguey.Persistence.Entities.ProyectionIndicator currentProyectionIndicator = _item.Indicators.ElementAt(i);
+
+                        <tr>
+                            <th style="text-align:left;">@currentProyectionIndicator.Name</th>
+                            <th style="text-align:right;">@currentProyectionIndicator.Amount @currentProyectionIndicator.UnitMeasurement.Symbol</th>
+                        </tr>
+                    }
+
+                    @foreach (var __item in _item.Actions)
+                    {
+                        int actionIndicatorCount = __item.Indicators.Count();
+
+                        int actionRowSpan = actionIndicatorCount <= 0 ? 1 : actionIndicatorCount;
+
+                        MOROPO.SINETGIAGOB.GovCamaguey.Persistence.Entities.ActionIndicator firstActionIndicator = actionIndicatorCount > 0 ? __item.Indicators.ElementAt(0) : null;
+
+                        <tr>
+                            <td rowspan="@actionRowSpan">@item.Index.@_item.Index.@__item.Index</td>
+                            <td rowspan="@actionRowSpan" style="text-align:left;">@__item.Name</td>
+                            <td rowspan="@actionRowSpan">@__item.MonthlyClosures.OrderByDescending(___item => ___item.At).FirstOrDefault(___item => ___item.At.Month == 1)?.At.Day</td>
+                            <td rowspan="@actionRowSpan">@__item.MonthlyClosures.OrderByDescending(___item => ___item.At).FirstOrDefault(___item => ___item.At.Month == 2)?.At.Day</td>
+                            <td rowspan="@actionRowSpan">@__item.MonthlyClosures.OrderByDescending(___item => ___item.At).FirstOrDefault(___item => ___item.At.Month == 3)?.At.Day</td>
+                            <td rowspan="@actionRowSpan">@__item.MonthlyClosures.OrderByDescending(___item => ___item.At).FirstOrDefault(___item => ___item.At.Month == 4)?.At.Day</td>
+                            <td rowspan="@actionRowSpan">@__item.MonthlyClosures.OrderByDescending(___item => ___item.At).FirstOrDefault(___item => ___item.At.Month == 5)?.At.Day</td>
+                            <td rowspan="@actionRowSpan">@__item.MonthlyClosures.OrderByDescending(___item => ___item.At).FirstOrDefault(___item => ___item.At.Month == 6)?.At.Day</td>
+                            <td rowspan="@actionRowSpan">@__item.MonthlyClosures.OrderByDescending(___item => ___item.At).FirstOrDefault(___item => ___item.At.Month == 7)?.At.Day</td>
+                            <td rowspan="@actionRowSpan">@__item.MonthlyClosures.OrderByDescending(___item => ___item.At).FirstOrDefault(___item => ___item.At.Month == 8)?.At.Day</td>
+                            <td rowspan="@actionRowSpan">@__item.MonthlyClosures.OrderByDescending(___item => ___item.At).FirstOrDefault(___item => ___item.At.Month == 9)?.At.Day</td>
+                            <td rowspan="@actionRowSpan">@__item.MonthlyClosures.OrderByDescending(___item => ___item.At).FirstOrDefault(___item => ___item.At.Month == 10)?.At.Day</td>
+                            <td rowspan="@actionRowSpan">@__item.MonthlyClosures.OrderByDescending(___item => ___item.At).FirstOrDefault(___item => ___item.At.Month == 11)?.At.Day</td>
+                            <td rowspan="@actionRowSpan">@__item.MonthlyClosures.OrderByDescending(___item => ___item.At).FirstOrDefault(___item => ___item.At.Month == 12)?.At.Day</td>
+                            <td rowspan="@actionRowSpan"></td>
+                            <td rowspan="@actionRowSpan">
+                                @string.Join(", ", __item.OrganizationResponsabilityBridges.Select(__item => __item.Stern.Identity.Name))
+                            </td>
+                            <td rowspan="@actionRowSpan">
+                                @string.Join(", ", __item.OrganizationParticipationBridges.Select(__item => __item.Stern.Identity.Name))
+                            </td>
+                            <td rowspan="@actionRowSpan"></td>
+                            <td style="text-align:left;">@firstActionIndicator?.Name</td>
+                            <td style="text-align:right;">@firstActionIndicator?.Amount @firstActionIndicator?.UnitMeasurement.Symbol</td>
+                            <td rowspan="@actionRowSpan"></td>
+                        </tr>
+                        @for (int i = 1; i < actionIndicatorCount; i++)
+                        {
+                            MOROPO.SINETGIAGOB.GovCamaguey.Persistence.Entities.ActionIndicator currentActionIndicator = __item.Indicators.ElementAt(i);
+
+                            <tr>
+                                <td style="text-align:left;">@currentActionIndicator.Name</td>
+                                <td style="text-align:right;">@currentActionIndicator.Amount @currentActionIndicator.UnitMeasurement.Symbol</td>
+                            </tr>
+                        }
+                    }
+                }
+            }
+        </tbody>
+    </table>
+}
