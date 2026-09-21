@@ -87,6 +87,15 @@
 	  <Compile Update="UI\Pages\Configuration\ProyectionMonthlyClosureConfigurationPage.xaml.cs">
 	    <DependentUpon>ProyectionMonthlyClosureConfigurationPage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="UI\Pages\Configuration\ElementSourceConfigurationPage.xaml.cs">
+	    <DependentUpon>ElementSourceConfigurationPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="UI\Pages\Detail\ElementSourceDetailPage.xaml.cs">
+	    <DependentUpon>ElementSourceDetailPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="UI\Pages\Manage\ElementSourcesManagePage.xaml.cs">
+	    <DependentUpon>ElementSourcesManagePage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="UI\Pages\UserAuthenticationPage.xaml.cs">
 	    <DependentUpon>UserAuthenticationPage.xaml</DependentUpon>
 	  </Compile>
@@ -135,7 +144,16 @@
 	  <MauiXaml Update="UI\Pages\Configuration\ProyectionIndicatorMontlyPlanConfigurationPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="UI\Pages\Configuration\ElementSourceConfigurationPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="UI\Pages\Detail\CommonIndicatorResultDetailPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="UI\Pages\Detail\ElementSourceDetailPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="UI\Pages\Manage\ElementSourcesManagePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="UI\Pages\UserAuthenticationPage.xaml">

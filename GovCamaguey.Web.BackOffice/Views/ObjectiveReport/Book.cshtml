@@ -97,6 +97,16 @@
                             {
                                 <p>@_item.Description</p>
                             }
+                            @if (_item.ElementSource != null)
+                            {
+                                <h5 class="h-seccion">Origen</h5>
+                                <p>@_item.ElementSource</p>
+                            }
+                            @if (!string.IsNullOrEmpty(_item.ExpectedResult))
+                            {
+                                <h5 class="h-seccion">Resultado esperado</h5>
+                                <p>@_item.ExpectedResult</p>
+                            }
                             <table style="border: none;">
                                 <tbody>
                                     <tr>
@@ -171,6 +181,16 @@
                                             @if (!string.IsNullOrEmpty(__item.Description))
                                             {
                                                 <p>@__item.Description</p>
+                                            }
+                                            @if (__item.ElementSource != null)
+                                            {
+                                                <h5 class="h-seccion">Origen</h5>
+                                                <p>@__item.ElementSource</p>
+                                            }
+                                            @if (!string.IsNullOrEmpty(__item.ExpectedResult))
+                                            {
+                                                <h5 class="h-seccion">Resultado esperado</h5>
+                                                <p>@__item.ExpectedResult</p>
                                             }
                                             <table>
                                                 <tbody>

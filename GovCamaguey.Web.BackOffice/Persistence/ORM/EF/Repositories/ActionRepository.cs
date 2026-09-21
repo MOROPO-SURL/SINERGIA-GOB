@@ -16,6 +16,7 @@ public class ActionRepository : Framework.Guama.Core.Persistence.ORM.EF.Reposito
             .Include(entity => entity.OrganizationResponsabilityBridges).ThenInclude(bridge => bridge.Stern).ThenInclude(entity => entity.Identity).ThenInclude(entity => entity.Image)
             .Include(entity => entity.OrganizationParticipationBridges).ThenInclude(bridge => bridge.Stern).ThenInclude(entity => entity.Identity).ThenInclude(entity => entity.Image)
             .Include(entity => entity.MonthlyClosures)
+            .Include(entity => entity.ElementSource)
             .Include(entity => entity.Indicators).ThenInclude(entity => entity.UnitMeasurement)
             .Include(entity => entity.Indicators).ThenInclude(entity => entity.MontlyPlans);
     }

@@ -15,6 +15,7 @@ public class ProyectionRepository : Framework.Guama.Core.Persistence.ORM.EF.Repo
             .AsSplitQuery()
             .Include(entity => entity.Objective)
             .Include(entity => entity.MonthlyClosures)
+            .Include(entity => entity.ElementSource)
             .Include(entity => entity.GuidelineBridges).ThenInclude(bridge => bridge.Stern)
             .Include(entity => entity.OrganizationResponsabilityBridges).ThenInclude(bridge => bridge.Stern).ThenInclude(entity => entity.Identity).ThenInclude(entity => entity.Image)
             .Include(entity => entity.OrganizationParticipationBridges).ThenInclude(bridge => bridge.Stern).ThenInclude(entity => entity.Identity).ThenInclude(entity => entity.Image)
@@ -22,6 +23,7 @@ public class ProyectionRepository : Framework.Guama.Core.Persistence.ORM.EF.Repo
             .Include(entity => entity.Indicators).ThenInclude(entity => entity.MontlyPlans)
             .Include(entity => entity.Actions).ThenInclude(entity => entity.OrganizationResponsabilityBridges).ThenInclude(bridge => bridge.Stern).ThenInclude(entity => entity.Identity).ThenInclude(entity => entity.Image)
             .Include(entity => entity.Actions).ThenInclude(entity => entity.OrganizationParticipationBridges).ThenInclude(bridge => bridge.Stern).ThenInclude(entity => entity.Identity).ThenInclude(entity => entity.Image)
+            .Include(entity => entity.Actions).ThenInclude(entity => entity.ElementSource)
             .Include(entity => entity.Actions).ThenInclude(entity => entity.MonthlyClosures)
             .Include(entity => entity.Actions).ThenInclude(entity => entity.Indicators).ThenInclude(entity => entity.UnitMeasurement)
             .Include(entity => entity.Actions).ThenInclude(entity => entity.Indicators).ThenInclude(entity => entity.MontlyPlans);

@@ -13,6 +13,11 @@ namespace MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common.Models.Input
         [System.ComponentModel.DataAnnotations.MaxLength(1024)]
         public string Name { get; set; }
 
+        [System.ComponentModel.DataAnnotations.MaxLength(3600)]
+        public string ExpectedResult { get; set; }
+
+        public System.Guid? ElementSourceId { get; set; }
+
         [System.ComponentModel.DataAnnotations.MaxLength(5120)]
         public string Description { get; set; }
 
@@ -46,7 +51,14 @@ namespace MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common.Models.Input
         {
             entity.Index = Index;
             entity.Name = Name;
+            entity.ExpectedResult = ExpectedResult;
             entity.Description = Description;
+
+            if (entity.ElementSourceId != ElementSourceId)
+            {
+                entity.ElementSource = null;
+                entity.ElementSourceId = ElementSourceId;
+            }
 
             entity.OrganizationResponsabilityBridges.Clear();
 

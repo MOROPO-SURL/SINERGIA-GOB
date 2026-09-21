@@ -16,6 +16,10 @@ namespace MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common.Models.Display
 
         public string Description { get; set; }
 
+        public string ExpectedResult { get; set; }
+
+        public ElementSourceDisplayModel ElementSource { get; set; }
+
         public GuidelineDisplayModel[] Guidelines { get; set; }
 
         public OrganizationDisplayModel[] ResponsabilityOrganizations { get; set; }
@@ -34,7 +38,15 @@ namespace MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common.Models.Display
             Enabled = entity.Enabled;
             Index = entity.Index;
             Name = entity.Name;
+            ExpectedResult = entity.ExpectedResult;
             Description = entity.Description;
+
+            if (entity.ElementSource != null)
+            {
+                ElementSource = new ElementSourceDisplayModel();
+
+                ElementSource.Import(entity.ElementSource);
+            }
 
             Guidelines = entity.GuidelineBridges.Where(bridge => !bridge.Stern.Archived).OrderBy(bridge => bridge.Stern.Index).Select(bridge =>
             {

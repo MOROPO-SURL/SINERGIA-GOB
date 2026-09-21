@@ -41,12 +41,14 @@ namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal
                    .AddSingleton<IDetailContentPageFactoryFacade<OrganizationDisplayModel>, OrganizationDetailPageFactory>()
                    .AddSingleton<IDetailContentPageFactoryFacade<ObjectiveDisplayModel>, ObjectiveDetailPageFactory>()
                    .AddSingleton<IDetailContentPageFactoryFacade<GlobalIndicatorDisplayModel>, GlobalIndicatorDetailPageFactory>()
+                   .AddSingleton<IDetailContentPageFactoryFacade<ElementSourceDisplayModel>, ElementSourceDetailPageFactory>()
                    .AddSingleton<IConfigurationContentPageFactoryFacade<GuidelineDisplayModel, GuidelineConfigurationPageModel>, GuidelineConfigurationPageFactory>()
                    .AddSingleton<IConfigurationContentPageFactoryFacade<UnitMeasurementDisplayModel, UnitMeasurementConfigurationPageModel>, UnitMeasurementConfigurationPageFactory>()
                    .AddSingleton<IConfigurationContentPageFactoryFacade<PersonDisplayModel, PersonConfigurationPageModel>, PersonConfigurationPageFactory>()
                    .AddSingleton<IConfigurationContentPageFactoryFacade<OrganizationDisplayModel, OrganizationConfigurationPageModel>, OrganizationConfigurationPageFactory>()
                    .AddSingleton<IConfigurationContentPageFactoryFacade<ObjectiveDisplayModel, ObjectiveConfigurationPageModel>, ObjectiveConfigurationPageFactory>()
-                   .AddSingleton<IConfigurationContentPageFactoryFacade<GlobalIndicatorDisplayModel, GlobalIndicatorConfigurationPageModel>, GlobalIndicatorConfigurationPageFactory>();
+                   .AddSingleton<IConfigurationContentPageFactoryFacade<GlobalIndicatorDisplayModel, GlobalIndicatorConfigurationPageModel>, GlobalIndicatorConfigurationPageFactory>()
+                   .AddSingleton<IConfigurationContentPageFactoryFacade<ElementSourceDisplayModel, ElementSourceConfigurationPageModel>, ElementSourceConfigurationPageFactory>();
 
 #if DEBUG
             builder.Logging.AddDebug();

@@ -67,6 +67,8 @@ public partial class ProyectionConfigurationPage : Core.Presentation.Terminal.MA
             Id = System.Guid.NewGuid(),
             Index = ConcreteBindingContext.Index,
             Name = ConcreteBindingContext.Name,
+            ExpectedResult = ConcreteBindingContext.ExpectedResult,
+            ElementSourceId = ConcreteBindingContext.ElementSource?.Id,
             Description = ConcreteBindingContext.Description,
             Guidelines = [.. ConcreteBindingContext.Guidelines],
             ResponsabilityOrganizations = [.. ConcreteBindingContext.ResponsabilityOrganizations],
@@ -85,6 +87,8 @@ public partial class ProyectionConfigurationPage : Core.Presentation.Terminal.MA
             Index = ConcreteBindingContext.Index,
             Name = ConcreteBindingContext.Name,
             Description = ConcreteBindingContext.Description,
+            ExpectedResult = ConcreteBindingContext.ExpectedResult,
+            ElementSourceId = ConcreteBindingContext.ElementSource?.Id,
             Guidelines = [.. ConcreteBindingContext.Guidelines],
             ResponsabilityOrganizations = [.. ConcreteBindingContext.ResponsabilityOrganizations],
             ParticipationOrganizations = [.. ConcreteBindingContext.ParticipationOrganizations],
@@ -108,6 +112,11 @@ public partial class ProyectionConfigurationPage : Core.Presentation.Terminal.MA
     private void CancelToolbarItem_Clicked(object sender, System.EventArgs eventArgs)
     {
         OnCancel(sender, eventArgs);
+    }
+
+    private void Picker_SelectedIndexChanged(object sender, System.EventArgs e)
+    {
+        hasChangesFlag = true;
     }
 
     private void IndicatorAgregationButton_Clicked(object sender, System.EventArgs e)
@@ -313,7 +322,26 @@ public partial class ProyectionConfigurationPage : Core.Presentation.Terminal.MA
             return;
         }
 
-        this.NavigationPushPageAsync(new ActionConfigurationPage(ActionCreateSuccess_Callback, new Models.Page.Configuration.ActionConfigurationPageModel(null)));
+        var apiConnectClient = new Interop.API.Connect.Clients.ElementSourcesAPIConnectClient(Microsoft.Maui.IPlatformApplication.Current.Services.GetRequiredService<Framework.Guama.Core.Presentation.API.Connect.Providers.Facade.IHttpClientHelperProviderFacade>());
+
+        ConcreteBindingContext.IsBusy = true;
+
+        apiConnectClient.GetEnabledAsync().ContinueWith(task =>
+        {
+            Dispatcher.Dispatch(() =>
+            {
+                ConcreteBindingContext.IsBusy = false;
+
+                if (!task.IsCompletedSuccessfully)
+                {
+                    HandleException(task.Exception);
+
+                    return;
+                }
+
+                this.NavigationPushPageAsync(new ActionConfigurationPage(ActionCreateSuccess_Callback, new Models.Page.Configuration.ActionConfigurationPageModel(null, task.Result)));
+            });
+        });
     }
 
     private void ActionEditionButton_Clicked(object sender, System.EventArgs e)
@@ -344,11 +372,32 @@ public partial class ProyectionConfigurationPage : Core.Presentation.Terminal.MA
             Index = target.Index,
             Name = target.Name,
             Description = target.Description,
+            ElementSourceId = target.ElementSource?.Id,
+            ExpectedResult = target.ExpectedResult,
             ResponsabilityOrganizations = target.ResponsabilityOrganizations,
             ParticipationOrganizations = target.ParticipationOrganizations
         };
-        
-        this.NavigationPushPageAsync(new ActionConfigurationPage(ActionEditSuccess_Callback, new Models.Page.Configuration.ActionConfigurationPageModel(model, target.Indicators, target.MonthlyClosures), model.EditionIndicators, model.IncomingIndicators, model.OutgoingIndicators, model.EditionMonthlyClosures, model.IncomingMonthlyClosures, model.OutgoingMonthlyClosures));
+
+        var apiConnectClient = new Interop.API.Connect.Clients.ElementSourcesAPIConnectClient(Microsoft.Maui.IPlatformApplication.Current.Services.GetRequiredService<Framework.Guama.Core.Presentation.API.Connect.Providers.Facade.IHttpClientHelperProviderFacade>());
+
+        ConcreteBindingContext.IsBusy = true;
+
+        apiConnectClient.GetEnabledAsync().ContinueWith(task =>
+        {
+            Dispatcher.Dispatch(() =>
+            {
+                ConcreteBindingContext.IsBusy = false;
+
+                if (!task.IsCompletedSuccessfully)
+                {
+                    HandleException(task.Exception);
+
+                    return;
+                }
+
+                this.NavigationPushPageAsync(new ActionConfigurationPage(ActionEditSuccess_Callback, new Models.Page.Configuration.ActionConfigurationPageModel(model, task.Result, target.Indicators, target.MonthlyClosures), model.EditionIndicators, model.IncomingIndicators, model.OutgoingIndicators, model.EditionMonthlyClosures, model.IncomingMonthlyClosures, model.OutgoingMonthlyClosures));
+            });
+        });
     }
 
     private void ActionRemotionButton_Clicked(object sender, System.EventArgs e)
@@ -693,6 +742,8 @@ public partial class ProyectionConfigurationPage : Core.Presentation.Terminal.MA
             Index = model.Index,
             Name = model.Name,
             Description = model.Description,
+            ExpectedResult = model.ExpectedResult,
+            ElementSource = model.ElementSourceId == null ? null : new ElementSourceDisplayModel { Id = model.ElementSourceId.Value },
             ResponsabilityOrganizations = model.ResponsabilityOrganizations,
             ParticipationOrganizations = model.ParticipationOrganizations
         });
@@ -746,6 +797,8 @@ public partial class ProyectionConfigurationPage : Core.Presentation.Terminal.MA
                 item.Index = model.Index;
                 item.Name = model.Name;
                 item.Description = model.Description;
+                item.ExpectedResult = model.ExpectedResult;
+                item.ElementSourceId = model.ElementSourceId;
                 item.ResponsabilityOrganizations = model.ResponsabilityOrganizations;
                 item.ParticipationOrganizations = model.ParticipationOrganizations;
                 item.IncomingIndicators = model.IncomingIndicators;
@@ -764,6 +817,8 @@ public partial class ProyectionConfigurationPage : Core.Presentation.Terminal.MA
                     item.Index = model.Index;
                     item.Name = model.Name;
                     item.Description = model.Description;
+                    item.ExpectedResult = model.ExpectedResult;
+                    item.ElementSourceId = model.ElementSourceId;
                     item.ResponsabilityOrganizations = model.ResponsabilityOrganizations;
                     item.ParticipationOrganizations = model.ParticipationOrganizations;
                     item.IncomingIndicators = model.IncomingIndicators;
@@ -796,6 +851,8 @@ public partial class ProyectionConfigurationPage : Core.Presentation.Terminal.MA
                     Index = model.Index,
                     Name = model.Name,
                     Description = model.Description,
+                    ExpectedResult = model.ExpectedResult,
+                    ElementSource = model.ElementSourceId == null ? null : new ElementSourceDisplayModel { Id = model.ElementSourceId.Value },
                     ResponsabilityOrganizations = model.ResponsabilityOrganizations,
                     ParticipationOrganizations = model.ParticipationOrganizations
                 };

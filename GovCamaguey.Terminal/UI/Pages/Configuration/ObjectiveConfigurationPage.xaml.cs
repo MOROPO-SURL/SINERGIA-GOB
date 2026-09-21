@@ -303,7 +303,26 @@ public partial class ObjectiveConfigurationPage : Core.Presentation.Terminal.MAU
             return;
         }
 
-        this.NavigationPushPageAsync(new ProyectionConfigurationPage(ProyectionCreateSuccess_Callback, new Models.Page.Configuration.ProyectionConfigurationPageModel(null)));
+        var apiConnectClient = new Interop.API.Connect.Clients.ElementSourcesAPIConnectClient(Microsoft.Maui.IPlatformApplication.Current.Services.GetRequiredService<Framework.Guama.Core.Presentation.API.Connect.Providers.Facade.IHttpClientHelperProviderFacade>());
+
+        ConcreteBindingContext.IsBusy = true;
+
+        apiConnectClient.GetEnabledAsync().ContinueWith(task =>
+        {
+            Dispatcher.Dispatch(() =>
+            {
+                ConcreteBindingContext.IsBusy = false;
+
+                if (!task.IsCompletedSuccessfully)
+                {
+                    HandleException(task.Exception);
+
+                    return;
+                }
+
+                this.NavigationPushPageAsync(new ProyectionConfigurationPage(ProyectionCreateSuccess_Callback, new Models.Page.Configuration.ProyectionConfigurationPageModel(null, task.Result)));
+            });
+        });
     }
 
     private void ProyectionEditionButton_Clicked(object sender, System.EventArgs e)
@@ -337,12 +356,33 @@ public partial class ObjectiveConfigurationPage : Core.Presentation.Terminal.MAU
             Index = target.Index,
             Name = target.Name,
             Description = target.Description,
+            ElementSourceId = target.ElementSource?.Id,
+            ExpectedResult = target.ExpectedResult,
             Guidelines = target.Guidelines,
             ResponsabilityOrganizations = target.ResponsabilityOrganizations,
             ParticipationOrganizations = target.ParticipationOrganizations
         };
-        
-        this.NavigationPushPageAsync(new ProyectionConfigurationPage(ProyectionEditSuccess_Callback, new Models.Page.Configuration.ProyectionConfigurationPageModel(model, target.Indicators, target.Actions, target.MonthlyClosures), model.EditionIndicators, model.IncomingIndicators, model.OutgoingIndicators, model.EditionActions, model.IncomingActions, model.OutgoingActions, model.EditionMonthlyClosures, model.IncomingMonthlyClosures, model.OutgoingMonthlyClosures));
+
+        var apiConnectClient = new Interop.API.Connect.Clients.ElementSourcesAPIConnectClient(Microsoft.Maui.IPlatformApplication.Current.Services.GetRequiredService<Framework.Guama.Core.Presentation.API.Connect.Providers.Facade.IHttpClientHelperProviderFacade>());
+
+        ConcreteBindingContext.IsBusy = true;
+
+        apiConnectClient.GetEnabledAsync().ContinueWith(task =>
+        {
+            Dispatcher.Dispatch(() =>
+            {
+                ConcreteBindingContext.IsBusy = false;
+
+                if (!task.IsCompletedSuccessfully)
+                {
+                    HandleException(task.Exception);
+
+                    return;
+                }
+
+                this.NavigationPushPageAsync(new ProyectionConfigurationPage(ProyectionEditSuccess_Callback, new Models.Page.Configuration.ProyectionConfigurationPageModel(model, task.Result, target.Indicators, target.Actions, target.MonthlyClosures), model.EditionIndicators, model.IncomingIndicators, model.OutgoingIndicators, model.EditionActions, model.IncomingActions, model.OutgoingActions, model.EditionMonthlyClosures, model.IncomingMonthlyClosures, model.OutgoingMonthlyClosures));
+            });
+        });
     }
 
     private bool IsPermissionByPassForChildModeration(ProyectionDisplayModel target, Core.Interop.API.Common.Models.Display.UserDisplayModel user)
@@ -427,7 +467,8 @@ public partial class ObjectiveConfigurationPage : Core.Presentation.Terminal.MAU
 
     private void ProyectionCreateSuccess_Callback(ProyectionInputModel model)
     {
-        var user = Microsoft.Maui.IPlatformApplication.Current.Services.GetRequiredService<Core.Presentation.Terminal.MAUI.Managers.Facade.ISessionManagerFacade>().CurrentSession.User;
+        // TODO Remove is not required!!!
+        //var user = Microsoft.Maui.IPlatformApplication.Current.Services.GetRequiredService<Core.Presentation.Terminal.MAUI.Managers.Facade.ISessionManagerFacade>().CurrentSession.User;
 
         incomingProyections.Add(model);
 
@@ -439,6 +480,8 @@ public partial class ObjectiveConfigurationPage : Core.Presentation.Terminal.MAU
             IsModerable = true,
             Index = model.Index,
             Name = model.Name,
+            ExpectedResult = model.ExpectedResult,
+            ElementSource = model.ElementSourceId == null ? null : new ElementSourceDisplayModel { Id = model.ElementSourceId.Value },
             Description = model.Description,
             Guidelines = model.Guidelines,
             ResponsabilityOrganizations = model.ResponsabilityOrganizations,
@@ -492,6 +535,8 @@ public partial class ObjectiveConfigurationPage : Core.Presentation.Terminal.MAU
                 item.Index = model.Index;
                 item.Name = model.Name;
                 item.Description = model.Description;
+                item.ExpectedResult = model.ExpectedResult;
+                item.ElementSourceId = model.ElementSourceId;
                 item.Guidelines = model.Guidelines;
                 item.ResponsabilityOrganizations = model.ResponsabilityOrganizations;
                 item.ParticipationOrganizations = model.ParticipationOrganizations;
@@ -511,6 +556,8 @@ public partial class ObjectiveConfigurationPage : Core.Presentation.Terminal.MAU
                     item.Index = model.Index;
                     item.Name = model.Name;
                     item.Description = model.Description;
+                    item.ExpectedResult = model.ExpectedResult;
+                    item.ElementSourceId = model.ElementSourceId;
                     item.Guidelines = model.Guidelines;
                     item.ResponsabilityOrganizations = model.ResponsabilityOrganizations;
                     item.ParticipationOrganizations = model.ParticipationOrganizations;
@@ -547,6 +594,8 @@ public partial class ObjectiveConfigurationPage : Core.Presentation.Terminal.MAU
                 Index = model.Index,
                 Name = model.Name,
                 Description = model.Description,
+                ExpectedResult = model.ExpectedResult,
+                ElementSource = model.ElementSourceId == null ? null : new ElementSourceDisplayModel { Id = model.ElementSourceId.Value },
                 Guidelines = model.Guidelines,
                 ResponsabilityOrganizations = model.ResponsabilityOrganizations,
                 ParticipationOrganizations = model.ParticipationOrganizations

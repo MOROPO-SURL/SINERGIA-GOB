@@ -72,8 +72,7 @@ namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Extensions
                 Controller = "guidelines",
                 Action = "index",
                 Area = "governance",
-                // TODO Set spected permission
-                //Role = Domain.Interop.API.Common.Constants.Security.Authorization.EmployeeViewerPermission
+                Role = Interop.API.Common.Constants.Security.Authorization.GuidelineViewerPermission
             });
             govermenanceSection.Add(new ManagementDashboardSectionViewModel
             {
@@ -81,8 +80,7 @@ namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Extensions
                 Controller = "persons",
                 Action = "index",
                 Area = "governance",
-                // TODO Set spected permission
-                //Role = Domain.Interop.API.Common.Constants.Security.Authorization.EmployeeViewerPermission
+                Role = Interop.API.Common.Constants.Security.Authorization.PersonViewerPermission
             });
             govermenanceSection.Add(new ManagementDashboardSectionViewModel
             {
@@ -90,8 +88,7 @@ namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Extensions
                 Controller = "organizations",
                 Action = "index",
                 Area = "governance",
-                // TODO Set spected permission
-                //Role = Domain.Interop.API.Common.Constants.Security.Authorization.EmployeeViewerPermission
+                Role = Interop.API.Common.Constants.Security.Authorization.OrganizationViewerPermission
             });
             govermenanceSection.Add(new ManagementDashboardSectionViewModel
             {
@@ -99,8 +96,7 @@ namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Extensions
                 Controller = "objectives",
                 Action = "index",
                 Area = "governance",
-                // TODO Set spected permission
-                //Role = Domain.Interop.API.Common.Constants.Security.Authorization.EmployeeViewerPermission
+                Role = Interop.API.Common.Constants.Security.Authorization.ObjectiveViewerPermission
             });
             govermenanceSection.Add(new ManagementDashboardSectionViewModel
             {
@@ -108,8 +104,7 @@ namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Extensions
                 Controller = "proyections",
                 Action = "index",
                 Area = "governance",
-                // TODO Set spected permission
-                //Role = Domain.Interop.API.Common.Constants.Security.Authorization.EmployeeViewerPermission
+                Role = Interop.API.Common.Constants.Security.Authorization.ProyectionViewerPermission
             });
             govermenanceSection.Add(new ManagementDashboardSectionViewModel
             {
@@ -117,8 +112,7 @@ namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Extensions
                 Controller = "actions",
                 Action = "index",
                 Area = "governance",
-                // TODO Set spected permission
-                //Role = Domain.Interop.API.Common.Constants.Security.Authorization.EmployeeViewerPermission
+                Role = Interop.API.Common.Constants.Security.Authorization.ActionViewerPermission
             });
             govermenanceSection.Add(new ManagementDashboardSectionViewModel
             {
@@ -126,17 +120,15 @@ namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Extensions
                 Controller = "indicators",
                 Action = "index",
                 Area = "governance",
-                // TODO Set spected permission
-                //Role = Domain.Interop.API.Common.Constants.Security.Authorization.EmployeeViewerPermission
+                Role = Interop.API.Common.Constants.Security.Authorization.ActionIndicatorViewerPermission
             });
             govermenanceSection.Add(new ManagementDashboardSectionViewModel
             {
-                Title = "Resultados",
-                Controller = "results",
+                Title = "Orígenes",
+                Controller = "elementsources",
                 Action = "index",
                 Area = "governance",
-                // TODO Set spected permission
-                //Role = Domain.Interop.API.Common.Constants.Security.Authorization.EmployeeViewerPermission
+                Role = Interop.API.Common.Constants.Security.Authorization.ElementSourceViewerPermission
             });
             govermenanceSection.Add(new ManagementDashboardSectionViewModel
             {
@@ -144,8 +136,7 @@ namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Extensions
                 Controller = "unitmeasurements",
                 Action = "index",
                 Area = "governance",
-                // TODO Set spected permission
-                //Role = Domain.Interop.API.Common.Constants.Security.Authorization.EmployeeViewerPermission
+                Role = Interop.API.Common.Constants.Security.Authorization.UnitMeasurementViewerPermission
             });
             #endregion
 

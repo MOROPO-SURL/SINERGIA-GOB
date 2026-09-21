@@ -107,7 +107,7 @@
 
                     int proyectionRowSpan = proyectionIndicatorCount <= 0 ? 1 : proyectionIndicatorCount;
 
-                    MOROPO.SINERGIAGOB.GovCamaguey.Persistence.Entities.ProyectionIndicator firstProyectionIndicator = proyectionIndicatorCount > 0 ? _item.Indicators.ElementAt(0) : null;
+                    MOROPO.SINERGIAGOB.GovCamaguey.Persistence.Entities.ProyectionIndicator firstProyectionIndicator = _item.Indicators.FirstOrDefault();
 
                     <tr>
                         <th rowspan="@proyectionRowSpan">@item.Index.@_item.Index</th>
@@ -124,7 +124,7 @@
                         <th rowspan="@proyectionRowSpan">@_item.MonthlyClosures.OrderByDescending(___item => ___item.At).FirstOrDefault(___item => ___item.At.Month == 10)?.At.Day</th>
                         <th rowspan="@proyectionRowSpan">@_item.MonthlyClosures.OrderByDescending(___item => ___item.At).FirstOrDefault(___item => ___item.At.Month == 11)?.At.Day</th>
                         <th rowspan="@proyectionRowSpan">@_item.MonthlyClosures.OrderByDescending(___item => ___item.At).FirstOrDefault(___item => ___item.At.Month == 12)?.At.Day</th>
-                        <th rowspan="@proyectionRowSpan"></th>
+                        <th rowspan="@proyectionRowSpan">@Html.Raw(_item.ElementSource == null ? string.Empty : _item.ElementSource.Alias ?? _item.ElementSource.Name)</th>
                         <th rowspan="@proyectionRowSpan">
                             @string.Join(", ", _item.ResponsabilityOrganizations.Select(__item => __item.Identity.Name))
                         </th>
@@ -136,8 +136,9 @@
                         </th>
                         <th style="text-align:left;">@firstProyectionIndicator?.Name</th>
                         <th style="text-align:right;">@firstProyectionIndicator?.Amount @firstProyectionIndicator?.UnitMeasurement.Symbol</th>
-                        <th rowspan="@proyectionRowSpan"></th>
+                        <th rowspan="@proyectionRowSpan">@_item.ExpectedResult</th>
                     </tr>
+
                     @for (int i = 1; i < proyectionIndicatorCount; i++)
                     {
                         MOROPO.SINERGIAGOB.GovCamaguey.Persistence.Entities.ProyectionIndicator currentProyectionIndicator = _item.Indicators.ElementAt(i);
@@ -150,11 +151,13 @@
 
                     @foreach (var __item in _item.Actions)
                     {
-                        int actionIndicatorCount = __item.Indicators.Count();
+                        MOROPO.SINERGIAGOB.GovCamaguey.Persistence.Entities.ActionIndicator[] relevantActionIndicators = [.. __item.Indicators.Where(___item => !___item.Archived).OrderBy(___item => ___item.Priority)];
+
+                        int actionIndicatorCount = relevantActionIndicators.Length;
 
                         int actionRowSpan = actionIndicatorCount <= 0 ? 1 : actionIndicatorCount;
 
-                        MOROPO.SINERGIAGOB.GovCamaguey.Persistence.Entities.ActionIndicator firstActionIndicator = actionIndicatorCount > 0 ? __item.Indicators.ElementAt(0) : null;
+                        MOROPO.SINERGIAGOB.GovCamaguey.Persistence.Entities.ActionIndicator firstActionIndicator = relevantActionIndicators.FirstOrDefault();
 
                         <tr>
                             <td rowspan="@actionRowSpan">@item.Index.@_item.Index.@__item.Index</td>
@@ -171,7 +174,7 @@
                             <td rowspan="@actionRowSpan">@__item.MonthlyClosures.OrderByDescending(___item => ___item.At).FirstOrDefault(___item => ___item.At.Month == 10)?.At.Day</td>
                             <td rowspan="@actionRowSpan">@__item.MonthlyClosures.OrderByDescending(___item => ___item.At).FirstOrDefault(___item => ___item.At.Month == 11)?.At.Day</td>
                             <td rowspan="@actionRowSpan">@__item.MonthlyClosures.OrderByDescending(___item => ___item.At).FirstOrDefault(___item => ___item.At.Month == 12)?.At.Day</td>
-                            <td rowspan="@actionRowSpan"></td>
+                            <td rowspan="@actionRowSpan">@Html.Raw(__item.ElementSource == null ? string.Empty : __item.ElementSource.Alias ?? __item.ElementSource.Name)</td>
                             <td rowspan="@actionRowSpan">
                                 @string.Join(", ", __item.OrganizationResponsabilityBridges.Select(__item => __item.Stern.Identity.Name))
                             </td>
@@ -181,11 +184,11 @@
                             <td rowspan="@actionRowSpan"></td>
                             <td style="text-align:left;">@firstActionIndicator?.Name</td>
                             <td style="text-align:right;">@firstActionIndicator?.Amount @firstActionIndicator?.UnitMeasurement.Symbol</td>
-                            <td rowspan="@actionRowSpan"></td>
+                            <td rowspan="@actionRowSpan">@__item.ExpectedResult</td>
                         </tr>
                         @for (int i = 1; i < actionIndicatorCount; i++)
                         {
-                            MOROPO.SINERGIAGOB.GovCamaguey.Persistence.Entities.ActionIndicator currentActionIndicator = __item.Indicators.ElementAt(i);
+                            MOROPO.SINERGIAGOB.GovCamaguey.Persistence.Entities.ActionIndicator currentActionIndicator = relevantActionIndicators[i];
 
                             <tr>
                                 <td style="text-align:left;">@currentActionIndicator.Name</td>

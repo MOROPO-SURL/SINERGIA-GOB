@@ -51,6 +51,8 @@ public partial class ActionConfigurationPage : Core.Presentation.Terminal.MAUI.U
             Id = System.Guid.NewGuid(),
             Index = ConcreteBindingContext.Index,
             Name = ConcreteBindingContext.Name,
+            ExpectedResult = ConcreteBindingContext.ExpectedResult,
+            ElementSourceId = ConcreteBindingContext.ElementSource?.Id,
             Description = ConcreteBindingContext.Description,
             ResponsabilityOrganizations = [.. ConcreteBindingContext.ResponsabilityOrganizations],
             ParticipationOrganizations = [.. ConcreteBindingContext.ParticipationOrganizations],
@@ -66,6 +68,8 @@ public partial class ActionConfigurationPage : Core.Presentation.Terminal.MAUI.U
             Id = ConcreteBindingContext.Id,
             Index = ConcreteBindingContext.Index,
             Name = ConcreteBindingContext.Name,
+            ExpectedResult = ConcreteBindingContext.ExpectedResult,
+            ElementSourceId = ConcreteBindingContext.ElementSource?.Id,
             Description = ConcreteBindingContext.Description,
             ResponsabilityOrganizations = [.. ConcreteBindingContext.ResponsabilityOrganizations],
             ParticipationOrganizations = [.. ConcreteBindingContext.ParticipationOrganizations],
@@ -86,6 +90,11 @@ public partial class ActionConfigurationPage : Core.Presentation.Terminal.MAUI.U
     private void CancelToolbarItem_Clicked(object sender, System.EventArgs eventArgs)
     {
         OnCancel(sender, eventArgs);
+    }
+
+    private void Picker_SelectedIndexChanged(object sender, System.EventArgs e)
+    {
+        hasChangesFlag = true;
     }
 
     private void IndicatorAgregationButton_Clicked(object sender, System.EventArgs e)

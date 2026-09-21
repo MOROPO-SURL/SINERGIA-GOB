@@ -1,4 +1,5 @@
 ﻿using MOROPO.SINERGIAGOB.GovCamaguey.Interop.API.Common.Models.Display;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 
@@ -12,19 +13,27 @@ namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.Models.Page.Configuration
         public static string DescriptionValidableProperty => nameof(Description);
 
         private string name;
+        private string expectedResult;
+        private ElementSourceDisplayModel elementSource;
         private string description;
         private int index = 1;
 
-        public ProyectionConfigurationPageModel() : this(null) { }
+        public ProyectionConfigurationPageModel(IEnumerable<ElementSourceDisplayModel> availableElementSources) : this(null, availableElementSources) { }
 
-        public ProyectionConfigurationPageModel(Interop.API.Common.Models.Input.ProyectionInputModel model, ProyectionIndicatorDisplayModel[] indicators = null, ActionDisplayModel[] actions = null, ProyectionMonthlyClosureDisplayModel[] monthlyClosures = null) : base(model)
+        public ProyectionConfigurationPageModel(Interop.API.Common.Models.Input.ProyectionInputModel model, IEnumerable<ElementSourceDisplayModel> availableElementSources, ProyectionIndicatorDisplayModel[] indicators = null, ActionDisplayModel[] actions = null, ProyectionMonthlyClosureDisplayModel[] monthlyClosures = null) : base(model)
         {
+            AvailableElementSources = [.. availableElementSources];
+
             if (model != null)
             {
                 Id = model.Id;
-                Index = model.Index;
-                Name = model.Name;
-                Description = model.Description;
+                index = model.Index;
+                name = model.Name;
+                description = model.Description;
+                expectedResult = model.ExpectedResult;
+
+                elementSource = AvailableElementSources.SingleOrDefault(item => item.Id == model.ElementSourceId);
+
                 Guidelines = new ObservableCollection<GuidelineDisplayModel>(model.Guidelines);
                 ResponsabilityOrganizations = new ObservableCollection<OrganizationDisplayModel>(model.ResponsabilityOrganizations);
                 ParticipationOrganizations = new ObservableCollection<OrganizationDisplayModel>(model.ParticipationOrganizations);
@@ -52,6 +61,10 @@ namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.Models.Page.Configuration
 
         public string Name { get => name; set => SetProperty(ref name, value); }
 
+        public ElementSourceDisplayModel ElementSource { get => elementSource; set => SetProperty(ref elementSource, value); }
+
+        public string ExpectedResult { get => expectedResult; set => SetProperty(ref expectedResult, value); }
+
         public string Description { get => description; set => SetProperty(ref description, value); }
 
         public ObservableCollection<GuidelineDisplayModel> Guidelines { get; set; } = [];
@@ -65,5 +78,7 @@ namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.Models.Page.Configuration
         public ObservableCollection<ActionDisplayModel> Actions { get; set; } = [];
 
         public ObservableCollection<ProyectionMonthlyClosureDisplayModel> MonthlyClosures { get; set; } = [];
+
+        public ObservableCollection<ElementSourceDisplayModel> AvailableElementSources { get; init; }
     }
 }

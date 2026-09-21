@@ -38,6 +38,8 @@
 
             if (target.Controller == "results") return new Microsoft.AspNetCore.Html.HtmlString("mdi mdi-chart-areaspline");
 
+            if (target.Controller == "elementsources") return new Microsoft.AspNetCore.Html.HtmlString("mdi mdi-vector-polyline");
+
             return new Microsoft.AspNetCore.Html.HtmlString("mdi mdi-toy-brick-outline");
         }
     }

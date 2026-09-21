@@ -136,5 +136,14 @@
         public const string GlobalIndicatorResultEditorPermission = "global-indicator-result-editor-permission";
         public const string GlobalIndicatorResultRemoverPermission = "global-indicator-result-remover-permission";
         #endregion
+
+        #region ElementSource
+        public const string ElementSourceManagementPermissionGroup = "element-source-management-permission-group";
+
+        public const string ElementSourceViewerPermission = "element-source-viewer-permission";
+        public const string ElementSourceCreatorPermission = "element-source-creator-permission";
+        public const string ElementSourceEditorPermission = "element-source-editor-permission";
+        public const string ElementSourceRemoverPermission = "element-source-remover-permission";
+        #endregion
     }
 }

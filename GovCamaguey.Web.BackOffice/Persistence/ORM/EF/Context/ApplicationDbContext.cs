@@ -56,6 +56,7 @@ namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Persistence.ORM.EF.Conte
         public DbSet<Role> Roles { get; set; }
         public DbSet<RolePermissionBridge> RolePermissionBridges { get; set; }
 
+        public DbSet<ElementSource> ElementSources { get; set; }
         public DbSet<Guideline> Guidelines { get; set; }
         public DbSet<Person> Persons { get; set; }
         public DbSet<Organization> Organizations { get; set; }

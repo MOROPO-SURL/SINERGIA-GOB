@@ -47,6 +47,7 @@ namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice
             builder.Services.PerformMediaWebCommonRelativePathFileManagementServiceRegistration();
             builder.Services.PerformLocationWebCommonServiceRegistration();
 
+            builder.Services.AddScoped<IEntityRepository<ElementSource, System.Guid>, ElementSourceRepository>();
             builder.Services.AddScoped<IEntityRepository<UnitMeasurement, System.Guid>, UnitMeasurementRepository>();
             builder.Services.AddScoped<IEntityRepository<Guideline, System.Guid>, GuidelineRepository>();
             builder.Services.AddScoped<IEntityRepository<Person, System.Guid>, PersonRepository>();

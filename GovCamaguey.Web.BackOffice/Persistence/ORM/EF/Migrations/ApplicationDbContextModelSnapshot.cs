@@ -1021,9 +1021,17 @@ namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Persistence.ORM.EF.Migra
                         .HasColumnType("character varying(5120)")
                         .HasColumnName("description");
 
+                    b.Property<Guid?>("ElementSourceId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("elementsourceid");
+
                     b.Property<bool>("Enabled")
                         .HasColumnType("boolean")
                         .HasColumnName("enabled");
+
+                    b.Property<string>("ExpectedResult")
+                        .HasColumnType("text")
+                        .HasColumnName("expectedresult");
 
                     b.Property<int>("Index")
                         .HasColumnType("integer")
@@ -1041,6 +1049,9 @@ namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Persistence.ORM.EF.Migra
 
                     b.HasKey("Id")
                         .HasName("pk_actions");
+
+                    b.HasIndex("ElementSourceId")
+                        .HasDatabaseName("ix_actions_elementsourceid");
 
                     b.HasIndex("ProyectionId")
                         .HasDatabaseName("ix_actions_proyectionid");
@@ -1252,6 +1263,48 @@ namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Persistence.ORM.EF.Migra
                         .HasDatabaseName("ix_actionuserbridges_sternid");
 
                     b.ToTable("actionuserbridges");
+                });
+
+            modelBuilder.Entity("MOROPO.SINERGIAGOB.GovCamaguey.Persistence.Entities.ElementSource", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid")
+                        .HasColumnName("id");
+
+                    b.Property<string>("Alias")
+                        .HasColumnType("text")
+                        .HasColumnName("alias");
+
+                    b.Property<bool>("Archived")
+                        .HasColumnType("boolean")
+                        .HasColumnName("archived");
+
+                    b.Property<DateTime>("At")
+                        .HasColumnType("timestamp without time zone")
+                        .HasColumnName("at");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("text")
+                        .HasColumnName("description");
+
+                    b.Property<bool>("Enabled")
+                        .HasColumnType("boolean")
+                        .HasColumnName("enabled");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("name");
+
+                    b.Property<int>("Priority")
+                        .HasColumnType("integer")
+                        .HasColumnName("priority");
+
+                    b.HasKey("Id")
+                        .HasName("pk_elementsources");
+
+                    b.ToTable("elementsources");
                 });
 
             modelBuilder.Entity("MOROPO.SINERGIAGOB.GovCamaguey.Persistence.Entities.GlobalIndicator", b =>
@@ -1690,9 +1743,17 @@ namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Persistence.ORM.EF.Migra
                         .HasColumnType("character varying(5120)")
                         .HasColumnName("description");
 
+                    b.Property<Guid?>("ElementSourceId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("elementsourceid");
+
                     b.Property<bool>("Enabled")
                         .HasColumnType("boolean")
                         .HasColumnName("enabled");
+
+                    b.Property<string>("ExpectedResult")
+                        .HasColumnType("text")
+                        .HasColumnName("expectedresult");
 
                     b.Property<int>("Index")
                         .HasColumnType("integer")
@@ -1710,6 +1771,9 @@ namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Persistence.ORM.EF.Migra
 
                     b.HasKey("Id")
                         .HasName("pk_proyections");
+
+                    b.HasIndex("ElementSourceId")
+                        .HasDatabaseName("ix_proyections_elementsourceid");
 
                     b.HasIndex("ObjectiveId")
                         .HasDatabaseName("ix_proyections_objectiveid");
@@ -2433,12 +2497,19 @@ namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Persistence.ORM.EF.Migra
 
             modelBuilder.Entity("MOROPO.SINERGIAGOB.GovCamaguey.Persistence.Entities.Action", b =>
                 {
+                    b.HasOne("MOROPO.SINERGIAGOB.GovCamaguey.Persistence.Entities.ElementSource", "ElementSource")
+                        .WithMany()
+                        .HasForeignKey("ElementSourceId")
+                        .HasConstraintName("fk_actions_elementsources_elementsourceid");
+
                     b.HasOne("MOROPO.SINERGIAGOB.GovCamaguey.Persistence.Entities.Proyection", "Proyection")
                         .WithMany("Actions")
                         .HasForeignKey("ProyectionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("fk_actions_proyections_proyectionid");
+
+                    b.Navigation("ElementSource");
 
                     b.Navigation("Proyection");
                 });
@@ -2703,12 +2774,19 @@ namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Persistence.ORM.EF.Migra
 
             modelBuilder.Entity("MOROPO.SINERGIAGOB.GovCamaguey.Persistence.Entities.Proyection", b =>
                 {
+                    b.HasOne("MOROPO.SINERGIAGOB.GovCamaguey.Persistence.Entities.ElementSource", "ElementSource")
+                        .WithMany()
+                        .HasForeignKey("ElementSourceId")
+                        .HasConstraintName("fk_proyections_elementsources_elementsourceid");
+
                     b.HasOne("MOROPO.SINERGIAGOB.GovCamaguey.Persistence.Entities.Objective", "Objective")
                         .WithMany("Proyections")
                         .HasForeignKey("ObjectiveId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("fk_proyections_objectives_objectiveid");
+
+                    b.Navigation("ElementSource");
 
                     b.Navigation("Objective");
                 });

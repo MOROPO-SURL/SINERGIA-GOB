@@ -10,6 +10,7 @@ namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Persistence.ORM.EF.Provi
             {
                 return
                 [
+                    new BaseEntityTypeConfigurator<GovCamaguey.Persistence.Entities.ElementSource>(),
                     new Configurators.PersonEntityTypeConfigurator(),
                     new Configurators.OrganizationEntityTypeConfigurator(),
                     new Configurators.ObjectiveEntityTypeConfigurator(),

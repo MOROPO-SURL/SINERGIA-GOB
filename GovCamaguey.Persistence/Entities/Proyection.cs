@@ -25,6 +25,12 @@ namespace MOROPO.SINERGIAGOB.GovCamaguey.Persistence.Entities
         public Objective Objective { get; set; }
         public System.Guid ObjectiveId { get; set; }
 
+        [System.ComponentModel.DataAnnotations.Schema.ForeignKey(nameof(ElementSourceId))]
+        public ElementSource ElementSource { get; set; }
+        public System.Guid? ElementSourceId { get; set; }
+
+        public string ExpectedResult { get; set; }
+
         public ICollection<ProyectionMonthlyClosure> MonthlyClosures { get; set; }
 
         public List<ProyectionOrganizationResponsabilityBridge> OrganizationResponsabilityBridges { get; set; } = new List<ProyectionOrganizationResponsabilityBridge>();

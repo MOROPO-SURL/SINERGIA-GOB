@@ -131,6 +131,16 @@
         </ShellContent.Icon>
     </ShellContent>
     <ShellContent
+        Title="Orígenes"
+        ContentTemplate="{DataTemplate local_manage_pages:ElementSourcesManagePage}">
+        <ShellContent.Icon>
+            <FontImageSource
+                FontFamily="MaterialDesignIcons"
+                Glyph="&#xF561;"
+                Color="{AppThemeBinding Light=Black, Dark=White}" />
+        </ShellContent.Icon>
+    </ShellContent>
+    <ShellContent
         Title="Unidades de medida"
         ContentTemplate="{DataTemplate local_manage_pages:UnitMeasurementsManagePage}">
         <ShellContent.Icon>
