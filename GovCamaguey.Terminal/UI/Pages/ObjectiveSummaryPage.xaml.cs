@@ -1,11 +1,16 @@
 using Microsoft.Extensions.DependencyInjection;
 using MOROPO.SINERGIAGOB.Core.Presentation.Terminal.MAUI.UI.Extensions;
 using MOROPO.SINERGIAGOB.GovCamaguey.Terminal.Factories;
+using System.Threading.Tasks;
 
 namespace MOROPO.SINERGIAGOB.GovCamaguey.Terminal.UI.Pages;
 
 public partial class ObjectiveSummaryPage : Microsoft.Maui.Controls.ContentPage
 {
+    private const string EXPORT_FORMAT_BOOK_OPTION = "Formato Libro";
+    private const string EXPORT_FORMAT_TABLE_OPTION = "Formato Tabla";
+    private const string CANCE_OPTION = "Cancelar";
+
 	public ObjectiveSummaryPage()
 	{
 		InitializeComponent();
@@ -64,26 +69,42 @@ public partial class ObjectiveSummaryPage : Microsoft.Maui.Controls.ContentPage
     {
         if (ConcreteBindingContext.IsBusy || ConcreteBindingContext.Objective == null) return;
 
-        var httpClientHelperProvider = Microsoft.Maui.IPlatformApplication.Current.Services.GetRequiredService<Framework.Guama.Core.Presentation.API.Connect.Providers.Facade.IHttpClientHelperProviderFacade>();
-
-        ConcreteBindingContext.IsBusy = true;
-
-        var httpClient = new System.Net.Http.HttpClient(HttpClientHandlerFactory.Build())
+        DisplayActionSheet("Modo de exportación", CANCE_OPTION, null, EXPORT_FORMAT_BOOK_OPTION, EXPORT_FORMAT_TABLE_OPTION).ContinueWith(async actionSheetTask =>
         {
-            Timeout = System.TimeSpan.FromSeconds(30.0)
-        };
+            if (actionSheetTask.IsCanceled || actionSheetTask.Result == CANCE_OPTION) return;
 
-        httpClient.GetByteArrayAsync($"{httpClientHelperProvider.HttpClientHelper.ClientBaseAddress}report/objectives/summary/{ConcreteBindingContext.Objective.Id}/print").ContinueWith(task =>
-        {
-            Dispatcher.Dispatch(async () =>
+            Dispatcher.Dispatch(() => ConcreteBindingContext.IsBusy = true);
+
+            string action = actionSheetTask.Result switch
             {
-                if (task.IsCanceled || task.Exception != null)
+                EXPORT_FORMAT_BOOK_OPTION => "book",
+                EXPORT_FORMAT_TABLE_OPTION => "table",
+                _ => "table"
+            };
+
+            var httpClientHelperProvider = Microsoft.Maui.IPlatformApplication.Current.Services.GetRequiredService<Framework.Guama.Core.Presentation.API.Connect.Providers.Facade.IHttpClientHelperProviderFacade>();
+
+            var httpClient = new System.Net.Http.HttpClient(HttpClientHandlerFactory.Build())
+            {
+                Timeout = System.TimeSpan.FromSeconds(30.0)
+            };
+
+            try
+            {
+                string modeTitleSection = actionSheetTask.Result switch
                 {
-                    Microsoft.Maui.IPlatformApplication.Current.Services.GetRequiredService<Core.Presentation.Terminal.MAUI.Helpers.Facade.IExceptionHandlingHelperFacade>().HandleException(task.Exception, this);
-                }
-                else
+                    EXPORT_FORMAT_BOOK_OPTION => "Libro",
+                    EXPORT_FORMAT_TABLE_OPTION => "Tabla",
+                    _ => "Tabla"
+                };
+
+                var result = await httpClient.GetByteArrayAsync($"{httpClientHelperProvider.HttpClientHelper.ClientBaseAddress}report/objectives/{action}/{ConcreteBindingContext.Objective.Id}/print");
+
+                var fileSaverResult = await CommunityToolkit.Maui.Storage.FileSaver.Default.SaveAsync($"{modeTitleSection} Resumen de Objetivo-{ConcreteBindingContext.Objective.Index} {System.DateTime.Now:dd-MM-yyyy}.pdf", new System.IO.MemoryStream(result));
+
+                Dispatcher.Dispatch(() =>
                 {
-                    var fileSaverResult = await CommunityToolkit.Maui.Storage.FileSaver.Default.SaveAsync($"Resumen de Objetivo-{ConcreteBindingContext.Objective.Index} {System.DateTime.Now:dd-MM-yyyy}.pdf", new System.IO.MemoryStream(task.Result));
+                    ConcreteBindingContext.IsBusy = false;
 
                     if (fileSaverResult.IsSuccessful)
                     {
@@ -93,10 +114,17 @@ public partial class ObjectiveSummaryPage : Microsoft.Maui.Controls.ContentPage
                     {
                         this.PresentToastNotification(Core.Presentation.Terminal.MAUI.Enumerations.NotificationKind.Error, "No fue posible salvar el archivo.");
                     }
-                }
+                });
+            }
+            catch (System.Exception exception)
+            {
+                Dispatcher.Dispatch(() =>
+                {
+                    ConcreteBindingContext.IsBusy = true;
 
-                ConcreteBindingContext.IsBusy = false;
-            });
+                    Microsoft.Maui.IPlatformApplication.Current.Services.GetRequiredService<Core.Presentation.Terminal.MAUI.Helpers.Facade.IExceptionHandlingHelperFacade>().HandleException(exception, this);
+                });
+            }
         });
     }
 
@@ -104,26 +132,42 @@ public partial class ObjectiveSummaryPage : Microsoft.Maui.Controls.ContentPage
     {
         if (ConcreteBindingContext.IsBusy) return;
 
-        var httpClientHelperProvider = Microsoft.Maui.IPlatformApplication.Current.Services.GetRequiredService<Framework.Guama.Core.Presentation.API.Connect.Providers.Facade.IHttpClientHelperProviderFacade>();
-
-        ConcreteBindingContext.IsBusy = true;
-
-        var httpClient = new System.Net.Http.HttpClient(HttpClientHandlerFactory.Build())
+        DisplayActionSheet("Modo de exportación", CANCE_OPTION, null, EXPORT_FORMAT_BOOK_OPTION, EXPORT_FORMAT_TABLE_OPTION).ContinueWith(async actionSheetTask =>
         {
-            Timeout = System.TimeSpan.FromSeconds(30.0)
-        };
+            if (actionSheetTask.IsCanceled || actionSheetTask.Result == CANCE_OPTION) return;
 
-        httpClient.GetByteArrayAsync($"{httpClientHelperProvider.HttpClientHelper.ClientBaseAddress}report/objectives/summary/print").ContinueWith(task =>
-        {
-            Dispatcher.Dispatch(async () =>
+            Dispatcher.Dispatch(() => ConcreteBindingContext.IsBusy = true);
+
+            string action = actionSheetTask.Result switch
             {
-                if (task.IsCanceled || task.Exception != null)
+                EXPORT_FORMAT_BOOK_OPTION => "book",
+                EXPORT_FORMAT_TABLE_OPTION => "table",
+                _ => "table"
+            };
+
+            var httpClientHelperProvider = Microsoft.Maui.IPlatformApplication.Current.Services.GetRequiredService<Framework.Guama.Core.Presentation.API.Connect.Providers.Facade.IHttpClientHelperProviderFacade>();
+
+            var httpClient = new System.Net.Http.HttpClient(HttpClientHandlerFactory.Build())
+            {
+                Timeout = System.TimeSpan.FromSeconds(30.0)
+            };
+
+            try
+            {
+                string modeTitleSection = actionSheetTask.Result switch
                 {
-                    Microsoft.Maui.IPlatformApplication.Current.Services.GetRequiredService<Core.Presentation.Terminal.MAUI.Helpers.Facade.IExceptionHandlingHelperFacade>().HandleException(task.Exception, this);
-                }
-                else
+                    EXPORT_FORMAT_BOOK_OPTION => "Libro",
+                    EXPORT_FORMAT_TABLE_OPTION => "Tabla",
+                    _ => "Tabla"
+                };
+
+                var result = await httpClient.GetByteArrayAsync($"{httpClientHelperProvider.HttpClientHelper.ClientBaseAddress}report/objectives/{action}/print");
+
+                var fileSaverResult = await CommunityToolkit.Maui.Storage.FileSaver.Default.SaveAsync($"{modeTitleSection} Resumen de Objetivos {System.DateTime.Now:dd-MM-yyyy}.pdf", new System.IO.MemoryStream(result));
+
+                Dispatcher.Dispatch(() =>
                 {
-                    var fileSaverResult = await CommunityToolkit.Maui.Storage.FileSaver.Default.SaveAsync($"Resumen de Objetivos {System.DateTime.Now:dd-MM-yyyy}.pdf", new System.IO.MemoryStream(task.Result));
+                    ConcreteBindingContext.IsBusy = false;
 
                     if (fileSaverResult.IsSuccessful)
                     {
@@ -133,10 +177,17 @@ public partial class ObjectiveSummaryPage : Microsoft.Maui.Controls.ContentPage
                     {
                         this.PresentToastNotification(Core.Presentation.Terminal.MAUI.Enumerations.NotificationKind.Error, "No fue posible salvar el archivo.");
                     }
-                }
+                });
+            }
+            catch (System.Exception exception)
+            {
+                Dispatcher.Dispatch(() =>
+                {
+                    ConcreteBindingContext.IsBusy = true;
 
-                ConcreteBindingContext.IsBusy = false;
-            });
+                    Microsoft.Maui.IPlatformApplication.Current.Services.GetRequiredService<Core.Presentation.Terminal.MAUI.Helpers.Facade.IExceptionHandlingHelperFacade>().HandleException(exception, this);
+                });
+            }
         });
     }
 
