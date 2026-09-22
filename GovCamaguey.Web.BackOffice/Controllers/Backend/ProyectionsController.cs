@@ -293,7 +293,7 @@ public class ProyectionsController : Framework.Guama.Core.Presentation.Web.Backe
     }
 
     [HttpPost]
-    [Route("edit/{key}/moderators/delete")]
+    [Route("edit/{key}/moderators/delete/{id}")]
     [ValidateAntiForgeryToken]
     public IActionResult DeleteModerator(System.Guid key, string id)
     {

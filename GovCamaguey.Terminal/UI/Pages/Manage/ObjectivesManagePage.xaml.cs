@@ -71,6 +71,8 @@ public partial class ObjectivesManagePage : Core.Presentation.Terminal.MAUI.UI.P
 
     protected override bool IsAllowedForEdition(Interop.API.Common.Models.Display.ObjectiveDisplayModel target, Core.Interop.API.Common.Models.Display.UserDisplayModel user)
     {
+        if (target.IsModerable && (user.HasFullAccess || user.Roles.Any(item => item.Permissions.Any(_item => _item.Code == Interop.API.Common.Constants.Security.Authorization.ObjectiveEditorPermission)))) return true;
+
         if (target.Proyections.Any(item => item.IsModerable) && (user.HasFullAccess || user.Roles.Any(item => item.Permissions.Any(_item => _item.Code == Interop.API.Common.Constants.Security.Authorization.ProyectionEditorPermission)))) return true;
 
         if (target.Proyections.Any(item => item.Actions.Any(_item => _item.IsModerable)) && (user.HasFullAccess || user.Roles.Any(item => item.Permissions.Any(_item => _item.Code == Interop.API.Common.Constants.Security.Authorization.ActionEditorPermission)))) return true;

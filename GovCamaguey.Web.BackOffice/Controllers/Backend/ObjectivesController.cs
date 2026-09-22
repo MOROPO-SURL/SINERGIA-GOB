@@ -298,15 +298,15 @@ namespace MOROPO.SINERGIAGOB.GovCamaguey.Web.BackOffice.Controllers.Backend
         }
 
         [HttpPost]
-        [Route("edit/{key}/moderators/delete")]
+        [Route("edit/{key}/moderators/delete/{id}")]
         [ValidateAntiForgeryToken]
-        public IActionResult DeleteModerator(System.Guid key, Models.View.Display.Bridge.ObjectiveUserBridgeDisplayModel model)
+        public IActionResult DeleteModerator(System.Guid key, string id)
         {
             try
             {
                 var entity = Repository.Get(key);
 
-                var bridge = userBridgeRepository.Get(key, model.User.Id);
+                var bridge = userBridgeRepository.Get(key, id);
 
                 var image = bridge.Stern.Identity.Image;
 

@@ -217,7 +217,7 @@ public class ActionsController : Framework.Guama.Core.Presentation.Web.Backend.C
     }
 
     [HttpPost]
-    [Route("edit/{key}/moderators/delete")]
+    [Route("edit/{key}/moderators/delete/{id}")]
     [ValidateAntiForgeryToken]
     public IActionResult DeleteModerator(System.Guid key, string id)
     {

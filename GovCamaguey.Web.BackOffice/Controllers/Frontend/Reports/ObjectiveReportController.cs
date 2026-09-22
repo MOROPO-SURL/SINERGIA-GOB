@@ -69,8 +69,8 @@ public class ObjectiveReportController : Framework.Guama.Core.Presentation.Web.C
         var pdfOptions = new Models.Options.PdfOptionsModel
         {
             PageSize = "Letter",
-            Orientation = Orientation.Portrait,
-            Margins = new Models.MarginsModel { Top = 10, Right = 10, Bottom = 10, Left = 10 },
+            Orientation = Orientation.Landscape,
+            Margins = new Models.MarginsModel { Top = 15, Right = 10, Bottom = 10, Left = 10 },
             EnableJavaScript = false,
             PrintBackground = false
         };
@@ -133,8 +133,8 @@ public class ObjectiveReportController : Framework.Guama.Core.Presentation.Web.C
         var pdfOptions = new Models.Options.PdfOptionsModel
         {
             PageSize = "Letter",
-            Orientation = Orientation.Portrait,
-            Margins = new Models.MarginsModel { Top = 10, Right = 10, Bottom = 10, Left = 10 },
+            Orientation = Orientation.Landscape,
+            Margins = new Models.MarginsModel { Top = 15, Right = 10, Bottom = 10, Left = 10 },
             EnableJavaScript = false,
             PrintBackground = false
         };
